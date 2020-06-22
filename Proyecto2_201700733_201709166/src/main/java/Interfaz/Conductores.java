@@ -9,12 +9,12 @@ package Interfaz;
  *
  * @author Jacky
  */
-public class Clientes extends javax.swing.JFrame {
+public class Conductores extends javax.swing.JFrame {
 
     /**
-     * Creates new form Clientes
+     * Creates new form Conductores
      */
-    public Clientes() {
+    public Conductores() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -29,22 +29,24 @@ public class Clientes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        Color = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        TxtDPI = new javax.swing.JTextField();
-        TxtNombres = new javax.swing.JTextField();
-        TxtApellidos = new javax.swing.JTextField();
-        TxtGenero = new javax.swing.JTextField();
-        TxtTelefono = new javax.swing.JTextField();
         TxtDireccion = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        TxtTelefono = new javax.swing.JTextField();
+        TxtGenero = new javax.swing.JTextField();
+        TxtLicencia = new javax.swing.JTextField();
+        TxtApellidos = new javax.swing.JTextField();
+        TxtNombres = new javax.swing.JTextField();
+        TxtDpi = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
-        BtnModificar = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
+        BtnModificar = new javax.swing.JButton();
         BtnMostrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -56,59 +58,67 @@ public class Clientes extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Conductores");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 120, -1));
+
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("DPI");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("Nombres");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Apellidos");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText("Genero");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
+        jLabel5.setText("Licencia");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
+
+        Color.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        Color.setForeground(new java.awt.Color(204, 204, 204));
+        Color.setText("Genero");
+        jPanel1.add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Telefono");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Direccion");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-
-        TxtDPI.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 150, -1));
-
-        TxtNombres.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 150, -1));
-
-        TxtApellidos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 150, -1));
-
-        TxtGenero.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 150, -1));
-
-        TxtTelefono.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 150, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         TxtDireccion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 150, -1));
+        jPanel1.add(TxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 150, -1));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Clientes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 120, -1));
+        TxtTelefono.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 150, -1));
+
+        TxtGenero.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 150, -1));
+
+        TxtLicencia.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 150, -1));
+
+        TxtApellidos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 150, -1));
+
+        TxtNombres.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 150, -1));
+
+        TxtDpi.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtDpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 150, -1));
 
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,10 +126,7 @@ public class Clientes extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
-
-        BtnModificar.setText("Modificar");
-        jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 90, -1));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 90, -1));
 
         BtnEliminar.setText("Eliminar");
         BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +134,13 @@ public class Clientes extends javax.swing.JFrame {
                 BtnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 90, -1));
+        jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 90, -1));
+
+        BtnModificar.setText("Modificar");
+        jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 90, -1));
 
         BtnMostrar.setText("Mostrar Info");
-        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
+        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
         jMenu1.setText("Cargar Archivo");
         jMenuBar1.add(jMenu1);
@@ -153,15 +163,21 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        MenuP principal = new MenuP();
+        principal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
@@ -171,25 +187,22 @@ public class Clientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        MenuP principal = new MenuP();
-        principal.setVisible(true);
-        this.dispose();     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
-
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnMostrar;
+    private javax.swing.JLabel Color;
     private javax.swing.JTextField TxtApellidos;
-    private javax.swing.JTextField TxtDPI;
     private javax.swing.JTextField TxtDireccion;
+    private javax.swing.JTextField TxtDpi;
     private javax.swing.JTextField TxtGenero;
+    private javax.swing.JTextField TxtLicencia;
     private javax.swing.JTextField TxtNombres;
     private javax.swing.JTextField TxtTelefono;
     private javax.swing.JLabel jLabel1;
