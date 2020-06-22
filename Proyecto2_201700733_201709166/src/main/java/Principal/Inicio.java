@@ -5,10 +5,19 @@
  */
 package Principal;
 
+import Interfaz.FirstStep;
+
 /**
  *
  * @author byron
  */
 public class Inicio {
-    
+ public static void main(String[] args) {
+        
+
+        FirstStep home;
+        home = new FirstStep();
+        home.setVisible(true);
+        
+    }
 }
