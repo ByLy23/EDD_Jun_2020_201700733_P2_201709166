@@ -5,16 +5,23 @@
  */
 package Interfaz;
 
+import EDD.ListaCircularDoble;
+import Principal.Conductores;
+import static Principal.Inicio.condu;
+import static Principal.Inicio.lcd;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Jacky
  */
-public class Conductores extends javax.swing.JFrame {
+public class ConductoresInterfaz extends javax.swing.JFrame {
 
     /**
      * Creates new form Conductores
      */
-    public Conductores() {
+    public ConductoresInterfaz() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -48,6 +55,7 @@ public class Conductores extends javax.swing.JFrame {
         BtnEliminar = new javax.swing.JButton();
         BtnModificar = new javax.swing.JButton();
         BtnMostrar = new javax.swing.JButton();
+        BtnBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -134,13 +142,31 @@ public class Conductores extends javax.swing.JFrame {
                 BtnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 90, -1));
+        jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 90, -1));
 
         BtnModificar.setText("Modificar");
-        jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 90, -1));
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 90, -1));
 
         BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMostrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
+
+        BtnBuscar.setText("Buscar");
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 90, -1));
 
         jMenu1.setText("Cargar Archivo");
         jMenuBar1.add(jMenu1);
@@ -180,20 +206,67 @@ public class Conductores extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        // TODO add your handling code here:
+        long dpi = Long.parseLong(TxtDpi.getText());
+        lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+        TxtDpi.setText("");
+        TxtNombres.setText("");
+        TxtApellidos.setText("");
+        TxtLicencia.setText("");
+        TxtGenero.setText("");
+        TxtTelefono.setText("");
+        TxtDireccion.setText("");
+        JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
+
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        // TODO add your handling code here:
+        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
+        System.out.println("El usuario ha escrito " + seleccion);
+        // buscar(seleccion);
+
+        long dpi = Long.parseLong(seleccion);
+        lcd.Eliminar(dpi);
+        TxtDpi.setText("");
+        JOptionPane.showMessageDialog(null, "Usuario Eliminado identificado con " + TxtDpi.getText());
+
+
     }//GEN-LAST:event_BtnEliminarActionPerformed
+
+    private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
+        lcd.Desplegar();
+        lcd.ReporteLCD();
+    }//GEN-LAST:event_BtnMostrarActionPerformed
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea buscar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
+        long upsi = Long.parseLong(seleccion);
+        System.out.println("El usuario ha escrito " + upsi);
+        lcd.Buscar(upsi);
+        TxtDpi.setText(seleccion);
+
+
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        long upsi = Long.parseLong(TxtDpi.getText());
+        lcd.Modificar(upsi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText());
+        JOptionPane.showMessageDialog(null, "Usuario Modificado identificado con " + TxtDpi.getText());
+        TxtDpi.setText("");
+        TxtNombres.setText("");
+        TxtApellidos.setText("");
+        TxtLicencia.setText("");
+        TxtGenero.setText("");
+        TxtTelefono.setText("");
+        TxtDireccion.setText("");
+    }//GEN-LAST:event_BtnModificarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JButton BtnMostrar;
@@ -218,4 +291,8 @@ public class Conductores extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void setTxtDpi(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
