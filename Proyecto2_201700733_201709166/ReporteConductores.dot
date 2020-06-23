@@ -1,0 +1,7 @@
+digraph G {
+ rankdir=LR; 
+ node[shape = egg, color = purple];
+labelloc = "t;"label = "REPORTE CONDUCTORES";
+x2[dir=both label = "DPI = 2\nNombre = 2 2\n Licencia = 2\n Direccion = d"]x2-> x2
+
+}

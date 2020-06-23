@@ -116,7 +116,7 @@ public class MenuP extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Conductores principal = new Conductores();
+        ConductoresInterfaz principal = new ConductoresInterfaz();
         principal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
