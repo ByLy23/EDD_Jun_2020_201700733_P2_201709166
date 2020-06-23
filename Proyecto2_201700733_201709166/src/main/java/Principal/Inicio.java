@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import EDD.TablaHash;
+
 /**
  *
  * @author byron
@@ -13,6 +15,6 @@ public class Inicio {
     public static void main(String[] args)
     {
         System.out.println("Pruebas");
-        
+        TablaHash tab= new TablaHash();
     }
 }
