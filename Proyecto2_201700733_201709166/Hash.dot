@@ -1,0 +1,32 @@
+digraph Hash{
+ rankdir=LR
+node[shape=record,width= 0.1, height= 0.1];
+Nodo366712642[label= "<P0>0|<P1>1|<P2>2|<P3>3|<P4>4|<P5>5|<P6>6|<P7>7|<P8>8|<P9>9|<P10>10|<P11>11|<P12>12|<P13>13|<P14>14|<P15>15|<P16>16|<P17>17|<P18>18|<P19>19|<P20>20|<P21>21|<P22>22|<P23>23|<P24>24|<P25>25|<P26>26|<P27>27|<P28>28|<P29>29|<P30>30|<P31>31|<P32>32|<P33>33|<P34>34|<P35>35|<P36>36|<P37>"];
+Nodo1829164700[label=" DPI: 3045646214501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo1829164700 -> Nodo2018699554
+Nodo2018699554[label=" DPI: 3045646514571\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P3 -> Nodo1829164700
+Nodo1311053135[label=" DPI: 3075646514507\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P6 -> Nodo1311053135
+Nodo118352462[label=" DPI: 3045646514501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo118352462 -> Nodo1550089733
+Nodo1550089733[label=" DPI: 3045646514501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo1550089733 -> Nodo865113938
+Nodo865113938[label=" DPI: 3045646514501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo865113938 -> Nodo1442407170
+Nodo1442407170[label=" DPI: 3045646514501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P7 -> Nodo118352462
+Nodo1028566121[label=" DPI: 3045676514509\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P8 -> Nodo1028566121
+Nodo1118140819[label=" DPI: 3042646514508\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo1118140819 -> Nodo1975012498
+Nodo1975012498[label=" DPI: 3049646514501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P11 -> Nodo1118140819
+Nodo1808253012[label=" DPI: 9045646514506\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P18 -> Nodo1808253012
+Nodo589431969[label=" DPI: 3045646514561\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P30 -> Nodo589431969
+Nodo1252169911[label=" DPI: 3456486514501\nNombre: Byron Orellana\nGenero: Masculino\nTelefono: 51313792\nFecha Nacimiento: 19/19/19\nDireccion: Mi casa"];
+Nodo366712642:P36 -> Nodo1252169911
+
+}

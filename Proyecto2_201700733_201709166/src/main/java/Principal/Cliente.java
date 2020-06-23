@@ -30,11 +30,11 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
@@ -62,19 +62,28 @@ public class Cliente {
         this.DPI = DPI;
     }
 
-    public Cliente(BigInteger DPI, String nombre, String apellido, char genero, int telefono, String direccion) {
+    public Cliente(BigInteger DPI, String nombre, String apellido, String genero, int telefono, String direccion, String fechaNac) {
         this.DPI = DPI;
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.fechaNac=fechaNac;
     }
     
     private BigInteger DPI;
     private String nombre;
     private String apellido;
-    private char genero;
+    private String genero;
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+    private String fechaNac;
     private int telefono;
     private String direccion;
 }
