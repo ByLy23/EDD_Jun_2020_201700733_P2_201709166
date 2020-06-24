@@ -5,6 +5,15 @@
  */
 package Interfaz;
 
+import static Principal.Inicio.graph;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Jacky
@@ -74,6 +83,63 @@ public class FirstStep extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
+            chooser.setFileFilter(filter);
+            chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            int result = chooser.showOpenDialog(this);
+            //Tomamos el archivo que se selecciono
+            File open = chooser.getSelectedFile();
+
+            if (open.exists()) {
+                //Creamos un buffer para leer el archivo
+
+                BufferedReader buffer = new BufferedReader(new FileReader(open));
+                String cad = buffer.readLine();
+
+                while (cad != null) {
+                    String[] rutas = cad.split("%");
+                    for (int i = 0; i < rutas.length; i++) {
+                        String[] datos = rutas[i].split("/");
+                        System.out.println("Lugar Origen " + datos[0]);
+                        System.out.println("Lugar Destino " + datos[1]);
+                        System.out.println("Tiempo Ruta " + datos[2]);
+
+                        if (datos.length == 3) {
+                            datos[0] = datos[0].trim();
+                            datos[1] = datos[1].trim();
+                            datos[2] = datos[2].trim();
+
+                            if (graph.getVertex(datos[0]) == null) {
+                                graph.insertarVertex(datos[0]);
+                            }
+                            if (graph.getVertex(datos[1]) == null) {
+                                graph.insertarVertex(datos[1]);
+                            }
+                            
+                            graph.insertarEdge(graph.getVertex(datos[0]),graph.getVertex(datos[1]), Integer.parseInt(datos[2]));
+                            graph.Mostrar();
+                        } else if (datos.length < 3) {
+                            System.out.println("No hay datos suficientes para agregar al conductor");
+                        } else {
+                            System.out.println("Hay más datos de los requeridos, no se puede agregar");
+                        }
+                    }
+                    cad = buffer.readLine();
+
+                }
+
+                buffer.close();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
+        }
+
+        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+
         MenuP principal = new MenuP();
         principal.setVisible(true);
         this.dispose();
@@ -83,7 +149,6 @@ public class FirstStep extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
