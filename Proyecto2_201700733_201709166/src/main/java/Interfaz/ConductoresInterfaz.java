@@ -9,8 +9,15 @@ import EDD.ListaCircularDoble;
 import Principal.Conductores;
 import static Principal.Inicio.condu;
 import static Principal.Inicio.lcd;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -58,6 +65,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         BtnBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -169,6 +177,15 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 90, -1));
 
         jMenu1.setText("Cargar Archivo");
+
+        jMenuItem2.setText("Cargar Archivo");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Regresar");
@@ -260,6 +277,61 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         TxtDireccion.setText("");
     }//GEN-LAST:event_BtnModificarActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
+            chooser.setFileFilter(filter);
+            chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            int result=chooser.showOpenDialog(this);
+        //Tomamos el archivo que se selecciono
+            File open = chooser.getSelectedFile();
+
+            if (open.exists()) {
+                //Creamos un buffer para leer el archivo
+                
+                BufferedReader buffer = new BufferedReader(new FileReader(open));
+                String cad = buffer.readLine();
+                
+                while (cad!= null) {
+                    String[] conductores=cad.split(";");
+                    for(int i = 0; i < conductores.length; i++)
+                    {
+                        String[] datos = conductores[i].split("%");
+                        System.out.println("DPI "+datos[0]);
+                        System.out.println("Nombres "+datos[1]);
+                        System.out.println("Apellidos "+datos[2]);
+                        System.out.println("Licencia "+datos[3]);
+                        System.out.println("Genero "+datos[4]);
+                        System.out.println("Telefono "+datos[5]);
+                        System.out.println("Direccion "+datos[6]);
+                        
+                        if(datos.length==7){
+                            lcd.Insertar(new Conductores(Long.valueOf(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5],datos[6]));
+                        }else if(datos.length<7){
+                             System.out.println("No hay datos suficientes para agregar al conductor");
+                        }else{
+                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
+                        }
+                        
+                    }
+                    cad=buffer.readLine();
+                    
+                   
+                }
+
+                buffer.close();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
+        }
+
+        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -289,6 +361,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
