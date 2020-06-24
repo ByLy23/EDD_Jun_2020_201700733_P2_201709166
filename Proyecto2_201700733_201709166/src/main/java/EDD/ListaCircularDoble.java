@@ -29,20 +29,22 @@ public class ListaCircularDoble {
         NodoLCD nuevo = new NodoLCD();
         nuevo.dato = dato;
         if (primero == null) {
-            primero = nuevo;
-            primero.next = primero;
-            nuevo.before = ultimo;
-            ultimo = nuevo;
+            nuevo.next=nuevo;
+            nuevo.before = nuevo;
+            primero=nuevo;
+            ultimo=nuevo;
         } else {
-            ultimo.next = nuevo;
-            nuevo.next = primero;
-            nuevo.before = ultimo;
-            ultimo = nuevo;
-            primero.before = ultimo;
+            nuevo.next=primero;
+            nuevo.before=ultimo;
+            primero.before=nuevo;
+            ultimo.next=nuevo;
+            primero = nuevo;
         }
         tam++;
+        
     }
 
+     
     public void Buscar(long dato) {
         NodoLCD actual = new NodoLCD();
         actual = ultimo;

@@ -10,5 +10,8 @@ import Principal.Conductores;
 public class NodoLCD {
     Conductores dato;
     NodoLCD next;
-    NodoLCD before;     
+    NodoLCD before;   
+    
+   
+    
 }
