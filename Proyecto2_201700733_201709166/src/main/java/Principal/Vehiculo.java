@@ -67,6 +67,16 @@ public class Vehiculo {
         this.transmision = transmision;
     }
 
+    public Vehiculo() {
+          this.placa = "";
+        this.marca = "";
+        this.modelo = "";
+        this.anio =0;
+        this.color = "";
+        this.precio =0;
+        this.transmision = "";
+    }
+
     public Vehiculo(String placa, String marca, String modelo, int anio, String color, int precio, String transmision) {
         this.placa = placa;
         this.marca = marca;
