@@ -90,8 +90,50 @@ public class ArbolB {
             }
         }
     }
-    private void dividirPagina(){
-        
+    private void dividirPagina(PaginaB aux, Vehiculo carro, PaginaB aux2, int k, Vehiculo carr, PaginaB nuevo){
+        int n, posicionMedia;
+        if(this.iterador<=2)
+            posicionMedia=2;
+        else
+            posicionMedia=3;
+        this.nuevo= new PaginaB();
+        for (n = posicionMedia + 1 ; n<5; n++) {
+            this.nuevo.getCarro()[n-posicionMedia]=aux.getCarro()[n];
+            this.nuevo.getPaginas()[n-posicionMedia]=aux.getPaginas()[n];
+            aux.getCarro()[n]=null;
+            aux.getPaginas()[n]=null;
+        }
+        this.nuevo.setContador(4-posicionMedia);
+        aux.setContador(posicionMedia);
+        if(this.iterador<=2)
+            insertarHoja(aux,carro,aux2,this.iterador);
+        else
+            insertarHoja(this.nuevo,carro,aux2,this.iterador-posicionMedia);
+        this.medio=aux.getCarro()[aux.getContador()];
+        this.nuevo.getPaginas()[0]=aux.getPaginas()[aux.getContador()];
+        aux.getCarro()[aux.getContador()]=null;
+        aux.getPaginas()[aux.getContador()]=null;
+        aux.setContador(aux.getContador()-1);
+    }
+    private void insertarHoja(PaginaB aux, Vehiculo carro, PaginaB nuevo, int k){
+        int cont;
+        for (cont = aux.getContador();cont  >= k+1; cont--) {
+            aux.getCarro()[cont+1]=aux.getCarro()[cont];
+            aux.getPaginas()[cont+1]=aux.getPaginas()[cont];
+        }
+        aux.getCarro()[k+1]=carro;
+        aux.getPaginas()[k+1]=nuevo;
+        aux.setContador(aux.getContador()+1);
+        //ordenamiento burbuja
+        for (int n = 1; n <aux.getContador()-1; n++) {
+            for (int m = 1; m < aux.getContador()-1; m++) {
+                if(aux.getCarro()[m].getPlaca().compareTo(aux.getCarro()[m+1].getPlaca())>0){
+                    Vehiculo cars= aux.getCarro()[m];
+                    aux.getCarro()[m+1]=aux.getCarro()[m];
+                    aux.getCarro()[m]=cars;
+                }
+            }
+        }
     }
     private boolean busquedaIterativa(PaginaB aux, Vehiculo carro, int k){
         boolean bandera= false;
@@ -100,7 +142,6 @@ public class ArbolB {
             this.iterador=0;
         }else{
             this.iterador=aux.getContador();
-            //lib.ISBN < aux.Libros[this.K].ISBN && this.K > 1
             while(carro.getPlaca().compareTo(aux.getCarro()[this.iterador].getPlaca())<0 && this.iterador>1){
                 this.iterador--;
             }
