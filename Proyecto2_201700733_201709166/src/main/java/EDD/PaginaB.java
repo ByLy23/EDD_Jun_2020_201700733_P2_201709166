@@ -15,6 +15,7 @@ public class PaginaB {
     private int contador;
     private Vehiculo carros[];//estos son los datos
     private PaginaB paginas[];//estas son las claves que va a tener 
+    private int tamPagina;
 
     public int getContador() {
         return contador;
