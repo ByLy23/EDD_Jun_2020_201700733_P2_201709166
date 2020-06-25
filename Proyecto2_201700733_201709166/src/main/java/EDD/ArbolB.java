@@ -6,25 +6,23 @@
 package EDD;
 
 import Principal.Vehiculo;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 /**
  *
  * @author byron
  */
 public class ArbolB {
-    private PaginaB raiz;
-    private boolean bandera;
+    private PaginaB raiz=null;
+    private boolean bandera=false;
     private Vehiculo medio=null;
-    private PaginaB nuevo;
+    private PaginaB nuevo=null;
     private PaginaB busqueda=null;
-    private int iterador;
+    private int iterador=0;
     public ArbolB()
     {
-        raiz=null;
-        bandera=false;
         medio= new Vehiculo();
-        nuevo=null;
-        iterador=0;
     }
     public PaginaB buscarCarro(String placa){
         buscaCarro(raiz, placa);
@@ -148,4 +146,44 @@ public class ArbolB {
             bandera = carro.getPlaca().compareTo(aux.getCarro()[this.iterador].getPlaca())==0;
         }return bandera;
     }
+    public void mostrar(){
+        
+    }
+    private void mostrarB(StringBuilder dato) throws Exception{
+            String mensaje="digraph Btree{ \n  node[shape=record, width= 0.1, height= 0.1];\n"+dato+"\n}";
+            FileWriter file= new FileWriter("bTree.dot");
+            PrintWriter impresion= new PrintWriter(file);
+            impresion.println(mensaje);
+            file.close();
+            String comando= "dot -Tjpg bTree.dot -o bTree.jpg -Gcharset=latin1";
+            Runtime rt= Runtime.getRuntime();
+            rt.exec(comando);
+        }
+    StringBuilder b= new StringBuilder();
+    public void imprimirNodo() throws Exception{
+        b.setLength(0);
+        imprimirRaiz(raiz);
+    }
+    
+    
+    
+     private void imprimirRaiz(PaginaB raiz) throws Exception{
+            if(raiz!=null){
+                 b.append("Nodo"+raiz.hashCode());
+        b.append("[label=\"<P0>");
+    for (int i = 1; i <= raiz.getContador(); i++) {
+       b.append("|"+ raiz.getCarro()[i].getPlaca()+"\\n"+raiz.getCarro()[i].getModelo());
+       b.append("|<P"+(i+1)+">");
+    }
+    b.append("\"];\n");
+                for (int i = 0; i < raiz.getPaginas().length; i++) {
+                    if(raiz.getPaginas()[i]!=null){
+                 imprimirRaiz(raiz.getPaginas()[i]);
+                b.append("Nodo"+raiz.hashCode()+":P"+i+"->"+"Nodo"+raiz.getPaginas()[i].hashCode()+";\n");
+                    }
+    }
+            System.out.println(b);
+            mostrarB(b);
+        }
+     }
 }

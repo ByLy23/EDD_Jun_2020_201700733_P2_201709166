@@ -1,0 +1,11 @@
+digraph Btree{ 
+  node[shape=record, width= 0.1, height= 0.1];
+Nodo366712642[label="<P0>|C\nModelo|<P2>|F\nModelo|<P3>"];
+Nodo1829164700[label="<P0>|A\nModelo|<P2>|B\nModelo|<P3>"];
+Nodo366712642:P0->Nodo1829164700;
+Nodo2018699554[label="<P0>|D\nModelo|<P2>|E\nModelo|<P3>"];
+Nodo366712642:P1->Nodo2018699554;
+Nodo1311053135[label="<P0>|G\nModelo|<P2>|H\nModelo|<P3>|I\nModelo|<P4>|J\nModelo|<P5>"];
+Nodo366712642:P2->Nodo1311053135;
+
+}
