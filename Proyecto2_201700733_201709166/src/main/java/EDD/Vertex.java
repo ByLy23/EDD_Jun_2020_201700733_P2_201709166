@@ -10,8 +10,8 @@ package EDD;
  * @author Jacky
  */
 public class Vertex {
-     Vertex siguiente;
-     Edge arista;
+     Vertex siguiente;          
+     Edge arista;               
      String nombre;
     
     

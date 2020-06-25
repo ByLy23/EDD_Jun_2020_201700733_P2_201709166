@@ -11,6 +11,7 @@ import Principal.Conductores;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.ArrayBufferView.length;
 
 public class ListaCircularDoble {
 
@@ -29,22 +30,21 @@ public class ListaCircularDoble {
         NodoLCD nuevo = new NodoLCD();
         nuevo.dato = dato;
         if (primero == null) {
-            nuevo.next=nuevo;
+            nuevo.next = nuevo;
             nuevo.before = nuevo;
-            primero=nuevo;
-            ultimo=nuevo;
+            primero = nuevo;
+            ultimo = nuevo;
         } else {
-            nuevo.next=primero;
-            nuevo.before=ultimo;
-            primero.before=nuevo;
-            ultimo.next=nuevo;
+            nuevo.next = primero;
+            nuevo.before = ultimo;
+            primero.before = nuevo;
+            ultimo.next = nuevo;
             primero = nuevo;
         }
         tam++;
-        
+
     }
 
-     
     public void Buscar(long dato) {
         NodoLCD actual = new NodoLCD();
         actual = ultimo;
@@ -98,7 +98,7 @@ public class ListaCircularDoble {
         } while (actual != primero);//Realiza el metodo mientras que la posicion actual sea distinta al inicio. 
     }
 
-    public void Modificar(long DPI, String Nombre, String Apellido,String Licencia, String Genero, String Telefono, String Direccion) {
+    public void Modificar(long DPI, String Nombre, String Apellido, String Licencia, String Genero, String Telefono, String Direccion) {
         NodoLCD actual = new NodoLCD();
         actual = primero;
         do {
@@ -119,12 +119,55 @@ public class ListaCircularDoble {
         NodoLCD aux = this.primero;
         String text = "";
         do {
-            text+="x"+aux.dato.getDPI()+ "[dir=both label = \"DPI = "+ aux.dato.getDPI()+ "\\nNombre = "+aux.dato.getNombre()+" "+aux.dato.getApellido()+"\\n Licencia = "+aux.dato.getLicencia()+"\\n Direccion = "+aux.dato.getDireccion()+ "\"]";
-            text+="x"+aux.dato.getDPI()+"-> x"+aux.next.dato.getDPI()+"\n";
+            text += "x" + aux.dato.getDPI() + "[dir=both label = \"DPI = " + aux.dato.getDPI() + "\\nNombre = " + aux.dato.getNombre() + " " + aux.dato.getApellido() + "\\n Licencia = " + aux.dato.getLicencia() + "\\n Direccion = " + aux.dato.getDireccion() + "\"]";
+            text += "x" + aux.dato.getDPI() + "-> x" + aux.next.dato.getDPI() + "\n";
+            text += "x" + aux.next.dato.getDPI() + "-> x" + aux.dato.getDPI() + "\n";
+
             aux = aux.next;
         } while (aux != primero);
         return text;
 
+    }
+
+    public void ordena_lista(NodoLCD nodo) {
+        if (tam>1) {
+            boolean changes;
+            do{
+                NodoLCD actual=primero;
+                NodoLCD anterior=null;
+                NodoLCD siguiente=primero.next;
+                changes=false;
+                
+                while(siguiente!=null){
+                    if(actual.dato.getDPI()>siguiente.dato.getDPI()){
+                    changes=true;
+                        if(anterior!=null)
+                        {
+                            NodoLCD sig=siguiente.next;
+                            anterior.next=siguiente;
+                            siguiente.next=actual;
+                            actual.next=sig;
+                                   
+                        }else{
+                             NodoLCD sig=siguiente.next;
+                             primero=siguiente;
+                             siguiente.next=actual;
+                             actual.next=sig;
+                                    
+                        }
+                        anterior=siguiente;
+                        siguiente = actual.next;
+                                
+                        
+                    }else{
+                    anterior = actual;
+                    actual = siguiente;
+                    siguiente = siguiente.next;
+                    }
+                    
+                }
+            }while(changes);
+        }
     }
 
     public void ReporteLCD() {

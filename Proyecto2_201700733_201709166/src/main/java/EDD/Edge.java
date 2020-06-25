@@ -12,12 +12,12 @@ package EDD;
 public class Edge {
     public Edge siguiente;
     public Vertex vertice;
-    public int peso;
+    public int tiempo;
     
     public Edge(Edge siguiente, Vertex vertice, int peso){
         this.siguiente=siguiente;
         this.vertice=vertice;
-        this.peso=peso;
+        this.tiempo=peso;
                
     }
             
