@@ -70,7 +70,7 @@ public class Grafo {
                 auxEdge = auxEdge.siguiente;                    //E imprimo los siguientes de dicho adyacente
             }                                                   //Hasta que ya no tenga adyacentes y salgo del while porque seria igual a nulo
             auxVertex = auxVertex.siguiente;                    //Repito el proceso para mi siguiente verti
-            System.out.println("---------------------------");
+            System.out.println("\n");
         }
     }
 

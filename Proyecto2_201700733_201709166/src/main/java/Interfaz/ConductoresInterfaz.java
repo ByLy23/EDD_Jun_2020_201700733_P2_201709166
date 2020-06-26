@@ -234,7 +234,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         TxtDireccion.setText("");
         JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
         
-        lcd.ordena_lista(lcd);
+        //lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
