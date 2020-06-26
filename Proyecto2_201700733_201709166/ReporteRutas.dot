@@ -2,19 +2,5 @@ digraph G {
  rankdir=LR; 
  node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
 labelloc = "t;"label = "REPORTE RUTAS";
-"Oviedo"[label = " Oviedo"]
-"Oviedo"->"Bilbao"[arrowhead=normal label= "304"]
-"Bilbao"[label = " Bilbao"]
-"Bilbao"->"Zaragoza"[arrowhead=normal label= "324"]
-"Bilbao"->"Madrid"[arrowhead=normal label= "395"]
-"Bilbao"->"Valladolid"[arrowhead=normal label= "280"]
-"Zaragoza"[label = " Zaragoza"]
-"Zaragoza"->"Barcelona"[arrowhead=normal label= "296"]
-"Zaragoza"->"Madrid"[arrowhead=normal label= "325"]
-"Madrid"[label = " Madrid"]
-"Valladolid"[label = " Valladolid"]
-"Barcelona"[label = " Barcelona"]
-"Barcelona"->"Gerona"[arrowhead=normal label= "100"]
-"Gerona"[label = " Gerona"]
 
 }

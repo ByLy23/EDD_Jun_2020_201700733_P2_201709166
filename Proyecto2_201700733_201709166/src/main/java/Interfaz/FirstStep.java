@@ -78,7 +78,7 @@ public class FirstStep extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+        /*try {
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
@@ -130,7 +130,7 @@ public class FirstStep extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
         }
 
-        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        JOptionPane.showMessageDialog(null, "Carga masiva completada!");*/
         graph.Mostrar();
         graph.Graficar();
         MenuP principal = new MenuP();
