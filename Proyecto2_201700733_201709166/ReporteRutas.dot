@@ -1,0 +1,6 @@
+digraph G {
+ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE RUTAS";
+
+}
