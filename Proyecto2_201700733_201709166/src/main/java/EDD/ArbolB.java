@@ -24,21 +24,21 @@ public class ArbolB {
     {
         medio= new Vehiculo();
     }
-    public PaginaB buscarCarro(String placa){
-        buscaCarro(raiz, placa);
-        PaginaB nuevaB= busqueda;
-        return nuevaB;
+    public PaginaB buscarCarro(String placa){//metodo publico para buscar, nada mas necesita la placa
+        buscaCarro(raiz, placa);//aca adentro va la busqueda del carro es recursiva por lo que...
+        PaginaB nuevaB= busqueda;//aqui se crea una nueva pagina la cual va a tener la informacion de busqueda...
+        return nuevaB;//que tambien es una pagina general para busquedas
     }
     private void buscaCarro(PaginaB raiz, String placa){
-        if(raiz!=null){
-        for (int i = 0; i < raiz.getContador(); i++) {
-            if(raiz.getCarro()[i].getPlaca().compareTo(placa)==0){
+        if(raiz!=null){//busca en cada posicion del arreglo de cada nodo, si es nula lo obvia de lo contrario ingresa al metodo
+        for (int i = 0; i <= raiz.getContador(); i++) {
+            if(raiz.getCarro()[i].getPlaca().compareTo(placa)==0){//compara las placas para igualar
                 busqueda=raiz;
             }
         }
-        for (PaginaB pagina : raiz.getPaginas()) {
-           if (pagina != null) {
-                buscaCarro(pagina, placa);
+        for (PaginaB pagina : raiz.getPaginas()) {//este es un foreach de la coleccion, en este caso en la coleccion de paginas
+           if (pagina != null) {//esto verifica si cada pagina o rama es vacia
+                buscaCarro(pagina, placa);//aca llega lo recursivo para que baje al siguiente nodo, o a la siguiente pagina
             }
         }
             
@@ -52,7 +52,7 @@ public class ArbolB {
         this.medio=null;
         this.nuevo=null;
         PaginaB aux=null;
-        empujar(raiz,carro ,this.bandera,this.medio,nuevo);
+        empujar(raiz,carro);
         if(this.bandera){
             aux= new PaginaB();
             aux.setContador(1);
@@ -62,33 +62,33 @@ public class ArbolB {
             this.raiz=aux;
         }
     }
-    private void empujar(PaginaB raiz, Vehiculo carro, boolean bandera, Vehiculo media, PaginaB aux){
+    private void empujar(PaginaB raiz, Vehiculo carro){
         if(raiz==null){
             this.bandera=true;
             this.medio=carro;
             this.nuevo=null;
         }else{
-            boolean busqueda= busquedaIterativa(raiz, carro, this.iterador);
+            boolean busqueda= busquedaIterativa(raiz, carro);
             if(busqueda)
             {
                 this.bandera=false;
                 return;
             }
-            empujar(raiz.getPaginas()[this.iterador], carro,this.bandera, this.medio, this.nuevo);
+            empujar(raiz.getPaginas()[this.iterador], carro);
             if(this.bandera){
                 if(raiz.Lleno(raiz)){
                     this.iterador=0;
-                    boolean busquedap= busquedaIterativa(raiz, carro, this.iterador);
-                    dividirPagina(raiz,this.medio,this.nuevo,this.iterador,this.medio,this.nuevo);
+                    boolean busquedap= busquedaIterativa(raiz, carro);
+                    dividirPagina(raiz,this.medio,this.nuevo);
                 }else{
                     this.bandera=false;
-                    boolean busquedap=busquedaIterativa(raiz, carro, this.iterador);
+                    boolean busquedap=busquedaIterativa(raiz, carro);
                     insertarHoja(raiz,this.medio,this.nuevo,this.iterador);
                 }
             }
         }
     }
-    private void dividirPagina(PaginaB aux, Vehiculo carro, PaginaB aux2, int k, Vehiculo carr, PaginaB nuevo){
+    private void dividirPagina(PaginaB aux, Vehiculo carro, PaginaB aux2){
         int n, posicionMedia;
         if(this.iterador<=2)
             posicionMedia=2;
@@ -133,7 +133,7 @@ public class ArbolB {
             }
         }
     }
-    private boolean busquedaIterativa(PaginaB aux, Vehiculo carro, int k){
+    private boolean busquedaIterativa(PaginaB aux, Vehiculo carro){
         boolean bandera= false;
         if(carro.getPlaca().compareTo(aux.getCarro()[1].getPlaca())<0){
             bandera=false;
@@ -172,8 +172,8 @@ public class ArbolB {
                  b.append("Nodo"+raiz.hashCode());
         b.append("[label=\"<P0>");
     for (int i = 1; i <= raiz.getContador(); i++) {
-       b.append("|"+ raiz.getCarro()[i].getPlaca()+"\\n"+raiz.getCarro()[i].getModelo());
-       b.append("|<P"+(i+1)+">");
+       b.append("|Placa: "+ raiz.getCarro()[i].getPlaca()+"\\nMarca: "+raiz.getCarro()[i].getMarca()+"\\nModelo: "+raiz.getCarro()[i].getModelo()+"\\nColor: "+raiz.getCarro()[i].getColor()+"\\nAnio: "+raiz.getCarro()[i].getAnio()+"\\nTransmision: "+raiz.getCarro()[i].getTransmision());
+       b.append("|<P"+(i)+">");
     }
     b.append("\"];\n");
                 for (int i = 0; i < raiz.getPaginas().length; i++) {
@@ -184,6 +184,32 @@ public class ArbolB {
     }
             System.out.println(b);
             mostrarB(b);
+        }
+     }
+     public void modificarDatos(Vehiculo carro){
+         modificarDatos(raiz, carro);
+     }
+     private void modificarDatos(PaginaB raiz, Vehiculo carro){
+         if(raiz!=null){
+             for (int i = 0; i <= raiz.getContador(); i++) {
+                 if(raiz.getCarro()[i].getPlaca().compareTo(carro.getPlaca())==0){
+                     raiz.getCarro()[i]=carro;
+                 }
+             }
+             for (int i = 0; i < raiz.getPaginas().length; i++) {
+                 if(raiz.getPaginas()[i]!=null){
+                     modificarDatos(raiz.getPaginas()[i],carro);
+                 }
+             }
+         }
+     }
+     public void cargaMasiva(String datos){
+         String[] saltoLinea= datos.split(";");
+         Vehiculo aux;
+        for (String saltoLinea1 : saltoLinea) {
+            String[] lectura = saltoLinea1.split(":");
+            aux= new Vehiculo(lectura[0], lectura[1],lectura[2],Integer.parseInt(lectura[3]),lectura[4],Integer.parseInt(lectura[5]), lectura[6]);
+            Insertar(aux);
         }
      }
 }

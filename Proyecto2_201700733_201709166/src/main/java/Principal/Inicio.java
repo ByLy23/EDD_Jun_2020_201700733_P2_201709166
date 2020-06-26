@@ -34,16 +34,17 @@ public class Inicio {
         tab.graficar();*/
         ArbolB arb= new ArbolB();
         //Vehiculo car=new Vehiculo("113BPB", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica");
-        arb.Insertar(new Vehiculo("A", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("B", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("C", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("D", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("E", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("F", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("G", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("H", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("I", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
-        arb.Insertar(new Vehiculo("J", "Mitsubishi", "Modelo", 2006, "Rojo", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("A", "Toyota", "Corolla", 2006, "Rojo", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("B", "Mitsubishi", "Lancer", 2010, "Amarillo", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("C", "Mercedez-Benz", "Xmaster", 2016, "Morado", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("D", "Suzuki", "XG521", 1996, "Rojo", 2500, "Automatica"));
+        arb.Insertar(new Vehiculo("E", "Isuzu", "Camioncito", 2015, "Corinto", 2500, "Automatica"));
+        arb.Insertar(new Vehiculo("F", "Kawasaki", "Pulsar", 2020, "Rojo", 2500, "Automatica"));
+        arb.Insertar(new Vehiculo("G", "Ford", "Rhode", 2012, "Amarillo", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("H", "Chevrolet", "Zafiro", 2006, "Rojo", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("I", "Mini Cooper", "Minis", 2012, "Verde", 2500, "Mecanica"));
+        arb.Insertar(new Vehiculo("J", "BMW", "X3", 2010, "Azul", 2500, "Automatica"));
+        arb.Insertar(new Vehiculo("K", "Lamborgini", "Picaso", 2008, "Morado", 2500, "Automatica"));
         arb.imprimirNodo();
     }
 }
