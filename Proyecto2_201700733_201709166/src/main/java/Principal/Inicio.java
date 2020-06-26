@@ -5,10 +5,27 @@
  */
 package Principal;
 
+import EDD.Grafo;
+import EDD.ListaCircularDoble;
+import Interfaz.FirstStep;
+
 /**
  *
  * @author byron
  */
 public class Inicio {
     
+    public static ListaCircularDoble lcd;
+    public static Principal.Conductores condu;
+    public static EDD.Grafo graph; 
+    
+ public static void main(String[] args) {
+        
+
+        FirstStep home;
+        home = new FirstStep();
+        home.setVisible(true);
+        lcd=new ListaCircularDoble();
+        graph=new Grafo();
+    }
 }
