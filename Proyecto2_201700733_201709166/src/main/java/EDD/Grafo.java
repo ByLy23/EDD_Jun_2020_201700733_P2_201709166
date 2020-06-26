@@ -13,8 +13,8 @@ public class Grafo {
 
     public Vertex raiz;
 
-    public Grafo() {            
-        raiz = null;    
+    public Grafo() {
+        raiz = null;
     }
 
     public void insertarEdge(Vertex lugarOrigen, Vertex lugarDestino, int peso) {
@@ -23,7 +23,7 @@ public class Grafo {
 
         if (aux != null) {                          //Si el auxiliar es diferente de nulo
             while (aux.siguiente != null) {         //vamos a recorrer hasta encontrar el destino de dicho vertice
-                aux = aux.siguiente;                
+                aux = aux.siguiente;
             }
             aux.siguiente = nuevo;                  //cuando lo encuentra lo asigna como nuevo origen
             nuevo.vertice = lugarDestino;           //y al adyacente del nuevo es el destino
@@ -61,7 +61,7 @@ public class Grafo {
     public void Mostrar() {
         Edge auxEdge;
         Vertex auxVertex = raiz;
-        
+
         while (auxVertex != null) {                            //Mientras exista un vertice
             auxEdge = auxVertex.arista;                        //Mi auxiliar Arista es igual a mi adyacente de mi aux vertice
             System.out.print(auxVertex.nombre);                //imprimo el nombte de ese auxiliar vertie     
@@ -69,21 +69,36 @@ public class Grafo {
                 System.out.print("->" + auxEdge.vertice.nombre);//Imprimo el adyacente de dicho auxiliar
                 auxEdge = auxEdge.siguiente;                    //E imprimo los siguientes de dicho adyacente
             }                                                   //Hasta que ya no tenga adyacentes y salgo del while porque seria igual a nulo
-            auxVertex = auxVertex.siguiente;                    //Repito el proceso para mi siguiente vertice
+            auxVertex = auxVertex.siguiente;                    //Repito el proceso para mi siguiente verti
             System.out.println("---------------------------");
         }
     }
 
-    public String report() {
+    public String report() {//se hace lo mismo que en mostrar
         String text = "";
-
+        Edge auxEdge;
+        Vertex auxVertex = raiz;
+        while (auxVertex != null) {                                                                                                 //Mientras exista un vertice
+             text+="\""+auxVertex.nombre+"\""+ "[label = \" "+auxVertex.nombre+"\"]"+"\n";  //inicio el label                                                 //Mi auxiliar Arista es igual a mi adyacente de mi aux vertice
+             
+             System.out.print(auxVertex.nombre); 
+             auxEdge = auxVertex.arista;                                                                                            //imprimo el nombte de ese auxiliar vertie     
+            while (auxEdge != null) {
+                text+="\""+auxVertex.nombre+"\"";  
+                text+="->"+"\""+auxEdge.vertice.nombre+"\""+"[arrowhead=normal label= \""+ auxEdge.tiempo+"\"]\n";                                                                                                //Mientras auxiliar Arista es diferente de nulo 
+                System.out.print("->" + auxEdge.vertice.nombre);                                                                    //Imprimo el adyacente de dicho auxiliar
+                auxEdge = auxEdge.siguiente;                                                                                        //E imprimo los siguientes de dicho adyacente
+            }                                                                                                                       //Hasta que ya no tenga adyacentes y salgo del while porque seria igual a nulo
+            auxVertex = auxVertex.siguiente;                                                                                        //Repito el proceso para mi siguiente verti
+        }
+        
         return text;
     }
 
     public void Graficar() {
         try {
             FileWriter archivo = new FileWriter("ReporteRutas.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, color = purple];\n");
+            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n" );
             archivo.write("labelloc = \"t;\"label = \"REPORTE RUTAS\";\n");
             //CONTENIDO
             archivo.write(report());

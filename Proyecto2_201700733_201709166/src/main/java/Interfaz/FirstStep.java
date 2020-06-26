@@ -132,7 +132,7 @@ public class FirstStep extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "Carga masiva completada!");
         graph.Mostrar();
-
+        graph.Graficar();
         MenuP principal = new MenuP();
         principal.setVisible(true);
         this.dispose();

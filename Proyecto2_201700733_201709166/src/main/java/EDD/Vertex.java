@@ -10,7 +10,7 @@ package EDD;
  * @author Jacky
  */
 public class Vertex {
-     Vertex siguiente;          
+      Vertex siguiente;          
      Edge arista;               
      String nombre;
     
@@ -20,5 +20,4 @@ public class Vertex {
     this.arista=arista;
     this.nombre=nombre;
     }
-          
 }
