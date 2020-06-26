@@ -159,7 +159,7 @@ public class ArbolB {
         
     }
     private void mostrarB(StringBuilder dato) throws Exception{
-            String mensaje="digraph Btree{ \n  node[shape=record, width= 0.1, height= 0.1];\n"+dato+"\n}";
+            String mensaje="digraph Btree{ \n  node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";"+dato+"\n  }";
             FileWriter file= new FileWriter("bTree.dot");
             PrintWriter impresion= new PrintWriter(file);
             impresion.println(mensaje);
