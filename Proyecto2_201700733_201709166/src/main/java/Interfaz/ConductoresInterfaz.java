@@ -233,6 +233,8 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         TxtTelefono.setText("");
         TxtDireccion.setText("");
         JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
+        
+        lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 

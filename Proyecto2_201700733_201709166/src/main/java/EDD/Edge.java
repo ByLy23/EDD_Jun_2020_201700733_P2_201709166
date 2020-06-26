@@ -10,7 +10,7 @@ package EDD;
  * @author Jacky
  */
 public class Edge {
-    public Edge siguiente;
+     public Edge siguiente;
     public Vertex vertice;
     public int tiempo;
     
@@ -20,5 +20,4 @@ public class Edge {
         this.tiempo=peso;
                
     }
-            
 }

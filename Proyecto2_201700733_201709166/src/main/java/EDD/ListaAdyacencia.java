@@ -129,6 +129,7 @@ public class ListaAdyacencia {
             aux.setSiguiente(nuevo);
             nuevo.setSiguiente(sig);
             tam++;
+           
         }
     }
     

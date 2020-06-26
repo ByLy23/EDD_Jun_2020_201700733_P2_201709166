@@ -42,7 +42,7 @@ public class ListaCircularDoble {
             primero = nuevo;
         }
         tam++;
-
+       // ordena_lista(nuevo);
     }
 
     public void Buscar(long dato) {
@@ -128,12 +128,36 @@ public class ListaCircularDoble {
         return text;
 
     }
+     NodoLCD actual;
+                NodoLCD anterior;
+                NodoLCD siguiente;
 
-    public void ordena_lista(NodoLCD nodo) {
-        if (tam>1) {
+    public void ordena_lista(ListaCircularDoble nodo) {
+        if(nodo!=null){
+            NodoLCD aux=null;
+            NodoLCD actual=null;
+            long cant=0;
+            aux=nodo.primero;
+            while(aux!=nodo.ultimo){
+            actual=aux.next;
+                while(actual!=null){
+                    if(aux.dato.getDPI()>actual.dato.getDPI()){
+                        cant=aux.dato.getDPI();
+                        aux.dato.getDPI()=actual.dato.getDPI();
+                       cant=actual.dato.getDPI();
+                    }
+                    actual=actual.next;
+                }
+                aux=aux.next;
+            }
+        }else{
+                System.out.println("Lista no iniciliazada");
+        }
+        
+       /* if (tam>1) {
             boolean changes;
             do{
-                NodoLCD actual=primero;
+                 NodoLCD actual=primero;
                 NodoLCD anterior=null;
                 NodoLCD siguiente=primero.next;
                 changes=false;
@@ -167,13 +191,16 @@ public class ListaCircularDoble {
                     
                 }
             }while(changes);
-        }
+        }*/
+       
+       
     }
 
     public void ReporteLCD() {
+       // ordena_lista(primero);
         try {
             FileWriter archivo = new FileWriter("ReporteConductores.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, color = purple];\n");
+            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n" );
             archivo.write("labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";\n");
             //CONTENIDO
             archivo.write(report());
