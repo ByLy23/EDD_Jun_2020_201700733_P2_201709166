@@ -7,7 +7,6 @@ package Interfaz;
 
 import EDD.ListaCircularDoble;
 import Principal.Conductores;
-import Principal.Inicio;
 import static Principal.Inicio.condu;
 import static Principal.Inicio.lcd;
 import java.io.BufferedReader;
@@ -296,8 +295,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-      try {
-            String texto="";
+        try {
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
@@ -305,12 +303,44 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             int result=chooser.showOpenDialog(this);
         //Tomamos el archivo que se selecciono
             File open = chooser.getSelectedFile();
-            Scanner salida= new Scanner(open,"UTF-8");
-                while(salida.hasNextLine()){
-                    texto+=salida.nextLine();
+
+            if (open.exists()) {
+                //Creamos un buffer para leer el archivo
+                
+                BufferedReader buffer = new BufferedReader(new FileReader(open));
+                String cad = buffer.readLine();
+                
+                while (cad!= null) {
+                    String[] conductores=cad.split(";");
+                    for(int i = 0; i < conductores.length; i++)
+                    {
+                        String[] datos = conductores[i].split("%");
+                        System.out.println("DPI "+datos[0]);
+                        System.out.println("Nombres "+datos[1]);
+                        System.out.println("Apellidos "+datos[2]);
+                        System.out.println("Licencia "+datos[3]);
+                        System.out.println("Genero "+datos[4]);
+                        System.out.println("Telefono "+datos[5]);
+                        System.out.println("Direccion "+datos[6]);
+                        
+                        if(datos.length==7){
+                            lcd.Insertar(new Conductores(Long.valueOf(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5],datos[6]));
+                        }else if(datos.length<7){
+                             System.out.println("No hay datos suficientes para agregar al conductor");
+                        }else{
+                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
+                        }
+                        
+                    }
+                    cad=buffer.readLine();
+                    
+                   
                 }
-                salida.close();
-                Inicio.arbolito.cargaMasiva(texto);
+
+                buffer.close();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
+            }
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
         }

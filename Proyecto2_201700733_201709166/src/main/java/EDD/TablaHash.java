@@ -173,7 +173,7 @@ public class TablaHash {
     }
     private void generarImagen(String b) throws Exception
     {
-        String datos= "digraph G{\n rankdir=LR\nnode[shape=record,style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n"+b+"\n}";
+        String datos= "digraph G{\n rankdir=LR\nnode[shape=record,style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n labelloc = \"t;\"label = \"REPORTE CLIENTES\";  "+b+"\n}";
         FileWriter file= new FileWriter("Hash.dot");
         PrintWriter impresion= new PrintWriter(file);
         impresion.println(datos);
