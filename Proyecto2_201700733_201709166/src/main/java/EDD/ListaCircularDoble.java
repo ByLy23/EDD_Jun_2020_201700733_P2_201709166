@@ -143,7 +143,8 @@ public class ListaCircularDoble {
                 while(actual!=null){
                     if(aux.dato.getDPI()>actual.dato.getDPI()){
                         cant=aux.dato.getDPI();
-                        aux.dato.getDPI()=actual.dato.getDPI();
+                      //  aux.dato.getDPI()=actual.dato.getDPI();
+                      /*SOY ESTUPIDA*/
                        cant=actual.dato.getDPI();
                     }
                     actual=actual.next;
