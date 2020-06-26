@@ -20,6 +20,15 @@ public class ArbolB {
     private PaginaB nuevo=null;
     private PaginaB busqueda=null;
     private int iterador=0;
+    
+
+    public PaginaB getBusqueda() {
+        return busqueda;
+    }
+
+    public void setBusqueda(PaginaB busqueda) {
+        this.busqueda = busqueda;
+    }
     public ArbolB()
     {
         medio= new Vehiculo();

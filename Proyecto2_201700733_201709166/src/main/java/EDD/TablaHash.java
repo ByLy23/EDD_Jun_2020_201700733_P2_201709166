@@ -173,7 +173,7 @@ public class TablaHash {
     }
     private void generarImagen(String b) throws Exception
     {
-        String datos= "digraph Hash{\n rankdir=LR\nnode[shape=record,width= 0.1, height= 0.1];\n"+b+"\n}";
+        String datos= "digraph Hash{\n rankdir=LR\nnode[shape=record,width= 0.5, height= 1];\n"+b+"\n}";
         FileWriter file= new FileWriter("Hash.dot");
         PrintWriter impresion= new PrintWriter(file);
         impresion.println(datos);
@@ -188,7 +188,7 @@ public class TablaHash {
         String[] saltoLinea= carga.split(";");
         for (String saltoLinea1 : saltoLinea) {
             String[] lectura = saltoLinea1.split(",");
-            insertarClientes(BigInteger.valueOf(Integer.parseInt(lectura[0])), lectura[1],lectura[2],lectura[3],Integer.parseInt(lectura[5]),lectura[6], lectura[4]);
+            insertarClientes(BigInteger.valueOf(Long.valueOf(lectura[0])), lectura[1],lectura[2],lectura[3],Integer.parseInt(lectura[5]),lectura[6], lectura[4]);
         }
     }
 }
