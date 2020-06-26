@@ -5,16 +5,24 @@
  */
 package Interfaz;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Jacky
  */
-public class Clientes extends javax.swing.JFrame {
+public class ClientesInterfaz extends javax.swing.JFrame {
 
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
+    public ClientesInterfaz() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -48,6 +56,7 @@ public class Clientes extends javax.swing.JFrame {
         BtnMostrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -133,6 +142,15 @@ public class Clientes extends javax.swing.JFrame {
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
 
         jMenu1.setText("Cargar Archivo");
+
+        jMenuItem2.setText("Cargar Archivo");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Regresar");
@@ -176,6 +194,58 @@ public class Clientes extends javax.swing.JFrame {
         principal.setVisible(true);
         this.dispose();     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
+            chooser.setFileFilter(filter);
+            chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            int result=chooser.showOpenDialog(this);
+        //Tomamos el archivo que se selecciono
+            File open = chooser.getSelectedFile();
+
+            if (open.exists()) {
+                //Creamos un buffer para leer el archivo
+                
+                BufferedReader buffer = new BufferedReader(new FileReader(open));
+                String cad = buffer.readLine();
+                
+                while (cad!= null) {
+                    String[] clientes=cad.split(";");
+                    for(int i = 0; i < clientes.length; i++)
+                    {
+                        String[] datos = clientes[i].split(",");
+                        System.out.println("DPI "+datos[0]);
+                        System.out.println("Nombres "+datos[1]);
+                        System.out.println("Apellidos "+datos[2]);
+                        System.out.println("Genero "+datos[3]);
+                        System.out.println("Nacimiento "+datos[4]);
+                        System.out.println("Telefono "+datos[5]);
+                        System.out.println("Direccion "+datos[6]);
+                        
+                        if(datos.length==7){
+                                //AQUI EL INSERTAR DE LA TABLA HASH
+                        }else if(datos.length<7){
+                             System.out.println("No hay datos suficientes para agregar al conductor");
+                        }else{
+                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
+                        }                        
+                    }
+                    cad=buffer.readLine(); 
+                }
+                buffer.close();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
+        }
+
+        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +273,7 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
