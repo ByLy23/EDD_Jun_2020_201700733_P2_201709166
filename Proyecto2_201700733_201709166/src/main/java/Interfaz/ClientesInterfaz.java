@@ -5,10 +5,16 @@
  */
 package Interfaz;
 
+import Principal.Cliente;
+import Principal.Inicio;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -54,6 +60,8 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         BtnModificar = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
         BtnMostrar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        TxtFecha = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -128,6 +136,11 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
 
         BtnModificar.setText("Modificar");
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 90, -1));
 
         BtnEliminar.setText("Eliminar");
@@ -139,7 +152,20 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 90, -1));
 
         BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMostrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setText("Fecha Nac");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+
+        TxtFecha.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 150, -1));
 
         jMenu1.setText("Cargar Archivo");
 
@@ -171,17 +197,18 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        Inicio.tablita.insertarClientes(BigInteger.valueOf(Long.valueOf(TxtDPI.getText())), TxtNombres.getText(), TxtApellidos.getText(), TxtGenero.getText(), Integer.parseInt(TxtTelefono.getText()), TxtDireccion.getText(), TxtFecha.getText());
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
@@ -196,60 +223,44 @@ public class ClientesInterfaz extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         try {
+            String texto = "";
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
             chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            int result=chooser.showOpenDialog(this);
-        //Tomamos el archivo que se selecciono
+            int result = chooser.showOpenDialog(this);
+            //Tomamos el archivo que se selecciono
             File open = chooser.getSelectedFile();
-
-            if (open.exists()) {
-                //Creamos un buffer para leer el archivo
-                
-                BufferedReader buffer = new BufferedReader(new FileReader(open));
-                String cad = buffer.readLine();
-                
-                while (cad!= null) {
-                    String[] clientes=cad.split(";");
-                    for(int i = 0; i < clientes.length; i++)
-                    {
-                        String[] datos = clientes[i].split(",");
-                        System.out.println("DPI "+datos[0]);
-                        System.out.println("Nombres "+datos[1]);
-                        System.out.println("Apellidos "+datos[2]);
-                        System.out.println("Genero "+datos[3]);
-                        System.out.println("Nacimiento "+datos[4]);
-                        System.out.println("Telefono "+datos[5]);
-                        System.out.println("Direccion "+datos[6]);
-                        
-                        if(datos.length==7){
-                                //AQUI EL INSERTAR DE LA TABLA HASH
-                        }else if(datos.length<7){
-                             System.out.println("No hay datos suficientes para agregar al conductor");
-                        }else{
-                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
-                        }                        
-                    }
-                    cad=buffer.readLine(); 
-                }
-                buffer.close();
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
+            Scanner salida = new Scanner(open, "UTF-8");
+            while (salida.hasNextLine()) {
+                texto += salida.nextLine();
             }
+            salida.close();
+            Inicio.tablita.cargaMasiva(texto);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
         }
 
         JOptionPane.showMessageDialog(null, "Carga masiva completada!");
-        
-        
+
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnModificarActionPerformed
+
+    private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
+        try {
+            Inicio.tablita.graficar();        // TODO add your handling code here:
+        } catch (Exception ex) {
+            Logger.getLogger(ClientesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnMostrarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
@@ -259,6 +270,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TxtApellidos;
     private javax.swing.JTextField TxtDPI;
     private javax.swing.JTextField TxtDireccion;
+    private javax.swing.JTextField TxtFecha;
     private javax.swing.JTextField TxtGenero;
     private javax.swing.JTextField TxtNombres;
     private javax.swing.JTextField TxtTelefono;
@@ -269,6 +281,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

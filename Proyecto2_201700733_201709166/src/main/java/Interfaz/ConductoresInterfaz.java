@@ -7,6 +7,7 @@ package Interfaz;
 
 import EDD.ListaCircularDoble;
 import Principal.Conductores;
+import Principal.Inicio;
 import static Principal.Inicio.condu;
 import static Principal.Inicio.lcd;
 import java.io.BufferedReader;
@@ -30,6 +31,8 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
      */
     public ConductoresInterfaz() {
         initComponents();
+        BtnModificar.setEnabled(false);
+        BtnEliminar.setEnabled(false);
         this.setLocationRelativeTo(null);
     }
 
@@ -239,11 +242,11 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
-        System.out.println("El usuario ha escrito " + seleccion);
+//        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
+       // System.out.println("El usuario ha escrito " + seleccion);
         // buscar(seleccion);
 
-        long dpi = Long.parseLong(seleccion);
+        long dpi = Long.parseLong(TxtDpi.getText());
         lcd.Eliminar(dpi);
         TxtDpi.setText("");
         JOptionPane.showMessageDialog(null, "Usuario Eliminado identificado con " + TxtDpi.getText());
@@ -260,15 +263,28 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea buscar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
         long upsi = Long.parseLong(seleccion);
         System.out.println("El usuario ha escrito " + upsi);
-        lcd.Buscar(upsi);
+        Conductores aux= lcd.Buscar(upsi);
+        if(aux!=null){
+            TxtDpi.setText(String.valueOf(aux.getDPI()));
+            TxtApellidos.setText(aux.getApellido());
+            TxtDireccion.setText(aux.getDireccion());
+            TxtGenero.setText(aux.getGenero());
+            TxtLicencia.setText(aux.getLicencia());
+            TxtNombres.setText(aux.getNombre());
+            TxtTelefono.setText(aux.getTelefono());    
+            //TxtDpi.setEnabled(false);
+            BtnModificar.setEnabled(true);
+        BtnEliminar.setEnabled(true);
+        }else
+            JOptionPane.showMessageDialog(null, "No Existe");
         TxtDpi.setText(seleccion);
 
 
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        long upsi = Long.parseLong(TxtDpi.getText());
-        lcd.Modificar(upsi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText());
+        //long upsi = Long.parseLong(TxtDpi.getText());
+        lcd.Modificar(Long.parseLong(TxtDpi.getText()), TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText());
         JOptionPane.showMessageDialog(null, "Usuario Modificado identificado con " + TxtDpi.getText());
         TxtDpi.setText("");
         TxtNombres.setText("");
@@ -280,7 +296,8 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        try {
+      try {
+            String texto="";
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
@@ -288,44 +305,12 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             int result=chooser.showOpenDialog(this);
         //Tomamos el archivo que se selecciono
             File open = chooser.getSelectedFile();
-
-            if (open.exists()) {
-                //Creamos un buffer para leer el archivo
-                
-                BufferedReader buffer = new BufferedReader(new FileReader(open));
-                String cad = buffer.readLine();
-                
-                while (cad!= null) {
-                    String[] conductores=cad.split(";");
-                    for(int i = 0; i < conductores.length; i++)
-                    {
-                        String[] datos = conductores[i].split("%");
-                        System.out.println("DPI "+datos[0]);
-                        System.out.println("Nombres "+datos[1]);
-                        System.out.println("Apellidos "+datos[2]);
-                        System.out.println("Licencia "+datos[3]);
-                        System.out.println("Genero "+datos[4]);
-                        System.out.println("Telefono "+datos[5]);
-                        System.out.println("Direccion "+datos[6]);
-                        
-                        if(datos.length==7){
-                            lcd.Insertar(new Conductores(Long.valueOf(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5],datos[6]));
-                        }else if(datos.length<7){
-                             System.out.println("No hay datos suficientes para agregar al conductor");
-                        }else{
-                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
-                        }
-                        
-                    }
-                    cad=buffer.readLine();
-                    
-                   
+            Scanner salida= new Scanner(open,"UTF-8");
+                while(salida.hasNextLine()){
+                    texto+=salida.nextLine();
                 }
-
-                buffer.close();
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
-            }
+                salida.close();
+                Inicio.arbolito.cargaMasiva(texto);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
         }

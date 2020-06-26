@@ -30,37 +30,40 @@ public class ListaCircularDoble {
         NodoLCD nuevo = new NodoLCD();
         nuevo.dato = dato;
         if (primero == null) {
-            nuevo.next = nuevo;
-            nuevo.before = nuevo;
-            primero = nuevo;
-            ultimo = nuevo;
+            primero=ultimo=nuevo;
+            nuevo.before=nuevo;
+            nuevo.next=nuevo;
         } else {
-            nuevo.next = primero;
-            nuevo.before = ultimo;
-            primero.before = nuevo;
-            ultimo.next = nuevo;
-            primero = nuevo;
+            nuevo.before=ultimo;
+            ultimo.next=nuevo;
+            nuevo.next=primero;
+            primero.before=nuevo;
+            ultimo=nuevo;
+            
         }
         tam++;
        // ordena_lista(nuevo);
     }
 
-    public void Buscar(long dato) {
-        NodoLCD actual = new NodoLCD();
-        actual = ultimo;
+    public Conductores Buscar(long dato) {
+        Conductores conductor= null;
+        NodoLCD actual;
+        actual = primero;
         boolean found = false;
         do {
             if (actual.dato.getDPI() == dato) {
                 found = true;
+                break;
             }
-            actual = actual.before;
-        } while (actual != ultimo && found != true);
-        if (found == true) {
+            actual = actual.next;
+        } while (actual != ultimo.next);
+        if (found) {
             JOptionPane.showMessageDialog(null, "Conductor encontrado");
-
+            conductor=actual.dato;
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado");
         }
+        return conductor;
     }
 
     public void Eliminar(long dato) {
@@ -99,7 +102,7 @@ public class ListaCircularDoble {
     }
 
     public void Modificar(long DPI, String Nombre, String Apellido, String Licencia, String Genero, String Telefono, String Direccion) {
-        NodoLCD actual = new NodoLCD();
+        NodoLCD actual;
         actual = primero;
         do {
             if (actual.dato.getDPI() == DPI) {
@@ -109,9 +112,9 @@ public class ListaCircularDoble {
                 actual.dato.setGenero(Genero);
                 actual.dato.setTelefono(Telefono);
                 actual.dato.setDireccion(Direccion);
-
             }
-        } while (actual != primero);
+            actual= actual.next;
+        } while (actual == ultimo);
 
     }
 
@@ -121,7 +124,7 @@ public class ListaCircularDoble {
         do {
             text += "x" + aux.dato.getDPI() + "[dir=both label = \"DPI = " + aux.dato.getDPI() + "\\nNombre = " + aux.dato.getNombre() + " " + aux.dato.getApellido() + "\\n Licencia = " + aux.dato.getLicencia() + "\\n Direccion = " + aux.dato.getDireccion() + "\"]";
             text += "x" + aux.dato.getDPI() + "-> x" + aux.next.dato.getDPI() + "\n";
-            text += "x" + aux.next.dato.getDPI() + "-> x" + aux.dato.getDPI() + "\n";
+            text += "x" + aux.dato.getDPI() + "-> x" + aux.before.dato.getDPI() + "\n";
 
             aux = aux.next;
         } while (aux != primero);
@@ -143,8 +146,7 @@ public class ListaCircularDoble {
                 while(actual!=null){
                     if(aux.dato.getDPI()>actual.dato.getDPI()){
                         cant=aux.dato.getDPI();
-                      //  aux.dato.getDPI()=actual.dato.getDPI();
-                      /*SOY ESTUPIDA*/
+                    //    aux.dato.getDPI()=actual.dato.getDPI();
                        cant=actual.dato.getDPI();
                     }
                     actual=actual.next;

@@ -2,25 +2,25 @@ digraph G {
  rankdir=LR; 
  node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
 labelloc = "t;"label = "REPORTE CONDUCTORES";
-x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x18198650101
-x18198650101-> x3018108650101
-x18198650101[dir=both label = "DPI = 18198650101\nNombre = Sthefany Johana Campos Hernandez\n Licencia = C\n Direccion = 16 Calle A"]x18198650101-> x18188650101
-x18188650101-> x18198650101
-x18188650101[dir=both label = "DPI = 18188650101\nNombre = Julia Esther Cruz Guardado\n Licencia = C\n Direccion = 16 Calle A"]x18188650101-> x3018178650101
-x3018178650101-> x18188650101
-x3018178650101[dir=both label = "DPI = 3018178650101\nNombre = Byron Adrian Ernesto Alvarado Alfaro\n Licencia = C\n Direccion = 16 Calle A"]x3018178650101-> x3018168650101
-x3018168650101-> x3018178650101
-x3018168650101[dir=both label = "DPI = 3018168650101\nNombre = Aby Noemi Palencia Reyes\n Licencia = C\n Direccion = 16 Calle A"]x3018168650101-> x1018158650101
-x1018158650101-> x3018168650101
-x1018158650101[dir=both label = "DPI = 1018158650101\nNombre = Jose Francisco Puac Ixcamparic\n Licencia = C\n Direccion = 16 Calle A"]x1018158650101-> x3018148650101
-x3018148650101-> x1018158650101
-x3018148650101[dir=both label = "DPI = 3018148650101\nNombre = Hector Augusto Ponce Aparicio\n Licencia = C\n Direccion = 16 Calle A"]x3018148650101-> x3018138650101
-x3018138650101-> x3018148650101
-x3018138650101[dir=both label = "DPI = 3018138650101\nNombre = Byron Antonio Orellana Alburez\n Licencia = C\n Direccion = 16 Calle A"]x3018138650101-> x3018128650101
-x3018128650101-> x3018138650101
-x3018128650101[dir=both label = "DPI = 3018128650101\nNombre = Ludwing Gabriel Paz Hernandez\n Licencia = C\n Direccion = gt"]x3018128650101-> x2018118650101
-x2018118650101-> x3018128650101
-x2018118650101[dir=both label = "DPI = 2018118650101\nNombre = Jackeline Alexandra Benitez Benitez\n Licencia = C\n Direccion = 16 Calle A"]x2018118650101-> x3018108650101
-x3018108650101-> x2018118650101
+x3018118650101[dir=both label = "DPI = 3018118650101\nNombre = Jackeline Alexandra Benitez Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018118650101-> x3018128650101
+x3018118650101-> x3018108650101
+x3018128650101[dir=both label = "DPI = 3018128650101\nNombre = Ludwing Gabriel Paz Hernandez\n Licencia = C\n Direccion = gt"]x3018128650101-> x3018138650101
+x3018128650101-> x3018118650101
+x3018138650101[dir=both label = "DPI = 3018138650101\nNombre = Byron Antonio Orellana Alburez\n Licencia = C\n Direccion = 16 Calle A"]x3018138650101-> x3018148650101
+x3018138650101-> x3018128650101
+x3018148650101[dir=both label = "DPI = 3018148650101\nNombre = Hector Augusto Ponce Aparicio\n Licencia = C\n Direccion = 16 Calle A"]x3018148650101-> x3018158650101
+x3018148650101-> x3018138650101
+x3018158650101[dir=both label = "DPI = 3018158650101\nNombre = Jose Francisco Puac Ixcamparic\n Licencia = C\n Direccion = 16 Calle A"]x3018158650101-> x3018168650101
+x3018158650101-> x3018148650101
+x3018168650101[dir=both label = "DPI = 3018168650101\nNombre = Aby Noemi Palencia Reyes\n Licencia = C\n Direccion = 16 Calle A"]x3018168650101-> x3018178650101
+x3018168650101-> x3018158650101
+x3018178650101[dir=both label = "DPI = 3018178650101\nNombre = Byron Adrian Ernesto Alvarado Alfaro\n Licencia = C\n Direccion = 16 Calle A"]x3018178650101-> x3018188650101
+x3018178650101-> x3018168650101
+x3018188650101[dir=both label = "DPI = 3018188650101\nNombre = Julia Esther Cruz Guardado\n Licencia = C\n Direccion = 16 Calle A"]x3018188650101-> x3018198650101
+x3018188650101-> x3018178650101
+x3018198650101[dir=both label = "DPI = 3018198650101\nNombre = Sthefany Johana Campos Hernandez\n Licencia = C\n Direccion = 16 Calle A"]x3018198650101-> x3018108650101
+x3018198650101-> x3018188650101
+x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x3018118650101
+x3018108650101-> x3018198650101
 
 }
