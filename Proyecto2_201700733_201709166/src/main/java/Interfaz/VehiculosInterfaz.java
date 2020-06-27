@@ -24,9 +24,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class VehiculosInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vehiculos
-     */
     public VehiculosInterfaz() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -137,6 +134,11 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 90, -1));
 
         BtnModificar.setText("Modificar");
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 90, -1));
 
         BtnEliminar.setText("Eliminar");
@@ -203,14 +205,22 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         Vehiculo aux;
-        aux= new Vehiculo(TxtPlaca.getText(), TxtMarca.getText(),TxtModelo.getText(),Integer.parseInt(TxtAnio.getText()),TxtColor.getText(),Integer.parseInt(TxtPrecio.getText()), TxtTransmision.getText());
-            Inicio.arbolito.Insertar(aux);
-
+        aux = new Vehiculo(TxtPlaca.getText(), TxtMarca.getText(), TxtModelo.getText(), Integer.parseInt(TxtAnio.getText()), TxtColor.getText(), Integer.parseInt(TxtPrecio.getText()), TxtTransmision.getText());
+        Inicio.arbolito.Insertar(aux);
+        JOptionPane.showMessageDialog(null, "Vehiculo agregado identificado con " + TxtPlaca.getText());
+        TxtPlaca.setText("");
+        TxtMarca.setText("");
+        TxtModelo.setText("");
+        TxtAnio.setText("");
+        TxtColor.setText("");
+        TxtPrecio.setText("");
+        TxtTransmision.setText("");
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -249,6 +259,18 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_BtnMostrarActionPerformed
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        Inicio.arbolito.modificarDatos(new Vehiculo(TxtPlaca.getText(), TxtMarca.getText(), TxtModelo.getText(), Integer.parseInt(TxtAnio.getText()), TxtColor.getText(), Integer.parseInt(TxtPrecio.getText()), TxtTransmision.getText()));
+        JOptionPane.showMessageDialog(null, "Vehiculo modificado identificado con " + TxtPlaca.getText());
+        TxtPlaca.setText("");
+        TxtMarca.setText("");
+        TxtModelo.setText("");
+        TxtAnio.setText("");
+        TxtColor.setText("");
+        TxtPrecio.setText("");
+        TxtTransmision.setText("");
+    }//GEN-LAST:event_BtnModificarActionPerformed
 
     /**
      * @param args the command line arguments

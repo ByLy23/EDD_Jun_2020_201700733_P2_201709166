@@ -56,12 +56,12 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         TxtTelefono = new javax.swing.JTextField();
         TxtDireccion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        BtnAgregar = new javax.swing.JButton();
         BtnModificar = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
         BtnMostrar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         TxtFecha = new javax.swing.JTextField();
+        BtnAgregar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -127,14 +127,6 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         jLabel1.setText("Clientes");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 120, -1));
 
-        BtnAgregar.setText("Agregar");
-        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAgregarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
-
         BtnModificar.setText("Modificar");
         BtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +149,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
                 BtnMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
+        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
@@ -166,6 +158,14 @@ public class ClientesInterfaz extends javax.swing.JFrame {
 
         TxtFecha.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jPanel1.add(TxtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 150, -1));
+
+        BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
 
         jMenu1.setText("Cargar Archivo");
 
@@ -207,13 +207,15 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        Inicio.tablita.insertarClientes(BigInteger.valueOf(Long.valueOf(TxtDPI.getText())), TxtNombres.getText(), TxtApellidos.getText(), TxtGenero.getText(), Integer.parseInt(TxtTelefono.getText()), TxtDireccion.getText(), TxtFecha.getText());
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAgregarActionPerformed
-
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        // TODO add your handling code here:
+        Inicio.tablita.eliminarDatos(BigInteger.valueOf(Long.valueOf(TxtDPI.getText())));
+        JOptionPane.showMessageDialog(null, "Cliente Eliminado identificado con " + TxtDPI.getText());
+        TxtDPI.setText("");
+        TxtNombres.setText("");
+        TxtApellidos.setText("");
+        TxtGenero.setText("");
+        TxtTelefono.setText("");
+        TxtDireccion.setText("");
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -247,7 +249,15 @@ public class ClientesInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        // TODO add your handling code here:
+        Inicio.tablita.modificarDatos(BigInteger.valueOf(Long.valueOf(TxtDPI.getText())), TxtNombres.getText(), TxtApellidos.getText(), TxtGenero.getText(), Integer.parseInt(TxtTelefono.getText()), TxtDireccion.getText(), TxtFecha.getText());
+        JOptionPane.showMessageDialog(null, "Cliente Modificado identificado con " + TxtDPI.getText());
+        TxtDPI.setText("");
+        TxtNombres.setText("");
+        TxtApellidos.setText("");
+        TxtGenero.setText("");
+        TxtTelefono.setText("");
+        TxtDireccion.setText("");
+
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
@@ -257,6 +267,18 @@ public class ClientesInterfaz extends javax.swing.JFrame {
             Logger.getLogger(ClientesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnMostrarActionPerformed
+
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        Inicio.tablita.insertarClientes(BigInteger.valueOf(Long.valueOf(TxtDPI.getText())), TxtNombres.getText(), TxtApellidos.getText(), TxtGenero.getText(), Integer.parseInt(TxtTelefono.getText()), TxtDireccion.getText(), TxtFecha.getText());
+        JOptionPane.showMessageDialog(null, "Cliente agregado identificado con " + TxtDPI.getText());
+        TxtDPI.setText("");
+        TxtNombres.setText("");
+        TxtApellidos.setText("");
+        TxtGenero.setText("");
+        TxtTelefono.setText("");
+        TxtDireccion.setText("");
+        
+    }//GEN-LAST:event_BtnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
