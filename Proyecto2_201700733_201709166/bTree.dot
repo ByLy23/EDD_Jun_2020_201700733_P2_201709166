@@ -1,13 +1,45 @@
 digraph Btree{ 
-  node[shape=record, width= 0.1, height= 0.1];
-Nodo366712642[label="<P0>|Placa: C\nMarca: Mercedez-Benz\nModelo: Xmaster\nColor: Morado\nAnio: 2016\nTransmision: Mecanica|<P1>|Placa: F\nMarca: Kawasaki\nModelo: Pulsar\nColor: Rojo\nAnio: 2020\nTransmision: Automatica|<P2>|Placa: I\nMarca: Mini Cooper\nModelo: Minis\nColor: Verde\nAnio: 2012\nTransmision: Mecanica|<P3>"];
-Nodo1829164700[label="<P0>|Placa: A\nMarca: Toyota\nModelo: Corolla\nColor: Rojo\nAnio: 2006\nTransmision: Mecanica|<P1>|Placa: B\nMarca: Mitsubishi\nModelo: Lancer\nColor: Amarillo\nAnio: 2010\nTransmision: Mecanica|<P2>"];
-Nodo366712642:P0->Nodo1829164700;
-Nodo2018699554[label="<P0>|Placa: D\nMarca: Suzuki\nModelo: XG521\nColor: Rojo\nAnio: 1996\nTransmision: Automatica|<P1>|Placa: E\nMarca: Isuzu\nModelo: Camioncito\nColor: Corinto\nAnio: 2015\nTransmision: Automatica|<P2>"];
-Nodo366712642:P1->Nodo2018699554;
-Nodo1311053135[label="<P0>|Placa: G\nMarca: Ford\nModelo: Rhode\nColor: Amarillo\nAnio: 2012\nTransmision: Mecanica|<P1>|Placa: H\nMarca: Chevrolet\nModelo: Zafiro\nColor: Rojo\nAnio: 2006\nTransmision: Mecanica|<P2>"];
-Nodo366712642:P2->Nodo1311053135;
-Nodo118352462[label="<P0>|Placa: J\nMarca: BMW\nModelo: X3\nColor: Azul\nAnio: 2010\nTransmision: Automatica|<P1>|Placa: K\nMarca: Lamborgini\nModelo: Picaso\nColor: Morado\nAnio: 2008\nTransmision: Automatica|<P2>"];
-Nodo366712642:P3->Nodo118352462;
+  node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+ labelloc = "t;"label = "REPORTE CONDUCTORES";Nodo93851167[label="<P0>|Placa: p17lAf17\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p25lAf25\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p35lAf35\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>|Placa: p43lAf43\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P4>"];
+Nodo626245747[label="<P0>|Placa: p11lAf11\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p14lAf14\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo39843744[label="<P0>|Placa: p0lAf0\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p10lAf10\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo626245747:P0->Nodo39843744;
+Nodo1516242020[label="<P0>|Placa: p12lAf12\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p13lAf13\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo626245747:P1->Nodo1516242020;
+Nodo525144513[label="<P0>|Placa: p15lAf15\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p16lAf16\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo626245747:P2->Nodo525144513;
+Nodo93851167:P0->Nodo626245747;
+Nodo614861315[label="<P0>|Placa: p1lAf1\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p22lAf22\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1505303488[label="<P0>|Placa: p18lAf18\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p19lAf19\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo614861315:P0->Nodo1505303488;
+Nodo60843959[label="<P0>|Placa: p20lAf20\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p21lAf21\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo614861315:P1->Nodo60843959;
+Nodo1955900699[label="<P0>|Placa: p23lAf23\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p24lAf24\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo614861315:P2->Nodo1955900699;
+Nodo93851167:P1->Nodo614861315;
+Nodo1618364312[label="<P0>|Placa: p2lAf2\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p32lAf32\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1895839565[label="<P0>|Placa: p26lAf26\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p27lAf27\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p28lAf28\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>|Placa: p29lAf29\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P4>"];
+Nodo1618364312:P0->Nodo1895839565;
+Nodo1897757445[label="<P0>|Placa: p30lAf30\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p31lAf31\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1618364312:P1->Nodo1897757445;
+Nodo540077128[label="<P0>|Placa: p33lAf33\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p34lAf34\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1618364312:P2->Nodo540077128;
+Nodo93851167:P2->Nodo1618364312;
+Nodo1923622225[label="<P0>|Placa: p38lAf38\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p40lAf40\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo40033814[label="<P0>|Placa: p36lAf36\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p37lAf37\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1923622225:P0->Nodo40033814;
+Nodo415062028[label="<P0>|Placa: p39lAf39\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p3lAf3\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1923622225:P1->Nodo415062028;
+Nodo1061729791[label="<P0>|Placa: p41lAf41\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p42lAf42\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1923622225:P2->Nodo1061729791;
+Nodo93851167:P3->Nodo1923622225;
+Nodo209296874[label="<P0>|Placa: p46lAf46\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p5lAf5\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo411004957[label="<P0>|Placa: p44lAf44\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p45lAf45\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo209296874:P0->Nodo411004957;
+Nodo1785738790[label="<P0>|Placa: p47lAf47\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p48lAf48\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p49lAf49\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>|Placa: p4lAf4\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P4>"];
+Nodo209296874:P1->Nodo1785738790;
+Nodo284004826[label="<P0>|Placa: p6lAf6\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p7lAf7\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p8lAf8\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>|Placa: p9lAf9\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P4>"];
+Nodo209296874:P2->Nodo284004826;
+Nodo93851167:P4->Nodo209296874;
 
-}
+  }
