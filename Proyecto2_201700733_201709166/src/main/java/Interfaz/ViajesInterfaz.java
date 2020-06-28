@@ -12,6 +12,8 @@ import Principal.Inicio;
 import Principal.Rutas;
 import Principal.Vehiculo;
 import java.math.BigInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -143,17 +145,14 @@ public class ViajesInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-       //Cuando se genera el viaje se crea la ruta mas rapida,
-       //se hace la lista generada con la ruta mas corta
-       //se guarda el cliente, el conductor, el vehiculo y la lista
-        ListaEnlazada<Rutas> ruta= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
-        Inicio.arbolito.buscarCarro(TxtPlaca.getText());
-        Inicio.tablita.buscar(BigInteger.valueOf(Long.parseLong(cliente.getText())));
-         Cliente buscarCliente= Inicio.tablita.getAux();
-         Vehiculo buscarCarro= Inicio.arbolito.getCarros();
-         Conductores conductor= Inicio.lcd.Buscar(Long.parseLong(TxtConductor.getText()));
-        
-        
+        try {
+            //Cuando se genera el viaje se crea la ruta mas rapida,
+            //se hace la lista generada con la ruta mas corta
+            //se guarda el cliente, el conductor, el vehiculo y la lista
+            Inicio.cadenaBloques.generarViaje(origen.getText(), destino.getText(), cliente.getText(), TxtPlaca.getText(),TxtConductor.getText());
+        } catch (Exception ex) {
+            Logger.getLogger(ViajesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

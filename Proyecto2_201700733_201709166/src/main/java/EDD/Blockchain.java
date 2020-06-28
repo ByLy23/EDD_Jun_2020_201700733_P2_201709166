@@ -13,9 +13,9 @@ import Principal.Rutas;
 import Principal.Vehiculo;
 import java.math.BigInteger;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -36,7 +36,7 @@ public class Blockchain {
           this.ruta=null;
         //
     }
-    public void generarViaje(String origen, String destino, String cliente, String carro, String conductor){
+    public void generarViaje(String origen, String destino, String cliente, String carro, String conductor) throws Exception{
         Inicio.arbolito.buscarCarro(carro);
         Inicio.tablita.buscar(BigInteger.valueOf(Long.parseLong(cliente)));
         ruta= Inicio.graph.generarRuta(origen, destino);
@@ -45,33 +45,22 @@ public class Blockchain {
         buscarCliente= Inicio.tablita.getAux();
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm"));
-        listabloques.insertarFinal(new Bloque(origen,destino,FechaHora,buscarCliente,this.conductor,buscarCarro,generaLlaves(carro)));
+        String llaveEncriptada= generarHash(generaLlaves(carro));
+        listabloques.insertarFinal(new Bloque(origen,destino,FechaHora,buscarCliente,this.conductor,buscarCarro,llaveEncriptada));
     }
     public String generaLlaves(String placa)
     {
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm")).trim().replace(" ", "").toUpperCase(); //quita espacio y transforma a mayuscula
-    
         System.out.println("Fecha hora: " + placa + FechaHora);
         return placa + FechaHora;
     }
-    public String convertirSHA256(String password) {
-	MessageDigest md = null;
-	try {
-		md = MessageDigest.getInstance("SHA-256");
-	} 
-	catch (NoSuchAlgorithmException e) {		
-		e.printStackTrace();
-		return null;
-	}
-	    
-	byte[] hash = md.digest(password.getBytes());
-	StringBuffer sb = new StringBuffer();
-	    
-	for(byte b : hash) {        
-		sb.append(String.format("%02x", b));
-	}
-	    
-	return sb.toString();
-}
+    private String generarHash(String text) throws Exception{
+        byte[] mensajeEncriptado= text.getBytes("UTF-8");
+        MessageDigest md= MessageDigest.getInstance("MD5");
+        byte[] elMensaje= md.digest(mensajeEncriptado);
+        String elHash= DatatypeConverter.printHexBinary(elMensaje).toUpperCase();
+        System.out.println(elHash);
+        return elHash;        
+    }
 }
