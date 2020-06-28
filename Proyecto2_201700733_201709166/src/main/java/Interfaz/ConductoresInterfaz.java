@@ -7,6 +7,7 @@ package Interfaz;
 
 import EDD.ListaCircularDoble;
 import Principal.Conductores;
+import Principal.Inicio;
 import static Principal.Inicio.condu;
 import static Principal.Inicio.lcd;
 import java.io.BufferedReader;
@@ -225,34 +226,31 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        String validacion=TxtDpi.getText();
-        long dpi = Long.parseLong(TxtDpi.getText());
-         Conductores aux = lcd.Buscar(dpi);
-        if (TxtDpi.getText().isEmpty()) {
+
+        if (TxtDpi.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos para registrar a alguien");
             TxtDpi.setFocusable(true);
-        } else if (validacion.equals(Long.toString(aux.getDPI()))) {
-            JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
-            //auxilio
-            TxtDpi.setText("");
-            TxtNombres.setText("");
-            TxtApellidos.setText("");
-            TxtLicencia.setText("");
-            TxtGenero.setText("");
-            TxtTelefono.setText("");
-            TxtDireccion.setText("");
-            //*soy estpida
         } else {
-            lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
-            TxtDpi.setText("");
-            TxtNombres.setText("");
-            TxtApellidos.setText("");
-            TxtLicencia.setText("");
-            TxtGenero.setText("");
-            TxtTelefono.setText("");
-            TxtDireccion.setText("");
-            JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
+            String validacion = TxtDpi.getText();
+            long dpi = Long.parseLong(TxtDpi.getText());
+            Conductores aux = Inicio.lcd.Buscar(dpi);
+            if (aux != null) {
+                if (validacion.equals(Long.toString(aux.getDPI()))) {
+                    JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
+                }
+            } else {
+                lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+                JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
+            }
         }
+        TxtDpi.setText("");
+        TxtNombres.setText("");
+        TxtApellidos.setText("");
+        TxtLicencia.setText("");
+        TxtGenero.setText("");
+        TxtTelefono.setText("");
+        TxtDireccion.setText("");
+
         //lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
