@@ -2,7 +2,7 @@ digraph G {
  rankdir=LR; 
  node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
 labelloc = "t;"label = "REPORTE CONDUCTORES";
-x2018118650101[dir=both label = "DPI = 2018118650101\nNombre = Jackeline Alexandra Benitez Benitez\n Licencia = C\n Direccion = 16 Calle A"]x2018118650101-> x3018128650101
+x2018118650101[dir=both label = "DPI = 3018118650101\nNombre = Jackeline Alexandra Benitez Benitez\n Licencia = C\n Direccion = 16 Calle A"]x2018118650101-> x3018128650101
 x2018118650101-> x3018108650101
 x3018128650101[dir=both label = "DPI = 3018128650101\nNombre = Ludwing Gabriel Paz Hernandez\n Licencia = C\n Direccion = gt"]x3018128650101-> x3018138650101
 x3018128650101-> x2018118650101
