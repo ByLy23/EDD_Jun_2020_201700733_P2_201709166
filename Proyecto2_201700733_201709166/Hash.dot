@@ -1,7 +1,207 @@
 digraph G{
  rankdir=LR
 node[shape=record,style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
- labelloc = "t;"label = "REPORTE CLIENTES";  Nodo1360432416[label= 
-"<P0>\n\n0\n\n----------\n\n|<P1>1\n\n----------\n\n|<P2>2\n\n----------\n\n|<P3>3\n\n----------\n\n|<P4>4\n\n----------\n\n|<P5>5\n\n----------\n\n|<P6>6\n\n----------\n\n|<P7>7\n\n----------\n\n|<P8>8\n\n----------\n\n|<P9>9\n\n----------\n\n|<P10>10\n\n----------\n\n|<P11>11\n\n----------\n\n|<P12>12\n\n----------\n\n|<P13>13\n\n----------\n\n|<P14>14\n\n----------\n\n|<P15>15\n\n----------\n\n|<P16>16\n\n----------\n\n|<P17>17\n\n----------\n\n|<P18>18\n\n----------\n\n|<P19>19\n\n----------\n\n|<P20>20\n\n----------\n\n|<P21>21\n\n----------\n\n|<P22>22\n\n----------\n\n|<P23>23\n\n----------\n\n|<P24>24\n\n----------\n\n|<P25>25\n\n----------\n\n|<P26>26\n\n----------\n\n|<P27>27\n\n----------\n\n|<P28>28\n\n----------\n\n|<P29>29\n\n----------\n\n|<P30>30\n\n----------\n\n|<P31>31\n\n----------\n\n|<P32>32\n\n----------\n\n|<P33>33\n\n----------\n\n|<P34>34\n\n----------\n\n|<P35>35\n\n----------\n\n|<P36>36\n\n----------\n\n|<P37>"];
+ labelloc = "t;"label = "REPORTE CLIENTES";  Nodo220711201[label= 
+"<P0>\n\n0\n\n----------\n\n|<P1>1\n\n----------\n\n|<P2>2\n\n----------\n\n|<P3>3\n\n----------\n\n|<P4>4\n\n----------\n\n|<P5>5\n\n----------\n\n|<P6>6\n\n----------\n\n|<P7>7\n\n----------\n\n|<P8>8\n\n----------\n\n|<P9>9\n\n----------\n\n|<P10>10\n\n----------\n\n|<P11>11\n\n----------\n\n|<P12>12\n\n----------\n\n|<P13>13\n\n----------\n\n|<P14>14\n\n----------\n\n|<P15>15\n\n----------\n\n|<P16>16\n\n----------\n\n|<P17>17\n\n----------\n\n|<P18>18\n\n----------\n\n|<P19>19\n\n----------\n\n|<P20>20\n\n----------\n\n|<P21>21\n\n----------\n\n|<P22>22\n\n----------\n\n|<P23>23\n\n----------\n\n|<P24>24\n\n----------\n\n|<P25>25\n\n----------\n\n|<P26>26\n\n----------\n\n|<P27>27\n\n----------\n\n|<P28>28\n\n----------\n\n|<P29>29\n\n----------\n\n|<P30>30\n\n----------\n\n|<P31>31\n\n----------\n\n|<P32>32\n\n----------\n\n|<P33>33\n\n----------\n\n|<P34>34\n\n----------\n\n|<P35>35\n\n----------\n\n|<P36>36\n\n----------\n\n|<P37>37\n\n----------\n\n|<P38>38\n\n----------\n\n|<P39>39\n\n----------\n\n|<P40>40\n\n----------\n\n|<P41>41\n\n----------\n\n|<P42>42\n\n----------\n\n|<P43>43\n\n----------\n\n|<P44>44\n\n----------\n\n|<P45>45\n\n----------\n\n|<P46>46\n\n----------\n\n|<P47>47\n\n----------\n\n|<P48>48\n\n----------\n\n|<P49>49\n\n----------\n\n|<P50>50\n\n----------\n\n|<P51>51\n\n----------\n\n|<P52>52\n\n----------\n\n|<P53>53\n\n----------\n\n|<P54>54\n\n----------\n\n|<P55>55\n\n----------\n\n|<P56>56\n\n----------\n\n|<P57>57\n\n----------\n\n|<P58>58\n\n----------\n\n|<P59>59\n\n----------\n\n|<P60>60\n\n----------\n\n|<P61>61\n\n----------\n\n|<P62>62\n\n----------\n\n|<P63>63\n\n----------\n\n|<P64>64\n\n----------\n\n|<P65>65\n\n----------\n\n|<P66>66\n\n----------\n\n|<P67>67\n\n----------\n\n|<P68>68\n\n----------\n\n|<P69>69\n\n----------\n\n|<P70>70\n\n----------\n\n|<P71>71\n\n----------\n\n|<P72>72\n\n----------\n\n|<P73>73\n\n----------\n\n|<P74>74\n\n----------\n\n|<P75>75\n\n----------\n\n|<P76>76\n\n----------\n\n|<P77>77\n\n----------\n\n|<P78>78\n\n----------\n\n|<P79>79\n\n----------\n\n|<P80>80\n\n----------\n\n|<P81>81\n\n----------\n\n|<P82>82\n\n----------\n\n|<P83>83\n\n----------\n\n|<P84>84\n\n----------\n\n|<P85>85\n\n----------\n\n|<P86>86\n\n----------\n\n|<P87>87\n\n----------\n\n|<P88>88\n\n----------\n\n|<P89>89\n\n----------\n\n|<P90>90\n\n----------\n\n|<P91>91\n\n----------\n\n|<P92>92\n\n----------\n\n|<P93>93\n\n----------\n\n|<P94>94\n\n----------\n\n|<P95>95\n\n----------\n\n|<P96>96\n\n----------\n\n|<P97>97\n\n----------\n\n|<P98>98\n\n----------\n\n|<P99>99\n\n----------\n\n|<P100>100\n\n----------\n\n|<P101>101\n\n----------\n\n|<P102>102\n\n----------\n\n|<P103>103\n\n----------\n\n|<P104>104\n\n----------\n\n|<P105>105\n\n----------\n\n|<P106>106\n\n----------\n\n|<P107>107\n\n----------\n\n|<P108>108\n\n----------\n\n|<P109>109\n\n----------\n\n|<P110>110\n\n----------\n\n|<P111>111\n\n----------\n\n|<P112>112\n\n----------\n\n|<P113>113\n\n----------\n\n|<P114>114\n\n----------\n\n|<P115>115\n\n----------\n\n|<P116>116\n\n----------\n\n|<P117>117\n\n----------\n\n|<P118>118\n\n----------\n\n|<P119>119\n\n----------\n\n|<P120>120\n\n----------\n\n|<P121>121\n\n----------\n\n|<P122>122\n\n----------\n\n|<P123>123\n\n----------\n\n|<P124>124\n\n----------\n\n|<P125>125\n\n----------\n\n|<P126>126\n\n----------\n\n|<P127>127\n\n----------\n\n|<P128>128\n\n----------\n\n|<P129>129\n\n----------\n\n|<P130>130\n\n----------\n\n|<P131>131\n\n----------\n\n|<P132>132\n\n----------\n\n|<P133>133\n\n----------\n\n|<P134>134\n\n----------\n\n|<P135>135\n\n----------\n\n|<P136>136\n\n----------\n\n|<P137>137\n\n----------\n\n|<P138>138\n\n----------\n\n|<P139>139\n\n----------\n\n|<P140>140\n\n----------\n\n|<P141>141\n\n----------\n\n|<P142>142\n\n----------\n\n|<P143>143\n\n----------\n\n|<P144>144\n\n----------\n\n|<P145>145\n\n----------\n\n|<P146>146\n\n----------\n\n|<P147>147\n\n----------\n\n|<P148>"];
+Nodo1804429664[label=" DPI: 2919897975502\nNombre: Joseph Wheeler\nGenero: M\nTelefono: 11391223\nFecha Nacimiento: 04/09/2021\nDireccion: Jaén"];
+Nodo1804429664 -> Nodo1300606439
+Nodo1300606439[label=" DPI: 4818557261434\nNombre: Noelani Strong\nGenero: M\nTelefono: 47169915\nFecha Nacimiento: 09/30/2020\nDireccion: Pilibhit"];
+Nodo1300606439 -> Nodo35639079
+Nodo35639079[label=" DPI: 9373184849326\nNombre: Cheyenne Stanley\nGenero: M\nTelefono: 76405798\nFecha Nacimiento: 06/16/2021\nDireccion: Coihueco"];
+Nodo220711201:P2 -> Nodo1804429664
+Nodo834826372[label=" DPI: 3713082384819\nNombre: Neville Sears\nGenero: F\nTelefono: 38038604\nFecha Nacimiento: 01/31/2021\nDireccion: Oberpullendorf"];
+Nodo220711201:P3 -> Nodo834826372
+Nodo830790069[label=" DPI: 4873746570663\nNombre: Edan Jarvis\nGenero: M\nTelefono: 56056140\nFecha Nacimiento: 03/11/2020\nDireccion: Cincinnati"];
+Nodo830790069 -> Nodo1368305911
+Nodo1368305911[label=" DPI: 4408643895203\nNombre: Carl Hurley\nGenero: F\nTelefono: 32775706\nFecha Nacimiento: 08/21/2019\nDireccion: Termoli"];
+Nodo1368305911 -> Nodo764685078
+Nodo764685078[label=" DPI: 6778404083327\nNombre: Tarik Mayer\nGenero: F\nTelefono: 62434099\nFecha Nacimiento: 01/12/2020\nDireccion: Glasgow"];
+Nodo220711201:P7 -> Nodo830790069
+Nodo267401328[label=" DPI: 5420601357515\nNombre: Jameson Norton\nGenero: M\nTelefono: 69077353\nFecha Nacimiento: 09/06/2020\nDireccion: Barrhead"];
+Nodo220711201:P11 -> Nodo267401328
+Nodo405668170[label=" DPI: 1883140684968\nNombre: Sierra Hart\nGenero: M\nTelefono: 33978924\nFecha Nacimiento: 04/20/2020\nDireccion: Chicoutimi"];
+Nodo220711201:P12 -> Nodo405668170
+Nodo1006834608[label=" DPI: 8329008488995\nNombre: Sydnee Erickson\nGenero: M\nTelefono: 61826120\nFecha Nacimiento: 09/13/2019\nDireccion: Mezen"];
+Nodo220711201:P15 -> Nodo1006834608
+Nodo809718717[label=" DPI: 1297611362336\nNombre: Maryam Frazier\nGenero: M\nTelefono: 96152696\nFecha Nacimiento: 07/30/2020\nDireccion: Mellet"];
+Nodo220711201:P16 -> Nodo809718717
+Nodo1056890493[label=" DPI: 9129275415670\nNombre: Xenos Valdez\nGenero: F\nTelefono: 36593937\nFecha Nacimiento: 05/15/2020\nDireccion: Châteauroux"];
+Nodo1056890493 -> Nodo1446165689
+Nodo1446165689[label=" DPI: 518724331258\nNombre: Richard Sexton\nGenero: M\nTelefono: 65291137\nFecha Nacimiento: 05/12/2020\nDireccion: Sevastopol"];
+Nodo220711201:P18 -> Nodo1056890493
+Nodo1913174876[label=" DPI: 5687015749487\nNombre: Kylie Frederick\nGenero: F\nTelefono: 9350899\nFecha Nacimiento: 06/04/2021\nDireccion: Fauglia"];
+Nodo1913174876 -> Nodo1492959259
+Nodo1492959259[label=" DPI: 9993692792863\nNombre: Sawyer Reyes\nGenero: F\nTelefono: 56671027\nFecha Nacimiento: 04/06/2021\nDireccion: Jaén"];
+Nodo1492959259 -> Nodo280617039
+Nodo280617039[label=" DPI: 4983784286071\nNombre: Carlos Cortez\nGenero: F\nTelefono: 60615140\nFecha Nacimiento: 02/07/2020\nDireccion: Lo Espejo"];
+Nodo220711201:P19 -> Nodo1913174876
+Nodo1403867541[label=" DPI: 6474194328868\nNombre: Jael Brooks\nGenero: M\nTelefono: 20006857\nFecha Nacimiento: 10/19/2020\nDireccion: Chalon-sur-Saône"];
+Nodo1403867541 -> Nodo1690882791
+Nodo1690882791[label=" DPI: 4977643504260\nNombre: Jessica Phillips\nGenero: M\nTelefono: 60645869\nFecha Nacimiento: 04/19/2020\nDireccion: Mapiripana"];
+Nodo220711201:P20 -> Nodo1403867541
+Nodo1510615677[label=" DPI: 8196321793109\nNombre: Bernard Hoffman\nGenero: F\nTelefono: 30606377\nFecha Nacimiento: 11/11/2020\nDireccion: Grimma"];
+Nodo1510615677 -> Nodo99488491
+Nodo99488491[label=" DPI: 1078746593749\nNombre: Kibo Payne\nGenero: F\nTelefono: 48791153\nFecha Nacimiento: 04/08/2021\nDireccion: Lens-Saint-Remy"];
+Nodo220711201:P21 -> Nodo1510615677
+Nodo1022810682[label=" DPI: 3111231296750\nNombre: Noelani Buck\nGenero: M\nTelefono: 44669987\nFecha Nacimiento: 09/09/2019\nDireccion: Millet"];
+Nodo1022810682 -> Nodo504068265
+Nodo504068265[label=" DPI: 8669591306594\nNombre: Rachel Hatfield\nGenero: F\nTelefono: 73214286\nFecha Nacimiento: 02/05/2021\nDireccion: Camarones"];
+Nodo220711201:P22 -> Nodo1022810682
+Nodo366600407[label=" DPI: 2686125895389\nNombre: Nathan Briggs\nGenero: F\nTelefono: 46453032\nFecha Nacimiento: 11/02/2019\nDireccion: Limena"];
+Nodo220711201:P25 -> Nodo366600407
+Nodo1616232909[label=" DPI: 8930381072670\nNombre: Tarik Stevenson\nGenero: F\nTelefono: 43235336\nFecha Nacimiento: 08/15/2019\nDireccion: Cockburn"];
+Nodo1616232909 -> Nodo1786306807
+Nodo1786306807[label=" DPI: 5999555549138\nNombre: George Moreno\nGenero: F\nTelefono: 34288324\nFecha Nacimiento: 03/06/2021\nDireccion: Markham"];
+Nodo220711201:P26 -> Nodo1616232909
+Nodo804459297[label=" DPI: 4606480269853\nNombre: Hashim York\nGenero: M\nTelefono: 38874219\nFecha Nacimiento: 12/18/2019\nDireccion: Jauchelette"];
+Nodo804459297 -> Nodo1970704720
+Nodo1970704720[label=" DPI: 8460220587345\nNombre: Lucius Malone\nGenero: M\nTelefono: 55534561\nFecha Nacimiento: 04/07/2021\nDireccion: Assiniboia"];
+Nodo220711201:P29 -> Nodo804459297
+Nodo1004760474[label=" DPI: 5673491525039\nNombre: Jessica Lyons\nGenero: M\nTelefono: 84009788\nFecha Nacimiento: 03/03/2020\nDireccion: Ede"];
+Nodo220711201:P31 -> Nodo1004760474
+Nodo372333897[label=" DPI: 1706798815673\nNombre: Maris Mccoy\nGenero: M\nTelefono: 96634099\nFecha Nacimiento: 01/04/2021\nDireccion: Saint-Jean-Geest"];
+Nodo220711201:P33 -> Nodo372333897
+Nodo569126581[label=" DPI: 5537726361959\nNombre: Fatima Byers\nGenero: M\nTelefono: 53537553\nFecha Nacimiento: 01/03/2020\nDireccion: Bayreuth"];
+Nodo220711201:P35 -> Nodo569126581
+Nodo1624365001[label=" DPI: 2566539704112\nNombre: Raya Carson\nGenero: F\nTelefono: 2564732\nFecha Nacimiento: 04/11/2021\nDireccion: Sart-Eustache"];
+Nodo220711201:P36 -> Nodo1624365001
+Nodo1090447860[label=" DPI: 3279031564682\nNombre: Kai Franco\nGenero: M\nTelefono: 77891911\nFecha Nacimiento: 12/13/2019\nDireccion: Grand-RosiŽre-Hottomont"];
+Nodo220711201:P42 -> Nodo1090447860
+Nodo1555644343[label=" DPI: 5654548344527\nNombre: Asher Terrell\nGenero: F\nTelefono: 59693314\nFecha Nacimiento: 02/18/2020\nDireccion: Waitakere"];
+Nodo220711201:P43 -> Nodo1555644343
+Nodo484453139[label=" DPI: 5737603292072\nNombre: Nolan Howard\nGenero: F\nTelefono: 9689111\nFecha Nacimiento: 08/29/2020\nDireccion: Lampa"];
+Nodo220711201:P44 -> Nodo484453139
+Nodo1919011033[label=" DPI: 7139580611377\nNombre: Mara Wilkins\nGenero: M\nTelefono: 76795189\nFecha Nacimiento: 10/20/2020\nDireccion: Miryang"];
+Nodo220711201:P49 -> Nodo1919011033
+Nodo1172782632[label=" DPI: 9757178323374\nNombre: Hayfa Duran\nGenero: F\nTelefono: 53409581\nFecha Nacimiento: 11/02/2020\nDireccion: Grand-Leez"];
+Nodo1172782632 -> Nodo1345779108
+Nodo1345779108[label=" DPI: 8513677824322\nNombre: Buckminster Nixon\nGenero: F\nTelefono: 66655914\nFecha Nacimiento: 02/18/2020\nDireccion: Enterprise"];
+Nodo220711201:P50 -> Nodo1172782632
+Nodo1293149186[label=" DPI: 2495374578416\nNombre: Quinn Shelton\nGenero: F\nTelefono: 53287026\nFecha Nacimiento: 02/14/2021\nDireccion: Waidhofen an der Ybbs"];
+Nodo1293149186 -> Nodo826854009
+Nodo826854009[label=" DPI: 9759532410044\nNombre: Declan Bright\nGenero: M\nTelefono: 99697163\nFecha Nacimiento: 02/14/2021\nDireccion: Rödermark"];
+Nodo220711201:P52 -> Nodo1293149186
+Nodo1294115846[label=" DPI: 6853678660409\nNombre: Shoshana Howe\nGenero: F\nTelefono: 4727606\nFecha Nacimiento: 09/26/2020\nDireccion: Futrono"];
+Nodo220711201:P53 -> Nodo1294115846
+Nodo719250387[label=" DPI: 9502963398846\nNombre: Levi Rojas\nGenero: M\nTelefono: 58118245\nFecha Nacimiento: 07/10/2019\nDireccion: Ways"];
+Nodo220711201:P54 -> Nodo719250387
+Nodo2017403262[label=" DPI: 6581381668196\nNombre: Calista Atkins\nGenero: F\nTelefono: 36063466\nFecha Nacimiento: 09/29/2019\nDireccion: Sant'Eufemia a Maiella"];
+Nodo220711201:P56 -> Nodo2017403262
+Nodo257107714[label=" DPI: 7595039835360\nNombre: Jesse Molina\nGenero: M\nTelefono: 17639809\nFecha Nacimiento: 01/08/2020\nDireccion: Gandhidham"];
+Nodo257107714 -> Nodo1460248698
+Nodo1460248698[label=" DPI: 1446098715428\nNombre: Phelan Ramirez\nGenero: F\nTelefono: 6803143\nFecha Nacimiento: 04/10/2021\nDireccion: Ville de Maniwaki"];
+Nodo220711201:P60 -> Nodo257107714
+Nodo169083187[label=" DPI: 9571373488729\nNombre: Keely Kline\nGenero: F\nTelefono: 58961572\nFecha Nacimiento: 02/06/2021\nDireccion: Gooik"];
+Nodo220711201:P61 -> Nodo169083187
+Nodo186770910[label=" DPI: 1107471077147\nNombre: Chadwick Ayala\nGenero: F\nTelefono: 567790\nFecha Nacimiento: 08/17/2019\nDireccion: San Giovanni la Punta"];
+Nodo220711201:P63 -> Nodo186770910
+Nodo492615823[label=" DPI: 3357030498212\nNombre: Chancellor Adkins\nGenero: F\nTelefono: 93692715\nFecha Nacimiento: 06/17/2020\nDireccion: Bassiano"];
+Nodo220711201:P64 -> Nodo492615823
+Nodo130859310[label=" DPI: 5530157984908\nNombre: Tanya Dunlap\nGenero: M\nTelefono: 29998653\nFecha Nacimiento: 10/08/2020\nDireccion: Selva di Cadore"];
+Nodo220711201:P68 -> Nodo130859310
+Nodo763057533[label=" DPI: 83192945182\nNombre: Octavia Velasquez\nGenero: M\nTelefono: 50264157\nFecha Nacimiento: 03/09/2020\nDireccion: Biryuch"];
+Nodo220711201:P70 -> Nodo763057533
+Nodo695224857[label=" DPI: 1251970308392\nNombre: Jasmine Preston\nGenero: M\nTelefono: 17452378\nFecha Nacimiento: 09/27/2019\nDireccion: Ponoka"];
+Nodo695224857 -> Nodo1360009080
+Nodo1360009080[label=" DPI: 6412735533384\nNombre: Wyatt Garcia\nGenero: F\nTelefono: 53510815\nFecha Nacimiento: 03/17/2021\nDireccion: Gulfport"];
+Nodo220711201:P72 -> Nodo695224857
+Nodo808745413[label=" DPI: 7501929582237\nNombre: Blake Palmer\nGenero: M\nTelefono: 52216944\nFecha Nacimiento: 12/21/2020\nDireccion: Anchorage"];
+Nodo220711201:P73 -> Nodo808745413
+Nodo1192432131[label=" DPI: 6356873104326\nNombre: Wyatt Tillman\nGenero: F\nTelefono: 87363420\nFecha Nacimiento: 09/09/2019\nDireccion: Wolvertem"];
+Nodo220711201:P74 -> Nodo1192432131
+Nodo1821943930[label=" DPI: 556854739331\nNombre: Martin Moss\nGenero: F\nTelefono: 58898832\nFecha Nacimiento: 01/22/2020\nDireccion: Bad Neuenahr-Ahrweiler"];
+Nodo1821943930 -> Nodo1029888326
+Nodo1029888326[label=" DPI: 6512903047531\nNombre: Ulric Wolf\nGenero: F\nTelefono: 86420478\nFecha Nacimiento: 05/17/2020\nDireccion: Jaén"];
+Nodo220711201:P75 -> Nodo1821943930
+Nodo772502910[label=" DPI: 8946371181420\nNombre: Zenaida Castaneda\nGenero: F\nTelefono: 28201222\nFecha Nacimiento: 12/26/2020\nDireccion: Balikpapan"];
+Nodo772502910 -> Nodo1909975478
+Nodo1909975478[label=" DPI: 5863863821928\nNombre: Brenden Solis\nGenero: M\nTelefono: 49609001\nFecha Nacimiento: 01/27/2021\nDireccion: San Juan de Dios"];
+Nodo1909975478 -> Nodo1487230094
+Nodo1487230094[label=" DPI: 1259290137536\nNombre: Marsden Mueller\nGenero: F\nTelefono: 14409926\nFecha Nacimiento: 12/23/2019\nDireccion: Bekasi"];
+Nodo220711201:P76 -> Nodo772502910
+Nodo1931877941[label=" DPI: 2146121164569\nNombre: Jack Peterson\nGenero: M\nTelefono: 16479509\nFecha Nacimiento: 08/14/2019\nDireccion: Saint-Vincent"];
+Nodo220711201:P77 -> Nodo1931877941
+Nodo108213674[label=" DPI: 7404926693939\nNombre: Xerxes Gross\nGenero: F\nTelefono: 3660425\nFecha Nacimiento: 02/13/2021\nDireccion: Hospet"];
+Nodo220711201:P83 -> Nodo108213674
+Nodo1218963083[label=" DPI: 2924104525712\nNombre: Camilla Henderson\nGenero: M\nTelefono: 74966517\nFecha Nacimiento: 11/24/2020\nDireccion: Los Patios"];
+Nodo220711201:P84 -> Nodo1218963083
+Nodo987028021[label=" DPI: 5790511778222\nNombre: Hedda Pate\nGenero: M\nTelefono: 70050863\nFecha Nacimiento: 01/20/2020\nDireccion: Yellowknife"];
+Nodo220711201:P86 -> Nodo987028021
+Nodo2034281708[label=" DPI: 1747479684508\nNombre: Daria Trujillo\nGenero: F\nTelefono: 44025971\nFecha Nacimiento: 10/27/2020\nDireccion: Burdinne"];
+Nodo220711201:P88 -> Nodo2034281708
+Nodo1719732235[label=" DPI: 8324722614641\nNombre: Suki Kemp\nGenero: F\nTelefono: 41906256\nFecha Nacimiento: 08/23/2020\nDireccion: Rovereto"];
+Nodo220711201:P89 -> Nodo1719732235
+Nodo300235246[label=" DPI: 8279254155582\nNombre: Bruce Diaz\nGenero: F\nTelefono: 38762836\nFecha Nacimiento: 08/31/2020\nDireccion: Bon Accord"];
+Nodo220711201:P94 -> Nodo300235246
+Nodo234638485[label=" DPI: 4420836927683\nNombre: Otto Powers\nGenero: F\nTelefono: 59850746\nFecha Nacimiento: 01/12/2021\nDireccion: Lautaro"];
+Nodo220711201:P95 -> Nodo234638485
+Nodo1898423818[label=" DPI: 8479915254812\nNombre: Clio Mullen\nGenero: M\nTelefono: 64350492\nFecha Nacimiento: 02/23/2021\nDireccion: Beerzel"];
+Nodo1898423818 -> Nodo520628597
+Nodo520628597[label=" DPI: 2051621259388\nNombre: Jordan Kline\nGenero: M\nTelefono: 99018658\nFecha Nacimiento: 03/27/2021\nDireccion: Lukhovitsy"];
+Nodo220711201:P100 -> Nodo1898423818
+Nodo656034099[label=" DPI: 441666186474\nNombre: Alice Rosa\nGenero: F\nTelefono: 32918320\nFecha Nacimiento: 08/09/2019\nDireccion: Juneau"];
+Nodo656034099 -> Nodo1215115681
+Nodo1215115681[label=" DPI: 9991675839622\nNombre: Xander Leon\nGenero: M\nTelefono: 66761300\nFecha Nacimiento: 02/14/2021\nDireccion: Saavedra"];
+Nodo220711201:P102 -> Nodo656034099
+Nodo79087952[label=" DPI: 1732981910144\nNombre: Dana Blackburn\nGenero: M\nTelefono: 6752636\nFecha Nacimiento: 06/08/2020\nDireccion: Terrance"];
+Nodo220711201:P104 -> Nodo79087952
+Nodo1521158962[label=" DPI: 7951782069410\nNombre: Suki Griffin\nGenero: F\nTelefono: 28598377\nFecha Nacimiento: 01/19/2020\nDireccion: Spokane"];
+Nodo220711201:P110 -> Nodo1521158962
+Nodo789414533[label=" DPI: 5846433322355\nNombre: Erich Bender\nGenero: F\nTelefono: 98874616\nFecha Nacimiento: 02/13/2020\nDireccion: Enterpris"];
+Nodo789414533 -> Nodo239881980
+Nodo239881980[label=" DPI: 7406721062987\nNombre: Alexander Lowe\nGenero: F\nTelefono: 8918013\nFecha Nacimiento: 09/20/2020\nDireccion: Orbais"];
+Nodo220711201:P111 -> Nodo789414533
+Nodo1006828076[label=" DPI: 4333002035702\nNombre: Gage Short\nGenero: M\nTelefono: 30678124\nFecha Nacimiento: 05/17/2020\nDireccion: San Giovanni Lipioni"];
+Nodo220711201:P114 -> Nodo1006828076
+Nodo1056080901[label=" DPI: 8407153328554\nNombre: Elton Conner\nGenero: M\nTelefono: 75264338\nFecha Nacimiento: 07/21/2019\nDireccion: Warangal"];
+Nodo220711201:P118 -> Nodo1056080901
+Nodo2099781876[label=" DPI: 8064006748995\nNombre: Christine Melton\nGenero: F\nTelefono: 53740864\nFecha Nacimiento: 10/23/2019\nDireccion: Velsk"];
+Nodo220711201:P119 -> Nodo2099781876
+Nodo293583363[label=" DPI: 1223422007837\nNombre: Penelope Puckett\nGenero: M\nTelefono: 46211514\nFecha Nacimiento: 01/30/2021\nDireccion: Carlton"];
+Nodo220711201:P121 -> Nodo293583363
+Nodo973599130[label=" DPI: 1094582216154\nNombre: Deborah Velasquez\nGenero: M\nTelefono: 84966661\nFecha Nacimiento: 06/26/2020\nDireccion: Veldegem"];
+Nodo220711201:P122 -> Nodo973599130
+Nodo285186163[label=" DPI: 7631742416697\nNombre: Plato Pitts\nGenero: M\nTelefono: 39535188\nFecha Nacimiento: 11/11/2020\nDireccion: Mespelare"];
+Nodo220711201:P125 -> Nodo285186163
+Nodo753673496[label=" DPI: 967595311362\nNombre: Kuame Schwartz\nGenero: F\nTelefono: 54160214\nFecha Nacimiento: 03/29/2020\nDireccion: Bloomington"];
+Nodo220711201:P126 -> Nodo753673496
+Nodo1085226276[label=" DPI: 337525975251\nNombre: Chandler Beasley\nGenero: F\nTelefono: 70366455\nFecha Nacimiento: 09/18/2020\nDireccion: OugrŽe"];
+Nodo1085226276 -> Nodo1168220042
+Nodo1168220042[label=" DPI: 193318085715\nNombre: Oscar Bass\nGenero: M\nTelefono: 68260903\nFecha Nacimiento: 10/03/2019\nDireccion: Wabamun"];
+Nodo1168220042 -> Nodo703707981
+Nodo703707981[label=" DPI: 9593489235355\nNombre: Cassidy Myers\nGenero: M\nTelefono: 73287096\nFecha Nacimiento: 06/08/2021\nDireccion: Amelia"];
+Nodo220711201:P127 -> Nodo1085226276
+Nodo1694011278[label=" DPI: 7638177262969\nNombre: Daniel Stokes\nGenero: M\nTelefono: 8046090\nFecha Nacimiento: 08/08/2020\nDireccion: Bridgwater"];
+Nodo1694011278 -> Nodo1569183784
+Nodo1569183784[label=" DPI: 6047908344341\nNombre: Minerva Mcguire\nGenero: M\nTelefono: 48275777\nFecha Nacimiento: 07/18/2019\nDireccion: Cabo de Santo Agostinho"];
+Nodo220711201:P129 -> Nodo1694011278
+Nodo336806365[label=" DPI: 7730727817255\nNombre: Louis Reed\nGenero: F\nTelefono: 58330113\nFecha Nacimiento: 10/10/2019\nDireccion: Kakinada"];
+Nodo220711201:P131 -> Nodo336806365
+Nodo807185345[label=" DPI: 2285230624658\nNombre: Stone Drake\nGenero: F\nTelefono: 20510655\nFecha Nacimiento: 10/22/2019\nDireccion: Santa Cruz de Lorica"];
+Nodo220711201:P134 -> Nodo807185345
+Nodo272156339[label=" DPI: 6992889371767\nNombre: Robert Woodard\nGenero: M\nTelefono: 45963396\nFecha Nacimiento: 08/03/2019\nDireccion: Eisenhüttenstadt"];
+Nodo272156339 -> Nodo1931287044
+Nodo1931287044[label=" DPI: 2504339476483\nNombre: Alan Mercer\nGenero: F\nTelefono: 53600732\nFecha Nacimiento: 02/12/2020\nDireccion: Caledon"];
+Nodo220711201:P139 -> Nodo272156339
+Nodo2098110483[label=" DPI: 9737919315677\nNombre: Rahim Eaton\nGenero: F\nTelefono: 62560213\nFecha Nacimiento: 06/03/2021\nDireccion: Gondiya"];
+Nodo2098110483 -> Nodo672747216
+Nodo672747216[label=" DPI: 2485357006993\nNombre: Vladimir Graves\nGenero: M\nTelefono: 88235123\nFecha Nacimiento: 12/22/2019\nDireccion: Osgoode"];
+Nodo672747216 -> Nodo2126649406
+Nodo2126649406[label=" DPI: 3122541912561\nNombre: Charissa Shannon\nGenero: M\nTelefono: 10668047\nFecha Nacimiento: 09/11/2020\nDireccion: Medellín"];
+Nodo220711201:P141 -> Nodo2098110483
+Nodo1704259800[label=" DPI: 6190562330091\nNombre: Judah Simmons\nGenero: F\nTelefono: 35274093\nFecha Nacimiento: 05/31/2020\nDireccion: Chandrapur"];
+Nodo220711201:P143 -> Nodo1704259800
+Nodo1838336577[label=" DPI: 6782015741228\nNombre: Carson Espinoza\nGenero: F\nTelefono: 26685477\nFecha Nacimiento: 08/27/2019\nDireccion: Aylmer"];
+Nodo1838336577 -> Nodo253716205
+Nodo253716205[label=" DPI: 8101825129672\nNombre: Ifeoma Lee\nGenero: F\nTelefono: 6751577\nFecha Nacimiento: 10/24/2019\nDireccion: Judenburg"];
+Nodo253716205 -> Nodo1643289816
+Nodo1643289816[label=" DPI: 1830026212000\nNombre: Fritz Lee\nGenero: M\nTelefono: 56310167\nFecha Nacimiento: 10/20/2020\nDireccion: Jambi"];
+Nodo220711201:P144 -> Nodo1838336577
+Nodo589476366[label=" DPI: 2015481997537\nNombre: Anne Leon\nGenero: M\nTelefono: 90618467\nFecha Nacimiento: 10/02/2020\nDireccion: Canora"];
+Nodo589476366 -> Nodo1478075625
+Nodo1478075625[label=" DPI: 4004020583237\nNombre: Sandra Yates\nGenero: F\nTelefono: 77676886\nFecha Nacimiento: 02/18/2020\nDireccion: Fraser Lake"];
+Nodo220711201:P145 -> Nodo589476366
+Nodo742754569[label=" DPI: 4221153302946\nNombre: Jaquelyn Andrews\nGenero: M\nTelefono: 73781005\nFecha Nacimiento: 12/13/2020\nDireccion: Lincoln"];
+Nodo220711201:P146 -> Nodo742754569
 
 }
