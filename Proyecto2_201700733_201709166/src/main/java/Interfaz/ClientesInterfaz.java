@@ -62,6 +62,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         TxtFecha = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -143,7 +144,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 90, -1));
 
-        BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.setText("Generar Reporte");
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
@@ -166,6 +167,14 @@ public class ClientesInterfaz extends javax.swing.JFrame {
             }
         });
         jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 90, -1));
 
         jMenu1.setText("Cargar Archivo");
 
@@ -216,6 +225,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         TxtGenero.setText("");
         TxtTelefono.setText("");
         TxtDireccion.setText("");
+        TxtFecha.setText("");
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -257,7 +267,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         TxtGenero.setText("");
         TxtTelefono.setText("");
         TxtDireccion.setText("");
-
+        TxtFecha.setText("");
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
@@ -266,6 +276,10 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(ClientesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Reporteria principal = new Reporteria();
+        principal.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
@@ -277,8 +291,27 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         TxtGenero.setText("");
         TxtTelefono.setText("");
         TxtDireccion.setText("");
-        
+        TxtFecha.setText("");
+
     }//GEN-LAST:event_BtnAgregarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String seleccion = JOptionPane.showInputDialog("Escriba el Cliente que desea buscar", JOptionPane.QUESTION_MESSAGE);
+        Inicio.tablita.buscar(BigInteger.valueOf(Long.valueOf(seleccion)));
+        Cliente aux = Inicio.tablita.getAux();
+        if (aux != null) {
+            TxtDPI.setText(String.valueOf(aux.getDPI()));
+            TxtNombres.setText(aux.getNombre());
+            TxtApellidos.setText(aux.getApellido());
+            TxtGenero.setText(aux.getGenero());
+            TxtTelefono.setText(String.valueOf(aux.getTelefono()));
+            TxtDireccion.setText(aux.getDireccion());
+            TxtFecha.setText(aux.getFechaNac());
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe");
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,6 +329,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TxtGenero;
     private javax.swing.JTextField TxtNombres;
     private javax.swing.JTextField TxtTelefono;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

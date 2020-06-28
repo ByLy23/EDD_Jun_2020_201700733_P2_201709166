@@ -58,6 +58,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         BtnEliminar = new javax.swing.JButton();
         BtnMostrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -131,7 +132,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 90, -1));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 90, -1));
 
         BtnModificar.setText("Modificar");
         BtnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +140,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
                 BtnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 90, -1));
+        jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 90, -1));
 
         BtnEliminar.setText("Eliminar");
         BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,21 +148,29 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
                 BtnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 90, -1));
+        jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 90, -1));
 
-        BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.setText("Generar Reporte");
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vehiculos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 120, -1));
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 90, -1));
 
         jMenu1.setText("Cargar Archivo");
 
@@ -193,7 +202,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,6 +266,10 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VehiculosInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Reporteria principal = new Reporteria();
+        principal.setVisible(true);
+        this.dispose();
+
 
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
@@ -271,6 +284,19 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         TxtPrecio.setText("");
         TxtTransmision.setText("");
     }//GEN-LAST:event_BtnModificarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+String seleccion = JOptionPane.showInputDialog("Escriba la Placa del carro que desea buscar", JOptionPane.QUESTION_MESSAGE);
+        Inicio.arbolito.buscarCarro(seleccion);
+        Vehiculo aux= Inicio.arbolito.getCarros();
+        TxtPlaca.setText(aux.getPlaca());
+        TxtMarca.setText(aux.getMarca());
+        TxtModelo.setText(aux.getModelo());
+        TxtAnio.setText(String.valueOf(aux.getAnio()));
+        TxtPrecio.setText(String.valueOf(aux.getPrecio()));
+        TxtTransmision.setText(aux.getTransmision());
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,6 +315,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TxtPlaca;
     private javax.swing.JTextField TxtPrecio;
     private javax.swing.JTextField TxtTransmision;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -23,7 +23,17 @@ public class TablaHash {
     private int pos;
     private int elemento;
     private int espacioOcupado;
+    Cliente aux;
     private float porcentajeUtilizacion;
+
+    public Cliente getAux() {
+        return aux;
+    }
+
+    public void setAux(Cliente aux) {
+        this.aux = aux;
+    }
+    
     public TablaHash()
     {
         posicion=0;
@@ -89,13 +99,17 @@ public class TablaHash {
             }
         }
     }
-    private boolean buscar(BigInteger dpi){
+    public boolean buscar(BigInteger dpi){
         for (int i = 0; i < size; i++) {
             if(listaClientes[i]!=null){
+                /*if(listaClientes[i].getTamanio()==0){
+                    if(listaClientes[i])
+                }*/
                 for (int j = 0; j < listaClientes[i].getTamanio(); j++) {
-                    if(listaClientes[i].obtenerElemento(j).getDPI()==dpi){
+                    if(listaClientes[i].obtenerElemento(j).getDPI().equals(dpi)){
                         pos=i;
                         elemento=j;
+                        setAux(listaClientes[i].obtenerElemento(j));
                         return true;
                     }
                     }
@@ -109,7 +123,7 @@ public class TablaHash {
             for (int i = 0; i < size; i++) {
             if(listaClientes[i]!=null){
                 for (int j = 0; j < listaClientes[i].getTamanio(); j++) {
-                    if(listaClientes[i].obtenerElemento(j).getDPI()==dpi){
+                    if(listaClientes[i].obtenerElemento(j).getDPI().equals(dpi)){
                        listaClientes[i].obtenerElemento(j).setDPI(dpi);
                        listaClientes[i].obtenerElemento(j).setNombre(nombre);
                        listaClientes[i].obtenerElemento(j).setApellido(apellido);
