@@ -11,6 +11,7 @@ import EDD.ArbolB;
 import EDD.TablaHash;
 import EDD.ListaCircularDoble;
 import EDD.Grafo;
+import EDD.ListaSimple;
 import java.math.BigInteger;
 
 
@@ -24,12 +25,14 @@ public class Inicio {
     public static EDD.Grafo graph; 
     public static TablaHash tablita;
     public static ArbolB arbolito;
+    public static ListaSimple blockchain;
     public static void main(String[] args) throws Exception
     {
         tablita= new TablaHash();
         arbolito= new ArbolB();
         lcd=new ListaCircularDoble();
         graph=new Grafo();
+        blockchain=new ListaSimple();
 /*import EDD.ArbolB;
 import EDD.TablaHash;
 import java.math.BigInteger;*/
