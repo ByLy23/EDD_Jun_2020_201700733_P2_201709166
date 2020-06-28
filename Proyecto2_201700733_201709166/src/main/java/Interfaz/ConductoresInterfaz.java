@@ -163,13 +163,18 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 90, -1));
 
+
         BtnMostrar.setText("Generar Reportes");
+
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
             }
         });
+
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+
+
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +214,10 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +235,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
 
+
         if (TxtDpi.getText().equals("")) {
+
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos para registrar a alguien");
             TxtDpi.setFocusable(true);
         } else {
@@ -243,6 +253,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
             }
         }
+
         TxtDpi.setText("");
         TxtNombres.setText("");
         TxtApellidos.setText("");
@@ -251,13 +262,14 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         TxtTelefono.setText("");
         TxtDireccion.setText("");
 
+
         //lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
 //        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
-        // System.out.println("El usuario ha escrito " + seleccion);
+
         // buscar(seleccion);
 
         long dpi = Long.parseLong(TxtDpi.getText());
@@ -271,9 +283,11 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
         lcd.Desplegar();
         lcd.ReporteLCD();
+
         Reporteria principal = new Reporteria();
         principal.setVisible(true);
         this.dispose();
+
 
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
@@ -281,14 +295,17 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea buscar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
         long upsi = Long.parseLong(seleccion);
         System.out.println("El usuario ha escrito " + upsi);
+
         Conductores aux = lcd.Buscar(upsi);
         if (aux != null) {
+
             TxtDpi.setText(String.valueOf(aux.getDPI()));
             TxtApellidos.setText(aux.getApellido());
             TxtDireccion.setText(aux.getDireccion());
             TxtGenero.setText(aux.getGenero());
             TxtLicencia.setText(aux.getLicencia());
             TxtNombres.setText(aux.getNombre());
+
             TxtTelefono.setText(aux.getTelefono());
             //TxtDpi.setEnabled(false);
             BtnModificar.setEnabled(true);
@@ -296,6 +313,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No Existe");
         }
+
         TxtDpi.setText(seleccion);
 
 
@@ -320,12 +338,15 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
             chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
             int result = chooser.showOpenDialog(this);
             //Tomamos el archivo que se selecciono
+
             File open = chooser.getSelectedFile();
 
             if (open.exists()) {
                 //Creamos un buffer para leer el archivo
+
 
                 BufferedReader buffer = new BufferedReader(new FileReader(open));
                 String cad = buffer.readLine();
@@ -352,6 +373,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
 
                     }
                     cad = buffer.readLine();
+
 
                 }
 
