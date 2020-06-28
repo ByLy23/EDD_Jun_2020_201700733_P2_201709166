@@ -240,6 +240,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             TxtGenero.setText("");
             TxtTelefono.setText("");
             TxtDireccion.setText("");
+            //*soy estpida
         } else {
             lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
             TxtDpi.setText("");
