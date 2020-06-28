@@ -242,6 +242,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             TxtDpi.setFocusable(true);
         } else if (validacion.equals(Long.toString(aux.getDPI()))) {
             JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
+            //auxilio
             TxtDpi.setText("");
             TxtNombres.setText("");
             TxtApellidos.setText("");
