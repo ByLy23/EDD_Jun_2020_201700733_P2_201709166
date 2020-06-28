@@ -117,5 +117,7 @@ public class Grafo {
             e.printStackTrace();
         }
     }
-
+public ListaEnlazada<Rutas> generarRuta(String origen, String destino){
+    return null;
+}
 }

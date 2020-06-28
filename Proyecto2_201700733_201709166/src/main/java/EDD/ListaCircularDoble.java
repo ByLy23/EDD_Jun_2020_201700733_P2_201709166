@@ -42,7 +42,7 @@ public class ListaCircularDoble {
             
         }
         tam++;
-     ordena_lista(this);
+   //  ordena_lista(this);
     }
 
     public Conductores Buscar(long dato) {
@@ -63,7 +63,7 @@ public class ListaCircularDoble {
         if (found) {
             JOptionPane.showMessageDialog(null, "Conductor encontrado");
             conductor=actual.dato;
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado");
         }

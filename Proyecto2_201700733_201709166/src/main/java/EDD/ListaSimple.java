@@ -6,81 +6,44 @@
 package EDD;
 
 import Principal.Rutas;
+import Principal.Viajes;
 
 /**
  *
  * @author Jacky
  */
-
-
 public class ListaSimple {
-    private NodoLS primero;
-    private NodoLS ultimo;
-    
-    public ListaSimple(){
-    this.primero=null;
-    this.ultimo=null;
+
+    TablaHash clientes;
+    ListaCircularDoble conductor;
+    ArbolB vehiculos;
+    NodoLS raiz;
+
+    public ListaSimple() {
+        this.raiz = null;
     }
-    
-       public void insertarInicio(Rutas dato){
-        NodoLS nuevo;
-        nuevo = new NodoLS(dato);
-        if(primero==null){
-            primero=nuevo;
-            ultimo=nuevo;
-        }else{ 
-            nuevo.setEnlace(primero);
-            primero=nuevo;
-        }
-    }
-    
-    public void insertarFinal(Rutas dato){ 
-        NodoLS nuevo;
-        nuevo = new NodoLS(dato);
-        if(primero==null){
-            primero=nuevo;
-            ultimo=nuevo;
-        }else{ 
-            ultimo.setEnlace(nuevo);
-            ultimo=nuevo;
-            ultimo.setEnlace(null);
-        }      
-    }
-    
-    public boolean  esVacia(){
-        return (primero==null);
-    }
-    
-    public boolean buscarNodo(Rutas dato){
-        boolean encontro=false;
-        NodoLS p=primero;
-        
-       /* while (p.getEnlace()!=null && encontro==false){
-            if(p.getBestruta()==dato){
-                encontro = true;
-                p=p.getEnlace();  
-            }  
-        }*/
-        return encontro;
-    } 
-    
-    
-    public boolean borrarNodoInicio(){
-        if(esVacia()){
-            return false;
-        }
-            if(primero.getEnlace()==null){
-                primero=null;
-                ultimo=null;
-                return false;
-            }else {
-                NodoLS temp=primero;
-                primero=primero.getEnlace();
-                temp.setEnlace(null);
-                return true;
+
+    public void InsertarViaje(String placa) {
+        Viajes viajecito = new Viajes(placa, clientes, conductor, vehiculos);
+        NodoLS nodoBlockChain = new NodoLS(viajecito);
+        if (raiz == null) {
+            raiz = nodoBlockChain;
+        } else {
+            NodoLS aux = raiz;
+            while (aux.next != null) {
+                aux = aux.next;
             }
+            aux.next = nodoBlockChain;
+            nodoBlockChain.prev = aux;
         }
-
-   
-
+    }
+    
+    public void Mostrar(){
+        NodoLS actual =raiz;
+        
+        while(actual!=null){
+            System.out.println(actual.viaje.getLlaveViaje()+"->");
+            actual=actual.next;
+        }
+    }
 }

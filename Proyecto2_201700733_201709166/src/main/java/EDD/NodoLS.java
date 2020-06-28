@@ -5,35 +5,21 @@
  */
 package EDD;
 
-import Principal.Rutas;
+import Principal.Viajes;
 
 /**
  *
  * @author Jacky
  */
 public class NodoLS {
-    private Rutas bestruta;
-    private NodoLS enlace;
+    public Viajes viaje;
+    public NodoLS next;
+    public NodoLS prev;
     
-    public NodoLS(Rutas mejorR){
-    this.bestruta=mejorR;
-    this.enlace=null;
+    public NodoLS(Viajes viajecito){
+    this.viaje=viajecito;
+    this.next=null;
+    this.prev=null;
     }
 
-    public Rutas getBestruta() {
-        return bestruta;
-    }
-
-    public void setBestruta(Rutas bestruta) {
-        this.bestruta = bestruta;
-    }
-
-    public NodoLS getEnlace() {
-        return enlace;
-    }
-
-    public void setEnlace(NodoLS enlace) {
-        this.enlace = enlace;
-    }
-    
 }
