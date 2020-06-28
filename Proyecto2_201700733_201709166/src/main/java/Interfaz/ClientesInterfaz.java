@@ -144,7 +144,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 90, -1));
 
-        BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.setText("Generar Reporte");
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
@@ -276,6 +276,10 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(ClientesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Reporteria principal = new Reporteria();
+        principal.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
@@ -288,23 +292,22 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         TxtTelefono.setText("");
         TxtDireccion.setText("");
         TxtFecha.setText("");
-        
+
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-String seleccion = JOptionPane.showInputDialog("Escriba el Cliente que desea buscar", JOptionPane.QUESTION_MESSAGE);
+        String seleccion = JOptionPane.showInputDialog("Escriba el Cliente que desea buscar", JOptionPane.QUESTION_MESSAGE);
         Inicio.tablita.buscar(BigInteger.valueOf(Long.valueOf(seleccion)));
-        Cliente aux= Inicio.tablita.getAux();
-        if(aux!=null)
-        {
-        TxtDPI.setText(String.valueOf(aux.getDPI()));
-        TxtNombres.setText(aux.getNombre());
-        TxtApellidos.setText(aux.getApellido());
-        TxtGenero.setText(aux.getGenero());
-        TxtTelefono.setText(String.valueOf(aux.getTelefono()));
-        TxtDireccion.setText(aux.getDireccion());     
-        TxtFecha.setText(aux.getFechaNac());
-        }else{
+        Cliente aux = Inicio.tablita.getAux();
+        if (aux != null) {
+            TxtDPI.setText(String.valueOf(aux.getDPI()));
+            TxtNombres.setText(aux.getNombre());
+            TxtApellidos.setText(aux.getApellido());
+            TxtGenero.setText(aux.getGenero());
+            TxtTelefono.setText(String.valueOf(aux.getTelefono()));
+            TxtDireccion.setText(aux.getDireccion());
+            TxtFecha.setText(aux.getFechaNac());
+        } else {
             JOptionPane.showMessageDialog(null, "No existe");
         }
 // TODO add your handling code here:

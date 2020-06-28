@@ -42,7 +42,7 @@ public class ListaCircularDoble {
             
         }
         tam++;
-       // ordena_lista(nuevo);
+     ordena_lista(this);
     }
 
     public Conductores Buscar(long dato) {
@@ -51,15 +51,19 @@ public class ListaCircularDoble {
         actual = primero;
         boolean found = false;
         do {
+            if(primero!=null){
             if (actual.dato.getDPI() == dato) {
                 found = true;
                 break;
             }
             actual = actual.next;
+            }else
+                break;
         } while (actual != ultimo.next);
         if (found) {
             JOptionPane.showMessageDialog(null, "Conductor encontrado");
             conductor=actual.dato;
+            
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado");
         }
@@ -143,11 +147,11 @@ public class ListaCircularDoble {
             aux=nodo.primero;
             while(aux!=nodo.ultimo){
             actual=aux.next;
-                while(actual!=null){
-                    if(aux.dato.getDPI()>actual.dato.getDPI()){
+                while(actual!=ultimo.next){
+                    if(cant<actual.dato.getDPI()){
                         cant=aux.dato.getDPI();
-                    //    aux.dato.getDPI()=actual.dato.getDPI();
-                       cant=actual.dato.getDPI();
+                    aux.dato=actual.dato;
+                       //cant=actual.dato.getDPI();
                     }
                     actual=actual.next;
                 }
