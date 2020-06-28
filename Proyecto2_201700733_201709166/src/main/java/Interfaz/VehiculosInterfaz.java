@@ -5,10 +5,15 @@
  */
 package Interfaz;
 
+import Principal.Inicio;
+import Principal.Vehiculo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -19,9 +24,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class VehiculosInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vehiculos
-     */
     public VehiculosInterfaz() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -56,6 +58,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         BtnEliminar = new javax.swing.JButton();
         BtnMostrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -132,6 +135,11 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 90, -1));
 
         BtnModificar.setText("Modificar");
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 90, -1));
 
         BtnEliminar.setText("Eliminar");
@@ -143,6 +151,11 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 90, -1));
 
         BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMostrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -150,6 +163,14 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vehiculos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 120, -1));
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 200, 90, -1));
 
         jMenu1.setText("Cargar Archivo");
 
@@ -192,11 +213,23 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        // TODO add your handling code here:
+        Vehiculo aux;
+        aux = new Vehiculo(TxtPlaca.getText(), TxtMarca.getText(), TxtModelo.getText(), Integer.parseInt(TxtAnio.getText()), TxtColor.getText(), Integer.parseInt(TxtPrecio.getText()), TxtTransmision.getText());
+        Inicio.arbolito.Insertar(aux);
+        JOptionPane.showMessageDialog(null, "Vehiculo agregado identificado con " + TxtPlaca.getText());
+        TxtPlaca.setText("");
+        TxtMarca.setText("");
+        TxtModelo.setText("");
+        TxtAnio.setText("");
+        TxtColor.setText("");
+        TxtPrecio.setText("");
+        TxtTransmision.setText("");
+
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -206,55 +239,60 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         try {
+            String texto = "";
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
             chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            int result=chooser.showOpenDialog(this);
-        //Tomamos el archivo que se selecciono
+            int result = chooser.showOpenDialog(this);
+            //Tomamos el archivo que se selecciono
             File open = chooser.getSelectedFile();
-
-            if (open.exists()) {
-                //Creamos un buffer para leer el archivo
-                
-                BufferedReader buffer = new BufferedReader(new FileReader(open));
-                String cad = buffer.readLine();
-                
-                while (cad!= null) {
-                    String[] vehiculos=cad.split(";");
-                    for(int i = 0; i < vehiculos.length; i++)
-                    {
-                        String[] datos = vehiculos[i].split(":");
-                        System.out.println("Placa "+datos[0]);
-                        System.out.println("Marca "+datos[1]);
-                        System.out.println("Modelo "+datos[2]);
-                        System.out.println("Anio "+datos[3]);
-                        System.out.println("Color "+datos[4]);
-                        System.out.println("Precio "+datos[5]);
-                        System.out.println("Tipo de Transmision "+datos[6]);
-                        
-                        if(datos.length==7){
-                                /*Aqui se pone el insertar del arbol b*/
-
-                        }else if(datos.length<7){
-                             System.out.println("No hay datos suficientes para agregar al conductor");
-                        }else{
-                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
-                        }                       
-                    }
-                    cad=buffer.readLine();
-                }
-                buffer.close();
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo");
+            Scanner salida = new Scanner(open, "UTF-8");
+            while (salida.hasNextLine()) {
+                texto += salida.nextLine();
             }
+            salida.close();
+            Inicio.arbolito.cargaMasiva(texto);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, "Error Al Abrir El Archivo: " + ex);
         }
 
         JOptionPane.showMessageDialog(null, "Carga masiva completada!");
-
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
+        try {
+            Inicio.arbolito.imprimirNodo();
+        } catch (Exception ex) {
+            Logger.getLogger(VehiculosInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_BtnMostrarActionPerformed
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        Inicio.arbolito.modificarDatos(new Vehiculo(TxtPlaca.getText(), TxtMarca.getText(), TxtModelo.getText(), Integer.parseInt(TxtAnio.getText()), TxtColor.getText(), Integer.parseInt(TxtPrecio.getText()), TxtTransmision.getText()));
+        JOptionPane.showMessageDialog(null, "Vehiculo modificado identificado con " + TxtPlaca.getText());
+        TxtPlaca.setText("");
+        TxtMarca.setText("");
+        TxtModelo.setText("");
+        TxtAnio.setText("");
+        TxtColor.setText("");
+        TxtPrecio.setText("");
+        TxtTransmision.setText("");
+    }//GEN-LAST:event_BtnModificarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+String seleccion = JOptionPane.showInputDialog("Escriba la Placa del carro que desea buscar", JOptionPane.QUESTION_MESSAGE);
+        Inicio.arbolito.buscarCarro(seleccion);
+        Vehiculo aux= Inicio.arbolito.getCarros();
+        TxtPlaca.setText(aux.getPlaca());
+        TxtMarca.setText(aux.getMarca());
+        TxtModelo.setText(aux.getModelo());
+        TxtAnio.setText(String.valueOf(aux.getAnio()));
+        TxtPrecio.setText(String.valueOf(aux.getPrecio()));
+        TxtTransmision.setText(aux.getTransmision());
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,6 +311,7 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TxtPlaca;
     private javax.swing.JTextField TxtPrecio;
     private javax.swing.JTextField TxtTransmision;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -287,4 +326,5 @@ public class VehiculosInterfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
 }

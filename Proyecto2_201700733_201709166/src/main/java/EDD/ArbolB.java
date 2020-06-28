@@ -19,6 +19,16 @@ public class ArbolB {
     private Vehiculo medio=null;
     private PaginaB nuevo=null;
     private PaginaB busqueda=null;
+    private Vehiculo carros;
+
+    public Vehiculo getCarros() {
+        return carros;
+    }
+
+    public void setCarros(Vehiculo carros) {
+        this.carros = carros;
+    }
+    
     private int iterador=0;
     
 
@@ -43,6 +53,7 @@ public class ArbolB {
         for (int i = 0; i <= raiz.getContador(); i++) {
             if(raiz.getCarro()[i].getPlaca().compareTo(placa)==0){//compara las placas para igualar
                 busqueda=raiz;
+                setCarros(raiz.getCarro()[i]);
             }
         }
         for (PaginaB pagina : raiz.getPaginas()) {//este es un foreach de la coleccion, en este caso en la coleccion de paginas
@@ -159,7 +170,7 @@ public class ArbolB {
         
     }
     private void mostrarB(StringBuilder dato) throws Exception{
-            String mensaje="digraph Btree{ \n  node[shape=record, width= 0.1, height= 0.1];\n"+dato+"\n}";
+            String mensaje="digraph Btree{ \n  node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";"+dato+"\n  }";
             FileWriter file= new FileWriter("bTree.dot");
             PrintWriter impresion= new PrintWriter(file);
             impresion.println(mensaje);
