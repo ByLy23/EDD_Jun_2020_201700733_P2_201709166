@@ -3,7 +3,7 @@ digraph G {
  node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
 labelloc = "t;"label = "REPORTE CONDUCTORES";
 x2018118650101[dir=both label = "DPI = 2018118650101\nNombre = Jackeline Alexandra Benitez Benitez\n Licencia = C\n Direccion = 16 Calle A"]x2018118650101-> x3018128650101
-x2018118650101-> x22222
+x2018118650101-> x3018108650101
 x3018128650101[dir=both label = "DPI = 3018128650101\nNombre = Ludwing Gabriel Paz Hernandez\n Licencia = C\n Direccion = gt"]x3018128650101-> x3018138650101
 x3018128650101-> x2018118650101
 x3018138650101[dir=both label = "DPI = 3018138650101\nNombre = Byron Antonio Orellana Alburez\n Licencia = C\n Direccion = 16 Calle A"]x3018138650101-> x3018148650101
@@ -20,9 +20,7 @@ x18188650101[dir=both label = "DPI = 18188650101\nNombre = Julia Esther Cruz Gua
 x18188650101-> x3018178650101
 x18198650101[dir=both label = "DPI = 18198650101\nNombre = Sthefany Johana Campos Hernandez\n Licencia = C\n Direccion = 16 Calle A"]x18198650101-> x3018108650101
 x18198650101-> x18188650101
-x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x22222
+x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x2018118650101
 x3018108650101-> x18198650101
-x22222[dir=both label = "DPI = 22222\nNombre = Emanel Veliz\n Licencia = 2222\n Direccion = 21 calle"]x22222-> x2018118650101
-x22222-> x3018108650101
 
 }

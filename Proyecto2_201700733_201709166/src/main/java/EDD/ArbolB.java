@@ -19,6 +19,16 @@ public class ArbolB {
     private Vehiculo medio=null;
     private PaginaB nuevo=null;
     private PaginaB busqueda=null;
+    private Vehiculo carros;
+
+    public Vehiculo getCarros() {
+        return carros;
+    }
+
+    public void setCarros(Vehiculo carros) {
+        this.carros = carros;
+    }
+    
     private int iterador=0;
     
 
@@ -43,6 +53,7 @@ public class ArbolB {
         for (int i = 0; i <= raiz.getContador(); i++) {
             if(raiz.getCarro()[i].getPlaca().compareTo(placa)==0){//compara las placas para igualar
                 busqueda=raiz;
+                setCarros(raiz.getCarro()[i]);
             }
         }
         for (PaginaB pagina : raiz.getPaginas()) {//este es un foreach de la coleccion, en este caso en la coleccion de paginas

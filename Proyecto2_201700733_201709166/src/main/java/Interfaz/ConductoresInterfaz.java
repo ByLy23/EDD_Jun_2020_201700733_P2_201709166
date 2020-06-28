@@ -162,13 +162,13 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 90, -1));
 
-        BtnMostrar.setText("Mostrar Info");
+        BtnMostrar.setText("Generar Reportes");
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
+        jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +208,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,24 +225,39 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        String validacion=TxtDpi.getText();
         long dpi = Long.parseLong(TxtDpi.getText());
-        lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
-        TxtDpi.setText("");
-        TxtNombres.setText("");
-        TxtApellidos.setText("");
-        TxtLicencia.setText("");
-        TxtGenero.setText("");
-        TxtTelefono.setText("");
-        TxtDireccion.setText("");
-        JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
-        
+         Conductores aux = lcd.Buscar(dpi);
+        if (TxtDpi.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos para registrar a alguien");
+            TxtDpi.setFocusable(true);
+        } else if (validacion.equals(Long.toString(aux.getDPI()))) {
+            JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
+            TxtDpi.setText("");
+            TxtNombres.setText("");
+            TxtApellidos.setText("");
+            TxtLicencia.setText("");
+            TxtGenero.setText("");
+            TxtTelefono.setText("");
+            TxtDireccion.setText("");
+        } else {
+            lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+            TxtDpi.setText("");
+            TxtNombres.setText("");
+            TxtApellidos.setText("");
+            TxtLicencia.setText("");
+            TxtGenero.setText("");
+            TxtTelefono.setText("");
+            TxtDireccion.setText("");
+            JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
+        }
         //lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
 //        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
-       // System.out.println("El usuario ha escrito " + seleccion);
+        // System.out.println("El usuario ha escrito " + seleccion);
         // buscar(seleccion);
 
         long dpi = Long.parseLong(TxtDpi.getText());
@@ -256,26 +271,31 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
         lcd.Desplegar();
         lcd.ReporteLCD();
+        Reporteria principal = new Reporteria();
+        principal.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea buscar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
         long upsi = Long.parseLong(seleccion);
         System.out.println("El usuario ha escrito " + upsi);
-        Conductores aux= lcd.Buscar(upsi);
-        if(aux!=null){
+        Conductores aux = lcd.Buscar(upsi);
+        if (aux != null) {
             TxtDpi.setText(String.valueOf(aux.getDPI()));
             TxtApellidos.setText(aux.getApellido());
             TxtDireccion.setText(aux.getDireccion());
             TxtGenero.setText(aux.getGenero());
             TxtLicencia.setText(aux.getLicencia());
             TxtNombres.setText(aux.getNombre());
-            TxtTelefono.setText(aux.getTelefono());    
+            TxtTelefono.setText(aux.getTelefono());
             //TxtDpi.setEnabled(false);
             BtnModificar.setEnabled(true);
-        BtnEliminar.setEnabled(true);
-        }else
+            BtnEliminar.setEnabled(true);
+        } else {
             JOptionPane.showMessageDialog(null, "No Existe");
+        }
         TxtDpi.setText(seleccion);
 
 
@@ -300,41 +320,39 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos txt", "txt");
             chooser.setFileFilter(filter);
             chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            int result=chooser.showOpenDialog(this);
-        //Tomamos el archivo que se selecciono
+            int result = chooser.showOpenDialog(this);
+            //Tomamos el archivo que se selecciono
             File open = chooser.getSelectedFile();
 
             if (open.exists()) {
                 //Creamos un buffer para leer el archivo
-                
+
                 BufferedReader buffer = new BufferedReader(new FileReader(open));
                 String cad = buffer.readLine();
-                
-                while (cad!= null) {
-                    String[] conductores=cad.split(";");
-                    for(int i = 0; i < conductores.length; i++)
-                    {
+
+                while (cad != null) {
+                    String[] conductores = cad.split(";");
+                    for (int i = 0; i < conductores.length; i++) {
                         String[] datos = conductores[i].split("%");
-                        System.out.println("DPI "+datos[0]);
-                        System.out.println("Nombres "+datos[1]);
-                        System.out.println("Apellidos "+datos[2]);
-                        System.out.println("Licencia "+datos[3]);
-                        System.out.println("Genero "+datos[4]);
-                        System.out.println("Telefono "+datos[5]);
-                        System.out.println("Direccion "+datos[6]);
-                        
-                        if(datos.length==7){
-                            lcd.Insertar(new Conductores(Long.valueOf(datos[0]),datos[1],datos[2],datos[3],datos[4],datos[5],datos[6]));
-                        }else if(datos.length<7){
-                             System.out.println("No hay datos suficientes para agregar al conductor");
-                        }else{
-                             System.out.println("Hay más datos de los requeridos, no se puede agregar");
+                        System.out.println("DPI " + datos[0]);
+                        System.out.println("Nombres " + datos[1]);
+                        System.out.println("Apellidos " + datos[2]);
+                        System.out.println("Licencia " + datos[3]);
+                        System.out.println("Genero " + datos[4]);
+                        System.out.println("Telefono " + datos[5]);
+                        System.out.println("Direccion " + datos[6]);
+
+                        if (datos.length == 7) {
+                            lcd.Insertar(new Conductores(Long.valueOf(datos[0]), datos[1], datos[2], datos[3], datos[4], datos[5], datos[6]));
+                        } else if (datos.length < 7) {
+                            System.out.println("No hay datos suficientes para agregar al conductor");
+                        } else {
+                            System.out.println("Hay más datos de los requeridos, no se puede agregar");
                         }
-                        
+
                     }
-                    cad=buffer.readLine();
-                    
-                   
+                    cad = buffer.readLine();
+
                 }
 
                 buffer.close();
