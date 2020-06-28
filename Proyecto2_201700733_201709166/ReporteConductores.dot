@@ -20,7 +20,7 @@ x18188650101[dir=both label = "DPI = 18188650101\nNombre = Julia Esther Cruz Gua
 x18188650101-> x3018178650101
 x18198650101[dir=both label = "DPI = 18198650101\nNombre = Sthefany Johana Campos Hernandez\n Licencia = C\n Direccion = 16 Calle A"]x18198650101-> x3018108650101
 x18198650101-> x18188650101
-x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x2018118650101
+x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x3018118650101
 x3018108650101-> x18198650101
 
 }
