@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Principal.Inicio;
+
 /**
  *
  * @author Jacky
@@ -35,11 +37,11 @@ public class ViajesInterfaz extends javax.swing.JFrame {
         TxtDPI1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        TxtDPI2 = new javax.swing.JTextField();
+        TxtPlaca = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TxtDPI4 = new javax.swing.JTextField();
+        TxtCliene = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        TxtDPI5 = new javax.swing.JTextField();
+        TxtConductor = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -77,24 +79,24 @@ public class ViajesInterfaz extends javax.swing.JFrame {
         jLabel5.setText("Vehiculos");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
-        TxtDPI2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDPI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 150, -1));
+        TxtPlaca.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("Cliente");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        TxtDPI4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDPI4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, -1));
+        TxtCliene.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtCliene, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Conductor");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        TxtDPI5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDPI5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, -1));
+        TxtConductor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(TxtConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, -1));
 
         BtnAgregar.setText("Guardar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +137,8 @@ public class ViajesInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-
+        Inicio.blockchain.InsertarViaje(TxtPlaca.getText());
+        Inicio.blockchain.Mostrar();
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -151,11 +154,11 @@ public class ViajesInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
+    private javax.swing.JTextField TxtCliene;
+    private javax.swing.JTextField TxtConductor;
     private javax.swing.JTextField TxtDPI;
     private javax.swing.JTextField TxtDPI1;
-    private javax.swing.JTextField TxtDPI2;
-    private javax.swing.JTextField TxtDPI4;
-    private javax.swing.JTextField TxtDPI5;
+    private javax.swing.JTextField TxtPlaca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
