@@ -122,7 +122,7 @@ public class ListaCircularDoble {
         } while (actual != ultimo.next);
         if (found) {
             JOptionPane.showMessageDialog(null, "Conductor encontrado");
-            conductor = actual.dato;
+
 
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado");

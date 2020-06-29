@@ -37,11 +37,13 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Viajes"/>
               </Properties>
+
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rutas"/>
               </Properties>
+
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -49,6 +51,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Reporteria"/>
           </Properties>
+
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
@@ -59,6 +62,7 @@
               </Events>
             </MenuItem>
           </SubComponents>
+
         </Menu>
       </SubComponents>
     </Menu>

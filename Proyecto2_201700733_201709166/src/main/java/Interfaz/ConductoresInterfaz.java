@@ -166,13 +166,18 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 90, -1));
 
+
         BtnMostrar.setText("Generar Reportes");
+
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
             }
         });
+
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+
+
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +217,10 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,6 +237,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+
 
         if (TxtDpi.getText().equals("")) {
 
@@ -256,12 +265,14 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         TxtTelefono.setText("");
         TxtDireccion.setText("");
 
+
         //lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
 //        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
+
 
         // buscar(seleccion);
         long dpi = Long.parseLong(TxtDpi.getText());
@@ -339,6 +350,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             if (open.exists()) {
                 //Creamos un buffer para leer el archivo
 
+
                 BufferedReader buffer = new BufferedReader(new FileReader(open));
                 String cad = buffer.readLine();
 
@@ -364,6 +376,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
 
                     }
                     cad = buffer.readLine();
+
 
                 }
 
