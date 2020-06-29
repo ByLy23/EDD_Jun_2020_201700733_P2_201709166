@@ -29,11 +29,11 @@ public class Blockchain {
          ListaEnlazada<Rutas> ruta;//= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
     //aca se va a generar el md5
     public Blockchain(){
-          this.listabloques=null;
+          this.listabloques=new ListaEnlazada<>();
           this.buscarCarro=null;
           this.buscarCliente=null;
           this.conductor=null;
-          this.ruta=null;
+          this.ruta=new ListaEnlazada<>();
         //
     }
     public void generarViaje(String origen, String destino, String cliente, String carro, String conductor) throws Exception{
@@ -46,15 +46,29 @@ public class Blockchain {
         buscarCliente= Inicio.tablita.getAux();
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm"));
-        String llaveEncriptada= generarHash(generaLlaves(carro));
+        String ll= generaLlaves(carro);
+        String llaveEncriptada= generarHash(ll);
+        System.out.println(llaveEncriptada);
+        System.out.println(ll);
         listabloques.insertarFinal(new Bloque(origen,destino,FechaHora,buscarCliente,this.conductor,buscarCarro,llaveEncriptada));
+    }
+    public void imprimir(String llave) throws Exception{
+        String nuevo= generarHash(llave);
+        System.out.println(llave+"ESTA ES LA LLAVE");
+        for (int i = 0; i < listabloques.getTamanio(); i++) {
+            if(listabloques.obtenerElemento(i).getLlave().equals(nuevo)){
+                //graficar el nodo
+                System.out.println(listabloques.obtenerElemento(i).getLugarDestino()+" "+ listabloques.obtenerElemento(i).getCliente().getFechaNac());
+            }
+        }
     }
     public String generaLlaves(String placa)
     {
         LocalDateTime actualTiempo = LocalDateTime.now();
-        String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm")).trim().replace(" ", "").toUpperCase(); //quita espacio y transforma a mayuscula
+        String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm")).trim().replace(" ", "").toUpperCase();
+        String fec=placa+FechaHora;//quita espacio y transforma a mayuscula
         System.out.println("Fecha hora: " + placa + FechaHora);
-        return placa + FechaHora;
+        return fec;
     }
     private String generarHash(String text) throws Exception{
         byte[] mensajeEncriptado= text.getBytes("UTF-8");

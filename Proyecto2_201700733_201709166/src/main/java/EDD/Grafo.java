@@ -13,7 +13,7 @@ public class Grafo {
 
     public Vertex raiz;
     private int contador=0;
-
+    String[] nodoVisitado;
     public Grafo() {
         raiz = null;
     }
@@ -121,7 +121,7 @@ public class Grafo {
         }
     }
     
-    ListaEnlazada<Rutas> lista=null;
+    ListaEnlazada<Rutas> lista=new ListaEnlazada<>();
 
     public ListaEnlazada<Rutas> getLista() {
         return lista;
@@ -130,7 +130,11 @@ public class Grafo {
     public void setLista(ListaEnlazada<Rutas> lista) {
         this.lista = lista;
     }
-public void generarRuta(String origen, String destino){
+    public void generarRuta(String origen, String destino){
+       nodoVisitado = new String[contador];
+       genera(origen,destino);
+    }
+private void genera(String origen, String destino){
     Vertex vertice= getVertex(origen);
     if(vertice!=null){
     Edge arista=vertice.arista;
@@ -156,6 +160,7 @@ public void generarRuta(String origen, String destino){
             arista=arista.siguiente;
         }
        if(aux!=null){
+           lista.insertarFinal(new Rutas(aux.vertice.nombre, String.valueOf(peso)));
        vertice= getVertex(aux.vertice.nombre);
            generarRuta(vertice.nombre, destino);
        }
@@ -164,7 +169,6 @@ public void generarRuta(String origen, String destino){
 }
 private boolean verificaVisitados(String nodo){   
     boolean bandera=false;
-    String[] nodoVisitado= new String[contador];
     for (int i = 0; i < contador; i++) {
         if(nodoVisitado[i]!=null){
             if(nodoVisitado[i].equals(nodo)){
@@ -177,6 +181,7 @@ private boolean verificaVisitados(String nodo){
         for (int i = 0; i < contador; i++) {
             if(nodoVisitado[i]==null){
                 nodoVisitado[i]=nodo;
+                break;
             }
         }
     }
