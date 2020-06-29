@@ -144,7 +144,9 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 90, -1));
 
+
         BtnMostrar.setText("Generar Reporte");
+
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
@@ -276,9 +278,11 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(ClientesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         Reporteria principal = new Reporteria();
         principal.setVisible(true);
         this.dispose();
+
 
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
@@ -292,6 +296,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
         TxtTelefono.setText("");
         TxtDireccion.setText("");
         TxtFecha.setText("");
+
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
@@ -308,6 +313,7 @@ public class ClientesInterfaz extends javax.swing.JFrame {
             TxtDireccion.setText(aux.getDireccion());
             TxtFecha.setText(aux.getFechaNac());
         } else {
+
             JOptionPane.showMessageDialog(null, "No existe");
         }
 // TODO add your handling code here:

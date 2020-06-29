@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -130,6 +131,11 @@ public class Reporteria extends javax.swing.JFrame {
         jMenu2.add(BtnRutasR);
 
         BtnEDD.setText("Estructura Completa");
+        BtnEDD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEDDActionPerformed(evt);
+            }
+        });
         jMenu2.add(BtnEDD);
 
         jMenuBar1.add(jMenu2);
@@ -245,6 +251,11 @@ public class Reporteria extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_BtnRutasRActionPerformed
+
+    private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
+String llave="";
+        JOptionPane.showInputDialog(llave, "Ingrese Llave de viaje");        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnEDDActionPerformed
 
     /**
      * @param args the command line arguments
