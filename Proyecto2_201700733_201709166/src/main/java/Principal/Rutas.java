@@ -13,6 +13,7 @@ public class Rutas {
     String LugarOrigen;
     String LugarDestino;
     String TiempoRuta;
+    String tiempoAnterior="0";
 
     public String getLugarOrigen() {
         return LugarOrigen;
@@ -43,6 +44,10 @@ public class Rutas {
         this.LugarOrigen=LugarOrigen;
         this.LugarDestino=LugarDestino;
         this.TiempoRuta=TiempoRuta;
+    }
+    public Rutas(String destino, String tiempo){
+       tiempoAnterior+= tiempo;
+       this.LugarDestino=destino;
     }
     
     public Rutas()
