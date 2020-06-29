@@ -39,7 +39,8 @@ public class Blockchain {
     public void generarViaje(String origen, String destino, String cliente, String carro, String conductor) throws Exception{
         Inicio.arbolito.buscarCarro(carro);
         Inicio.tablita.buscar(BigInteger.valueOf(Long.parseLong(cliente)));
-        ruta= Inicio.graph.generarRuta(origen, destino);
+        Inicio.graph.generarRuta(origen, destino);
+        ruta=Inicio.graph.getLista();
         this.conductor= Inicio.lcd.Buscar(Long.parseLong(conductor));
         buscarCarro=Inicio.arbolito.getCarros();
         buscarCliente= Inicio.tablita.getAux();

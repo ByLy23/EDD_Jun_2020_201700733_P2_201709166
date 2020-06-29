@@ -253,8 +253,10 @@ public class Reporteria extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRutasRActionPerformed
 
     private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
-String llave="";
-        JOptionPane.showInputDialog(llave, "Ingrese Llave de viaje");        // TODO add your handling code here:
+        String llave="";
+        JOptionPane.showInputDialog(llave, "Ingrese Llave de viaje"); 
+        
+        // TODO add your handling code here:
     }//GEN-LAST:event_BtnEDDActionPerformed
 
     /**

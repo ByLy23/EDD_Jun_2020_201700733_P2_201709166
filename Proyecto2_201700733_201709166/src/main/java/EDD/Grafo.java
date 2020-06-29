@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Grafo {
 
     public Vertex raiz;
+    private int contador=0;
 
     public Grafo() {
         raiz = null;
@@ -56,6 +57,7 @@ public class Grafo {
         } else {                                    //si la raiz es nulo
             raiz = nuevo;                           //raiz es igual a nuevo
         }
+        contador++;
     }
 
     public void Mostrar() {
@@ -72,6 +74,7 @@ public class Grafo {
             auxVertex = auxVertex.siguiente;                    //Repito el proceso para mi siguiente verti
             System.out.println("\n");
         }
+        System.out.println(contador);
     }
 
     public String report() {//se hace lo mismo que en mostrar
@@ -117,7 +120,49 @@ public class Grafo {
             e.printStackTrace();
         }
     }
-public ListaEnlazada<Rutas> generarRuta(String origen, String destino){
-    return null;
+    
+    ListaEnlazada<Rutas> lista=null;
+
+    public ListaEnlazada<Rutas> getLista() {
+        return lista;
+    }
+
+    public void setLista(ListaEnlazada<Rutas> lista) {
+        this.lista = lista;
+    }
+public void generarRuta(String origen, String destino){
+    Vertex vertice= getVertex(origen);
+    if(vertice!=null){
+    Edge arista=vertice.arista;
+    Edge aux=null;
+    int peso=999999999;
+        while(arista!=null){
+            if(peso>arista.tiempo){
+                peso=arista.tiempo;
+                aux=arista;
+            }
+            arista=arista.siguiente;
+        }
+    }
+}
+private boolean verificaVisitados(String nodo){   
+    boolean bandera=false;
+    String[] nodoVisitado= new String[contador];
+    for (int i = 0; i < contador; i++) {
+        if(nodoVisitado[i]!=null){
+            if(nodoVisitado[i].equals(nodo)){
+                bandera=true;
+                break;
+            }
+        }
+    }
+    if(!bandera){
+        for (int i = 0; i < contador; i++) {
+            if(nodoVisitado[i]==null){
+                nodoVisitado[i]=nodo;
+            }
+        }
+    }
+    return bandera;
 }
 }
