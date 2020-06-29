@@ -136,13 +136,30 @@ public void generarRuta(String origen, String destino){
     Edge arista=vertice.arista;
     Edge aux=null;
     int peso=999999999;
-        while(arista!=null){
-            if(peso>arista.tiempo){
+       while(arista!=null){
+            if(arista.vertice.nombre.equals(destino)){
+                verificaVisitados(destino);
                 peso=arista.tiempo;
-                aux=arista;
-            }
+                lista.insertarFinal(new Rutas(destino, String.valueOf(peso)));
+                break;
+            }else{
+                if(!verificaVisitados(origen)){
+                     if(peso>arista.tiempo){
+                        peso=arista.tiempo;
+                        aux=arista;
+                         verificaVisitados(origen);
+                    }else{
+                         verificaVisitados(origen);
+                     }
+                }
+            }           
             arista=arista.siguiente;
         }
+       if(aux!=null){
+       vertice= getVertex(aux.vertice.nombre);
+           generarRuta(vertice.nombre, destino);
+       }
+       
     }
 }
 private boolean verificaVisitados(String nodo){   
