@@ -10,12 +10,15 @@ package EDD;
  * @author byron
  */
 public class ListaEnlazada<T> {
-    class Nodo<T>{
+
+    class Nodo<T> {
+
         Nodo<T> siguiente;
         T dato;
-        public Nodo(T dato){
-            this.dato= dato;
-            siguiente=null;
+
+        public Nodo(T dato) {
+            this.dato = dato;
+            siguiente = null;
         }
 
         public Nodo<T> getSiguiente() {
@@ -34,12 +37,13 @@ public class ListaEnlazada<T> {
             this.dato = dato;
         }
     }
-          private Nodo<T> inicio;
-        private Nodo<T> fin;
-        private int tamanio;
-        private boolean estaVacia(){
-            return (tamanio==0) ?true:false;
-        }
+    private Nodo<T> inicio;
+    private Nodo<T> fin;
+    private int tamanio;
+
+    private boolean estaVacia() {
+        return (tamanio == 0) ? true : false;
+    }
 
     public Nodo<T> getInicio() {
         return inicio;
@@ -64,85 +68,86 @@ public class ListaEnlazada<T> {
     public void setTamanio(int tamanio) {
         this.tamanio = tamanio;
     }
-    public void insertarFinal(T dato){
+
+    public void insertarFinal(T dato) {
         Nodo<T> nuevo = new Nodo(dato);
-        if(estaVacia()){
-            inicio=fin=nuevo;
+        if (estaVacia()) {
+            inicio = fin = nuevo;
             tamanio++;
-        }
-        else{
+        } else {
             fin.setSiguiente(nuevo);
-            fin=nuevo;
+            fin = nuevo;
             tamanio++;
         }
     }
-    public void insertarInicio(T dato){
+
+    public void insertarInicio(T dato) {
         Nodo<T> nuevo = new Nodo(dato);
-        if(estaVacia()){
-            inicio=fin=nuevo;
+        if (estaVacia()) {
+            inicio = fin = nuevo;
             tamanio++;
-        }
-        else{
-        nuevo.setSiguiente(inicio);
-        inicio=nuevo;
+        } else {
+            nuevo.setSiguiente(inicio);
+            inicio = nuevo;
             tamanio++;
         }
     }
-    public void insertar(T dato, int index){
-        Nodo<T> nuevo= new Nodo(dato);
-        if(estaVacia()){
-            inicio=fin=nuevo;
+
+    public void insertar(T dato, int index) {
+        Nodo<T> nuevo = new Nodo(dato);
+        if (estaVacia()) {
+            inicio = fin = nuevo;
             tamanio++;
-        }
-        else if(index== tamanio){
+        } else if (index == tamanio) {
             insertarFinal(dato);
-        }
-        else if(index==0){
+        } else if (index == 0) {
             insertarInicio(dato);
-        }else{
-            Nodo aux= inicio;
-            int x=0;
-            while(aux!=null){
-                if(x==index){break;}
-                aux= aux.getSiguiente();
+        } else {
+            Nodo aux = inicio;
+            int x = 0;
+            while (aux != null) {
+                if (x == index) {
+                    break;
+                }
+                aux = aux.getSiguiente();
             }
-            Nodo sig= aux.getSiguiente();
+            Nodo sig = aux.getSiguiente();
             aux.setSiguiente(nuevo);
             nuevo.setSiguiente(sig);
             tamanio++;
         }
     }
-    public T eliminar(int index){
-        T informacion=null;
-        if(inicio==fin){
-            inicio=fin=null;
-        }
-        else if(index==0){
-           informacion =inicio.getDato();
-            inicio= inicio.getSiguiente();
+
+    public T eliminar(int index) {
+        T informacion = null;
+        if (inicio == fin) {
+            inicio = fin = null;
+        } else if (index == 0) {
+            informacion = inicio.getDato();
+            inicio = inicio.getSiguiente();
             tamanio--;
-        }
-        else if(index==tamanio){
-            informacion=fin.getDato();
-            Nodo aux= inicio;
-            while(aux.getSiguiente()!=null){
-                if(aux.getSiguiente()==fin){break;}
-                aux= aux.getSiguiente();
-            }
-            fin= aux;
-            aux.setSiguiente(null);
-            tamanio--;
-        }
-        else{
-            Nodo actual=inicio;
-            int x=0;
-            Nodo anterior=null;
-            while(actual!=null){
-                if(x==index){
+        } else if (index == tamanio) {
+            informacion = fin.getDato();
+            Nodo aux = inicio;
+            while (aux.getSiguiente() != null) {
+                if (aux.getSiguiente() == fin) {
                     break;
                 }
-                anterior=actual;
-                actual=actual.getSiguiente();
+                aux = aux.getSiguiente();
+            }
+            fin = aux;
+            aux.setSiguiente(null);
+            tamanio--;
+        } else {
+            Nodo actual = inicio;
+            int x = 0;
+            Nodo anterior = null;
+            while (actual != null) {
+                if (x == index) {
+                    break;
+                }
+                anterior = actual;
+                actual = actual.getSiguiente();
                 x++;
             }
             anterior.setSiguiente(actual.getSiguiente());
@@ -151,18 +156,28 @@ public class ListaEnlazada<T> {
         }
         return informacion;
     }
-    public void buscar(T dato){
-        
+
+    public void buscar(T dato) {
+
     }
-    public T obtenerElemento(int index){
-        Nodo<T> iterador= inicio;
-        int x=0;
-        while(iterador!= null){
-            if(index==x)
+
+    public T obtenerElemento(int index) {
+        Nodo<T> iterador = inicio;
+        int x = 0;
+        while (iterador != null) {
+            if (index == x) {
                 return iterador.getDato();
-            iterador= iterador.getSiguiente();
+            }
+            iterador = iterador.getSiguiente();
             x++;
         }
         return null;
     }
+
+    public T graficar() {
+        
+        
+        return null;
+    }
+
 }

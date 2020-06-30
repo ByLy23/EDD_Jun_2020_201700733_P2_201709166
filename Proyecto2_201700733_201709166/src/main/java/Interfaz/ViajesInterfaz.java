@@ -51,6 +51,7 @@ public class ViajesInterfaz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         TxtConductor = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -112,7 +113,15 @@ public class ViajesInterfaz extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 90, -1));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 90, -1));
+
+        jButton1.setText("Generar Imagen");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 130, -1));
 
         jMenu2.setText("Regresar");
 
@@ -149,7 +158,7 @@ public class ViajesInterfaz extends javax.swing.JFrame {
             //Cuando se genera el viaje se crea la ruta mas rapida,
             //se hace la lista generada con la ruta mas corta
             //se guarda el cliente, el conductor, el vehiculo y la lista
-            Inicio.cadenaBloques.generarViaje(origen.getText(), destino.getText(), cliente.getText(), TxtPlaca.getText(),TxtConductor.getText());
+            Inicio.cadenaBloques.generarViaje(origen.getText(), destino.getText(), cliente.getText(), TxtPlaca.getText(), TxtConductor.getText());
         } catch (Exception ex) {
             Logger.getLogger(ViajesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -162,6 +171,13 @@ public class ViajesInterfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Inicio.cadenaBloques.graficar();
+        Reporteria principal = new Reporteria();
+        principal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +188,7 @@ public class ViajesInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TxtPlaca;
     private javax.swing.JTextField cliente;
     private javax.swing.JTextField destino;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

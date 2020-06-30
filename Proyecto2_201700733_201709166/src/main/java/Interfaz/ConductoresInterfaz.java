@@ -252,7 +252,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
                 }
             } else {
+
                 lcd.InsertarOrdenado(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+
                 JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
             }
         }
@@ -367,7 +369,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                         System.out.println("Direccion " + datos[6]);
 
                         if (datos.length == 7) {
+
                             lcd.InsertarOrdenado(new Conductores(Long.valueOf(datos[0]), datos[1], datos[2], datos[3], datos[4], datos[5], datos[6]));
+
                         } else if (datos.length < 7) {
                             System.out.println("No hay datos suficientes para agregar al conductor");
                         } else {
