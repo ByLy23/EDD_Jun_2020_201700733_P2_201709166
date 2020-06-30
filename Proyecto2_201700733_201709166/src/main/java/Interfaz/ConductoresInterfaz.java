@@ -6,6 +6,7 @@
 package Interfaz;
 
 import EDD.ListaCircularDoble;
+import EDD.NodoLCD;
 import Principal.Conductores;
 import Principal.Inicio;
 import static Principal.Inicio.condu;
@@ -25,6 +26,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author Jacky
  */
 public class ConductoresInterfaz extends javax.swing.JFrame {
+
+    NodoLCD aux;
 
     /**
      * Creates new form Conductores
@@ -145,7 +148,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 90, -1));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 90, -1));
 
         BtnEliminar.setText("Eliminar");
         BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +252,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
                 }
             } else {
-                lcd.Insertar(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+
+                lcd.InsertarOrdenado(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+
                 JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
             }
         }
@@ -270,8 +275,8 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
 //        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
 
-        // buscar(seleccion);
 
+        // buscar(seleccion);
         long dpi = Long.parseLong(TxtDpi.getText());
         lcd.Eliminar(dpi);
         TxtDpi.setText("");
@@ -364,7 +369,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                         System.out.println("Direccion " + datos[6]);
 
                         if (datos.length == 7) {
-                            lcd.Insertar(new Conductores(Long.valueOf(datos[0]), datos[1], datos[2], datos[3], datos[4], datos[5], datos[6]));
+
+                            lcd.InsertarOrdenado(new Conductores(Long.valueOf(datos[0]), datos[1], datos[2], datos[3], datos[4], datos[5], datos[6]));
+
                         } else if (datos.length < 7) {
                             System.out.println("No hay datos suficientes para agregar al conductor");
                         } else {

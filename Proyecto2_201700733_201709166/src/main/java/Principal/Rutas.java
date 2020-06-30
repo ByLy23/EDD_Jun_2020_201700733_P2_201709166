@@ -14,7 +14,9 @@ public class Rutas {
     String LugarDestino;
     String TiempoRuta;
     String tiempoAnterior="0";
+
     String tiemp;
+
 
     public String getLugarOrigen() {
         return LugarOrigen;
@@ -46,12 +48,7 @@ public class Rutas {
         this.LugarDestino=LugarDestino;
         this.TiempoRuta=TiempoRuta;
     }
-    public Rutas(String destino, String tiempo){
-       int time= Integer.parseInt(tiempoAnterior)+Integer.parseInt(tiempo);
-       this.tiemp= tiempoAnterior+tiempo;
-       tiempoAnterior=String.valueOf(time);
-       this.LugarDestino=destino;
-    }
+  
     
     public Rutas()
     {

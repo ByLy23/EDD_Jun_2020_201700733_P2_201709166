@@ -2,6 +2,7 @@ package EDD;
 
 import Principal.Rutas;
 import EDD.ListaAdyacencia;
+import Principal.MejorRuta;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -12,8 +13,9 @@ import java.io.IOException;
 public class Grafo {
 
     public Vertex raiz;
-    private int contador=0;
+    private int contador = 0;
     String[] nodoVisitado;
+
     public Grafo() {
         raiz = null;
     }
@@ -82,26 +84,26 @@ public class Grafo {
         Edge auxEdge;
         Vertex auxVertex = raiz;
         while (auxVertex != null) {                                                                                                 //Mientras exista un vertice
-             text+="\""+auxVertex.nombre+"\""+ "[label = \" "+auxVertex.nombre+"\"]"+"\n";  //inicio el label                                                 //Mi auxiliar Arista es igual a mi adyacente de mi aux vertice
-             
-             System.out.print(auxVertex.nombre); 
-             auxEdge = auxVertex.arista;                                                                                            //imprimo el nombte de ese auxiliar vertie     
+            text += "\"" + auxVertex.nombre + "\"" + "[label = \" " + auxVertex.nombre + "\"]" + "\n";  //inicio el label                                                 //Mi auxiliar Arista es igual a mi adyacente de mi aux vertice
+
+            System.out.print(auxVertex.nombre);
+            auxEdge = auxVertex.arista;                                                                                            //imprimo el nombte de ese auxiliar vertie     
             while (auxEdge != null) {
-                text+="\""+auxVertex.nombre+"\"";  
-                text+="->"+"\""+auxEdge.vertice.nombre+"\""+"[arrowhead=normal label= \""+ auxEdge.tiempo+"\"]\n";                                                                                                //Mientras auxiliar Arista es diferente de nulo 
+                text += "\"" + auxVertex.nombre + "\"";
+                text += "->" + "\"" + auxEdge.vertice.nombre + "\"" + "[arrowhead=normal label= \"" + auxEdge.tiempo + "\"]\n";                                                                                                //Mientras auxiliar Arista es diferente de nulo 
                 System.out.print("->" + auxEdge.vertice.nombre);                                                                    //Imprimo el adyacente de dicho auxiliar
                 auxEdge = auxEdge.siguiente;                                                                                        //E imprimo los siguientes de dicho adyacente
             }                                                                                                                       //Hasta que ya no tenga adyacentes y salgo del while porque seria igual a nulo
             auxVertex = auxVertex.siguiente;                                                                                        //Repito el proceso para mi siguiente verti
         }
-        
+
         return text;
     }
 
     public void Graficar() {
         try {
             FileWriter archivo = new FileWriter("ReporteRutas.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n" );
+            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n");
             archivo.write("labelloc = \"t;\"label = \"REPORTE RUTAS\";\n");
             //CONTENIDO
             archivo.write(report());
@@ -120,71 +122,95 @@ public class Grafo {
             e.printStackTrace();
         }
     }
-    
-    ListaEnlazada<Rutas> lista=new ListaEnlazada<>();
 
-    public ListaEnlazada<Rutas> getLista() {
+    ListaEnlazada<MejorRuta> lista = new ListaEnlazada<>();
+
+    public ListaEnlazada<MejorRuta> getLista() {
         return lista;
     }
 
-    public void setLista(ListaEnlazada<Rutas> lista) {
+    public void setLista(ListaEnlazada<MejorRuta> lista) {
         this.lista = lista;
     }
-    public void generarRuta(String origen, String destino){
-       nodoVisitado = new String[contador];
-       genera(origen,destino);
+
+    public void generarRuta(String origen, String destino) {
+        nodoVisitado = new String[contador];
+        genera(origen, destino);
     }
-private void genera(String origen, String destino){
-    Vertex vertice= getVertex(origen);
-    if(vertice!=null){
-    Edge arista=vertice.arista;
-    Edge aux=null;
-    int peso=999999999;
-       while(arista!=null){
-            if(arista.vertice.nombre.equals(destino)){
-                verificaVisitados(destino);
-                peso=arista.tiempo;
-                lista.insertarFinal(new Rutas(destino, String.valueOf(peso)));
-                break;
-            }else{
-                if(!verificaVisitados(origen)){
-                     if(peso>arista.tiempo){
-                        peso=arista.tiempo;
-                        aux=arista;
-                         verificaVisitados(origen);
-                    }else{
-                         verificaVisitados(origen);
-                     }
+
+            int peso = 999999999;
+            Vertex anterior=null;
+    private void genera(String origen, String destino) {
+        Vertex vertice = getVertex(origen);
+        if (vertice != null) {
+            Edge arista = vertice.arista;
+            if(arista==null){
+                verificaVisitados(vertice.nombre);
+                //vertice=anterior;
+            }
+            Edge aux = null;
+            while (arista != null) {
+                if (arista.vertice.nombre.equals(destino)) {
+                    verificaVisitados(destino);
+                    verificaVisitados(origen);
+                    peso = arista.tiempo;
+                    lista.insertarFinal(new MejorRuta(origen,destino, String.valueOf(peso)));
+                    break;
+                } else {
+                    if (!verificaVisitados(origen)) {
+                        anterior=vertice;
+                        if (peso >= arista.tiempo) {
+                            peso = arista.tiempo;
+                            aux = arista;
+                             vertice = getVertex(aux.vertice.nombre);
+                        }
+                        if(aux==null){
+                            vertice= getVertex(arista.vertice.nombre);
+                        }
+                    }
                 }
-            }           
-            arista=arista.siguiente;
-        }
-       if(aux!=null){
-           lista.insertarFinal(new Rutas(aux.vertice.nombre, String.valueOf(peso)));
-       vertice= getVertex(aux.vertice.nombre);
-           generarRuta(vertice.nombre, destino);
-       }
-       
-    }
-}
-private boolean verificaVisitados(String nodo){   
-    boolean bandera=false;
-    for (int i = 0; i < contador; i++) {
-        if(nodoVisitado[i]!=null){
-            if(nodoVisitado[i].equals(nodo)){
-                bandera=true;
-                break;
+                arista = arista.siguiente;
+                    genera(vertice.nombre, destino);
             }
+            if (aux != null) {
+                
+                //lista.insertarFinal(new MejorRuta(vertice.nombre, aux.vertice.nombre, String.valueOf(peso)));//verificar error lista
+                //generarRuta(vertice.nombre, destino);
+            }
+
         }
     }
-    if(!bandera){
+
+        
+    public void MostrarBestRout() {
+        
+        
+        Vertex vertice = this.raiz;
+        do {
+            
+            vertice = vertice.siguiente;
+        } while (vertice != raiz);
+    }
+
+    private boolean verificaVisitados(String nodo) {
+        boolean bandera = false;
         for (int i = 0; i < contador; i++) {
-            if(nodoVisitado[i]==null){
-                nodoVisitado[i]=nodo;
-                break;
+            if (nodoVisitado[i] != null) {
+                if (nodoVisitado[i].equals(nodo)) {
+                    bandera = true;
+                    break;
+                }
             }
         }
+        if (!bandera) {
+            for (int i = 0; i < contador; i++) {
+                if (nodoVisitado[i] == null) {
+                    nodoVisitado[i] = nodo;
+                    break;
+                }
+            }
+        }
+        return bandera;
+
     }
-    return bandera;
-}
 }
