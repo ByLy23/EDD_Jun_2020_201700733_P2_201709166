@@ -166,13 +166,18 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 90, -1));
 
+
         BtnMostrar.setText("Generar Reportes");
+
         BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMostrarActionPerformed(evt);
             }
         });
+
         jPanel1.add(BtnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+
+
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +217,10 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,6 +238,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
 
+
         if (TxtDpi.getText().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos para registrar a alguien");
@@ -243,7 +252,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Este conductor ya fue registrado intente de nuevo");
                 }
             } else {
+
                 lcd.InsertarOrdenado(new Conductores(dpi, TxtNombres.getText(), TxtApellidos.getText(), TxtLicencia.getText(), TxtGenero.getText(), TxtTelefono.getText(), TxtDireccion.getText()));
+
                 JOptionPane.showMessageDialog(null, "Usuario Agregado identificado con " + TxtDpi.getText());
             }
         }
@@ -256,12 +267,15 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
         TxtTelefono.setText("");
         TxtDireccion.setText("");
 
+
         //lcd.ordena_lista(lcd);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
 //        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
+
+
 
         // buscar(seleccion);
         long dpi = Long.parseLong(TxtDpi.getText());
@@ -339,6 +353,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
             if (open.exists()) {
                 //Creamos un buffer para leer el archivo
 
+
                 BufferedReader buffer = new BufferedReader(new FileReader(open));
                 String cad = buffer.readLine();
 
@@ -355,7 +370,9 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
                         System.out.println("Direccion " + datos[6]);
 
                         if (datos.length == 7) {
+
                             lcd.InsertarOrdenado(new Conductores(Long.valueOf(datos[0]), datos[1], datos[2], datos[3], datos[4], datos[5], datos[6]));
+
                         } else if (datos.length < 7) {
                             System.out.println("No hay datos suficientes para agregar al conductor");
                         } else {
@@ -364,6 +381,7 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
 
                     }
                     cad = buffer.readLine();
+
 
                 }
 
