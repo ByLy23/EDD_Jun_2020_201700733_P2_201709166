@@ -37,6 +37,8 @@ public class MenuP extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
+        jMenuItem5 = new javax.swing.JMenuItem();
+
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -85,7 +87,11 @@ public class MenuP extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
+
         jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("Rutas");
+        jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
 
@@ -138,13 +144,17 @@ public class MenuP extends javax.swing.JFrame {
 
 
 
-
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
 ViajesInterfaz principal = new ViajesInterfaz();
         principal.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+this.dispose();
+new Reporteria().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +169,8 @@ ViajesInterfaz principal = new ViajesInterfaz();
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+
+    private javax.swing.JMenuItem jMenuItem5;
 
     private javax.swing.JMenuItem jMenuItem6;
 

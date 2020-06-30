@@ -15,8 +15,8 @@ import static jdk.nashorn.internal.objects.ArrayBufferView.length;
 
 public class ListaCircularDoble {
 
-    NodoLCD primero;
-    NodoLCD ultimo;
+    public NodoLCD primero;
+    public NodoLCD ultimo;
     int tam;
     String nametemp;
 
@@ -30,39 +30,99 @@ public class ListaCircularDoble {
         NodoLCD nuevo = new NodoLCD();
         nuevo.dato = dato;
         if (primero == null) {
-            primero=ultimo=nuevo;
-            nuevo.before=nuevo;
-            nuevo.next=nuevo;
+            primero = ultimo = nuevo;
+            nuevo.before = nuevo;
+            nuevo.next = nuevo;
         } else {
-            nuevo.before=ultimo;
-            ultimo.next=nuevo;
-            nuevo.next=primero;
-            primero.before=nuevo;
-            ultimo=nuevo;
-            
+            nuevo.before = ultimo;
+            ultimo.next = nuevo;
+            nuevo.next = primero;
+            primero.before = nuevo;
+            ultimo = nuevo;
+
         }
         tam++;
-   //  ordena_lista(this);
+        //  ordena_lista(this);
+    }
+
+    public void InsertarOrdenado(Conductores dato) {
+        NodoLCD nuevo = new NodoLCD();
+        nuevo.dato = dato;
+        if (primero == null) {
+
+            primero = ultimo = nuevo;
+            primero.setBefore(ultimo);
+            ultimo.setNext(primero);
+            tam++;
+        } else if (primero.getDato().getDPI() > dato.getDPI()) {
+            /*NodoLCD nuevo2 = new NodoLCD();
+            nuevo2.dato = dato;*/
+            nuevo.setNext(this.primero);
+            primero.setBefore(nuevo);
+            primero = nuevo;
+            ultimo.setNext(this.primero);
+            primero.setBefore(this.ultimo);
+            tam++;
+        } else if (ultimo.getDato().getDPI() < dato.getDPI()) {
+            /*NodoLCD nuevo3 = new NodoLCD();
+            nuevo3.dato = dato;*/
+            nuevo.setBefore(this.ultimo);
+            ultimo.setNext(nuevo);
+            ultimo = nuevo;
+            ultimo.setNext(this.primero);
+            primero.setBefore(this.ultimo);
+            tam++;
+        } else {
+            NodoLCD temp = new NodoLCD();
+            temp.dato = dato;
+            temp = primero;
+            while(temp!=null){
+                if (nuevo.getDato().getDPI()<temp.getDato().getDPI()) {
+                    temp.getBefore().setNext(nuevo);
+                    nuevo.setBefore(temp.getBefore());
+                    nuevo.setNext(temp);
+                    temp.setBefore(nuevo);
+                    tam++;
+                    break;
+                }
+                temp=temp.getNext();
+            }
+            
+            
+            
+          /* while (temp.getDato().getDPI() < dato.getDPI()) {
+
+                temp = temp.getNext();
+            }
+
+            temp.getBefore().setNext(primero);
+            primero.setBefore(temp.getBefore());
+            primero.setNext(temp);
+            temp.setBefore(primero);
+            tam++;*/
+
+        }
     }
 
     public Conductores Buscar(long dato) {
-        Conductores conductor= null;
+        Conductores conductor = null;
         NodoLCD actual;
         actual = primero;
         boolean found = false;
         do {
-            if(primero!=null){
-            if (actual.dato.getDPI() == dato) {
-                found = true;
+            if (primero != null) {
+                if (actual.dato.getDPI() == dato) {
+                    found = true;
+                    break;
+                }
+                actual = actual.next;
+            } else {
                 break;
             }
-            actual = actual.next;
-            }else
-                break;
         } while (actual != ultimo.next);
         if (found) {
             JOptionPane.showMessageDialog(null, "Conductor encontrado");
-            conductor=actual.dato;
+
 
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado");
@@ -117,7 +177,7 @@ public class ListaCircularDoble {
                 actual.dato.setTelefono(Telefono);
                 actual.dato.setDireccion(Direccion);
             }
-            actual= actual.next;
+            actual = actual.next;
         } while (actual == ultimo);
 
     }
@@ -135,33 +195,34 @@ public class ListaCircularDoble {
         return text;
 
     }
-     NodoLCD actual;
-                NodoLCD anterior;
-                NodoLCD siguiente;
 
-    public void ordena_lista(ListaCircularDoble nodo) {
-        if(nodo!=null){
-            NodoLCD aux=null;
-            NodoLCD actual=null;
-            long cant=0;
-            aux=nodo.primero;
-            while(aux!=nodo.ultimo){
-            actual=aux.next;
-                while(actual!=ultimo.next){
-                    if(cant<actual.dato.getDPI()){
-                        cant=aux.dato.getDPI();
-                    aux.dato=actual.dato;
-                       //cant=actual.dato.getDPI();
+    public void ordena_lista(NodoLCD nodo) {
+        NodoLCD actual, siguiente;
+        long cant;
+
+        actual = nodo;
+        if (nodo != null) {
+
+            do {
+                siguiente = actual.next;
+                while (siguiente != nodo) {
+                    if (actual.dato.getDPI() > siguiente.dato.getDPI()) {
+                        cant = siguiente.dato.getDPI();
+                        siguiente.dato = actual.dato;
+                        cant = actual.dato.getDPI();
                     }
-                    actual=actual.next;
+                    siguiente = siguiente.next;
                 }
-                aux=aux.next;
-            }
-        }else{
-                System.out.println("Lista no iniciliazada");
+                actual = actual.next;
+                siguiente = actual.next;
+
+            } while (siguiente != nodo);
+
+        } else {
+            System.out.println("Lista no iniciliazada");
         }
-        
-       /* if (tam>1) {
+
+        /* if (tam>1) {
             boolean changes;
             do{
                  NodoLCD actual=primero;
@@ -199,15 +260,13 @@ public class ListaCircularDoble {
                 }
             }while(changes);
         }*/
-       
-       
     }
 
     public void ReporteLCD() {
-       // ordena_lista(primero);
+        // ordena_lista(primero);
         try {
             FileWriter archivo = new FileWriter("ReporteConductores.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n" );
+            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n");
             archivo.write("labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";\n");
             //CONTENIDO
             archivo.write(report());

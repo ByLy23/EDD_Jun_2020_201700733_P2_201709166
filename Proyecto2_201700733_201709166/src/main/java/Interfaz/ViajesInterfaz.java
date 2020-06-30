@@ -5,7 +5,15 @@
  */
 package Interfaz;
 
+import EDD.ListaEnlazada;
+import Principal.Cliente;
+import Principal.Conductores;
 import Principal.Inicio;
+import Principal.Rutas;
+import Principal.Vehiculo;
+import java.math.BigInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,13 +41,13 @@ public class ViajesInterfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TxtDPI = new javax.swing.JTextField();
-        TxtDPI1 = new javax.swing.JTextField();
+        destino = new javax.swing.JTextField();
+        origen = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         TxtPlaca = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TxtCliene = new javax.swing.JTextField();
+        cliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         TxtConductor = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
@@ -63,11 +71,11 @@ public class ViajesInterfaz extends javax.swing.JFrame {
         jLabel3.setText("Lugar de Destino");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
-        TxtDPI.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 150, -1));
+        destino.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 150, -1));
 
-        TxtDPI1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtDPI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 150, -1));
+        origen.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(origen, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
@@ -87,8 +95,8 @@ public class ViajesInterfaz extends javax.swing.JFrame {
         jLabel7.setText("Cliente");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        TxtCliene.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(TxtCliene, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, -1));
+        cliente.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
@@ -137,8 +145,14 @@ public class ViajesInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        Inicio.blockchain.InsertarViaje(TxtPlaca.getText());
-        Inicio.blockchain.Mostrar();
+        try {
+            //Cuando se genera el viaje se crea la ruta mas rapida,
+            //se hace la lista generada con la ruta mas corta
+            //se guarda el cliente, el conductor, el vehiculo y la lista
+            Inicio.cadenaBloques.generarViaje(origen.getText(), destino.getText(), cliente.getText(), TxtPlaca.getText(),TxtConductor.getText());
+        } catch (Exception ex) {
+            Logger.getLogger(ViajesInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -154,11 +168,10 @@ public class ViajesInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
-    private javax.swing.JTextField TxtCliene;
     private javax.swing.JTextField TxtConductor;
-    private javax.swing.JTextField TxtDPI;
-    private javax.swing.JTextField TxtDPI1;
     private javax.swing.JTextField TxtPlaca;
+    private javax.swing.JTextField cliente;
+    private javax.swing.JTextField destino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -169,5 +182,6 @@ public class ViajesInterfaz extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField origen;
     // End of variables declaration//GEN-END:variables
 }

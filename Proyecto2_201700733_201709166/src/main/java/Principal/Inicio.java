@@ -8,6 +8,7 @@ import EDD.Grafo;
 import EDD.ListaCircularDoble;
 import Interfaz.FirstStep;
 import EDD.ArbolB;
+import EDD.Blockchain;
 import EDD.TablaHash;
 import EDD.ListaCircularDoble;
 import EDD.Grafo;
@@ -25,6 +26,7 @@ public class Inicio {
     public static EDD.Grafo graph; 
     public static TablaHash tablita;
     public static ArbolB arbolito;
+    public static Blockchain cadenaBloques;
     public static ListaSimple blockchain;
     public static void main(String[] args) throws Exception
     {
@@ -33,6 +35,7 @@ public class Inicio {
         lcd=new ListaCircularDoble();
         graph=new Grafo();
         blockchain=new ListaSimple();
+        cadenaBloques= new Blockchain();
 /*import EDD.ArbolB;
 import EDD.TablaHash;
 import java.math.BigInteger;*/
