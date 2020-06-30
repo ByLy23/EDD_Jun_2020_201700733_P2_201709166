@@ -176,6 +176,8 @@ new Reporteria().setVisible(true);// TODO add your handling code here:
 
     private javax.swing.JMenuItem jMenuItem5;
 
+    private javax.swing.JMenuItem jMenuItem6;
+
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

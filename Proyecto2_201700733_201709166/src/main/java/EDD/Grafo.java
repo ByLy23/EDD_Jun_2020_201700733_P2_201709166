@@ -12,7 +12,8 @@ import java.io.IOException;
 public class Grafo {
 
     public Vertex raiz;
-
+    private int contador=0;
+    String[] nodoVisitado;
     public Grafo() {
         raiz = null;
     }
@@ -56,6 +57,7 @@ public class Grafo {
         } else {                                    //si la raiz es nulo
             raiz = nuevo;                           //raiz es igual a nuevo
         }
+        contador++;
     }
 
     public void Mostrar() {
@@ -72,6 +74,7 @@ public class Grafo {
             auxVertex = auxVertex.siguiente;                    //Repito el proceso para mi siguiente verti
             System.out.println("\n");
         }
+        System.out.println(contador);
     }
 
     public String report() {//se hace lo mismo que en mostrar
@@ -117,7 +120,73 @@ public class Grafo {
             e.printStackTrace();
         }
     }
-public ListaEnlazada<Rutas> generarRuta(String origen, String destino){
-    return null;
+
+    
+    ListaEnlazada<Rutas> lista=new ListaEnlazada<>();
+
+    public ListaEnlazada<Rutas> getLista() {
+        return lista;
+    }
+
+    public void setLista(ListaEnlazada<Rutas> lista) {
+        this.lista = lista;
+    }
+    public void generarRuta(String origen, String destino){
+       nodoVisitado = new String[contador];
+       genera(origen,destino);
+    }
+private void genera(String origen, String destino){
+    Vertex vertice= getVertex(origen);
+    if(vertice!=null){
+    Edge arista=vertice.arista;
+    Edge aux=null;
+    int peso=999999999;
+       while(arista!=null){
+            if(arista.vertice.nombre.equals(destino)){
+                verificaVisitados(destino);
+                peso=arista.tiempo;
+                lista.insertarFinal(new Rutas(destino, String.valueOf(peso)));
+                break;
+            }else{
+                if(!verificaVisitados(origen)){
+                     if(peso>arista.tiempo){
+                        peso=arista.tiempo;
+                        aux=arista;
+                         verificaVisitados(origen);
+                    }else{
+                         verificaVisitados(origen);
+                     }
+                }
+            }           
+            arista=arista.siguiente;
+        }
+       if(aux!=null){
+           lista.insertarFinal(new Rutas(aux.vertice.nombre, String.valueOf(peso)));
+       vertice= getVertex(aux.vertice.nombre);
+           generarRuta(vertice.nombre, destino);
+       }
+       
+    }
+}
+private boolean verificaVisitados(String nodo){   
+    boolean bandera=false;
+    for (int i = 0; i < contador; i++) {
+        if(nodoVisitado[i]!=null){
+            if(nodoVisitado[i].equals(nodo)){
+                bandera=true;
+                break;
+            }
+        }
+    }
+    if(!bandera){
+        for (int i = 0; i < contador; i++) {
+            if(nodoVisitado[i]==null){
+                nodoVisitado[i]=nodo;
+                break;
+            }
+        }
+    }
+    return bandera;
+
 }
 }

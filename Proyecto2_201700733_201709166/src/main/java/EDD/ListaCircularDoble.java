@@ -42,6 +42,7 @@ public class ListaCircularDoble {
 
         }
         tam++;
+
         //  ordena_lista(this);
     }
 
@@ -102,6 +103,7 @@ public class ListaCircularDoble {
             tam++;*/
 
         }
+
     }
 
     public Conductores Buscar(long dato) {
@@ -110,6 +112,7 @@ public class ListaCircularDoble {
         actual = primero;
         boolean found = false;
         do {
+
             if (primero != null) {
                 if (actual.dato.getDPI() == dato) {
                     found = true;
@@ -122,6 +125,7 @@ public class ListaCircularDoble {
         } while (actual != ultimo.next);
         if (found) {
             JOptionPane.showMessageDialog(null, "Conductor encontrado");
+
 
 
         } else {
@@ -196,6 +200,7 @@ public class ListaCircularDoble {
 
     }
 
+
     public void ordena_lista(NodoLCD nodo) {
         NodoLCD actual, siguiente;
         long cant;
@@ -210,6 +215,7 @@ public class ListaCircularDoble {
                         cant = siguiente.dato.getDPI();
                         siguiente.dato = actual.dato;
                         cant = actual.dato.getDPI();
+
                     }
                     siguiente = siguiente.next;
                 }
