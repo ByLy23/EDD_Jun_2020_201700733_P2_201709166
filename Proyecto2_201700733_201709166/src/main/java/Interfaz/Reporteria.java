@@ -253,6 +253,7 @@ public class Reporteria extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRutasRActionPerformed
 
     private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
+
         String llave=JOptionPane.showInputDialog("Ingrese Llave de viaje", JOptionPane.QUESTION_MESSAGE);
         try {
             Inicio.cadenaBloques.imprimir(llave);
@@ -260,6 +261,7 @@ public class Reporteria extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Reporteria.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_BtnEDDActionPerformed
 
     /**

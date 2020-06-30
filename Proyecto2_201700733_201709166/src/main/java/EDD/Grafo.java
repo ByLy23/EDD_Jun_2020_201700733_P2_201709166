@@ -120,6 +120,7 @@ public class Grafo {
             e.printStackTrace();
         }
     }
+
     
     ListaEnlazada<Rutas> lista=new ListaEnlazada<>();
 
@@ -186,5 +187,6 @@ private boolean verificaVisitados(String nodo){
         }
     }
     return bandera;
+
 }
 }

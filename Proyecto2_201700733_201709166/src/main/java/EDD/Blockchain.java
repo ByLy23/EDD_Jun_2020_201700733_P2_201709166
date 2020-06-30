@@ -29,23 +29,28 @@ public class Blockchain {
          ListaEnlazada<Rutas> ruta;//= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
     //aca se va a generar el md5
     public Blockchain(){
+
           this.listabloques=new ListaEnlazada<>();
           this.buscarCarro=null;
           this.buscarCliente=null;
           this.conductor=null;
           this.ruta=new ListaEnlazada<>();
+
         //
     }
     public void generarViaje(String origen, String destino, String cliente, String carro, String conductor) throws Exception{
         Inicio.arbolito.buscarCarro(carro);
         Inicio.tablita.buscar(BigInteger.valueOf(Long.parseLong(cliente)));
+
         Inicio.graph.generarRuta(origen, destino);
         ruta=Inicio.graph.getLista();
+
         this.conductor= Inicio.lcd.Buscar(Long.parseLong(conductor));
         buscarCarro=Inicio.arbolito.getCarros();
         buscarCliente= Inicio.tablita.getAux();
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm"));
+
         String ll= generaLlaves(carro);
         String llaveEncriptada= generarHash(ll);
         System.out.println(llaveEncriptada);
@@ -69,6 +74,7 @@ public class Blockchain {
         String fec=placa+FechaHora;//quita espacio y transforma a mayuscula
         System.out.println("Fecha hora: " + placa + FechaHora);
         return fec;
+
     }
     private String generarHash(String text) throws Exception{
         byte[] mensajeEncriptado= text.getBytes("UTF-8");
