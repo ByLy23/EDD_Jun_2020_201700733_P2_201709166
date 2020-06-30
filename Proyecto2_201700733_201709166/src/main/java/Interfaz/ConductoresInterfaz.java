@@ -276,7 +276,6 @@ public class ConductoresInterfaz extends javax.swing.JFrame {
 //        String seleccion = JOptionPane.showInputDialog("Escriba el DPI que desea eliminar", JOptionPane.QUESTION_MESSAGE);  // el icono sera un iterrogante
 
 
-
         // buscar(seleccion);
         long dpi = Long.parseLong(TxtDpi.getText());
         lcd.Eliminar(dpi);

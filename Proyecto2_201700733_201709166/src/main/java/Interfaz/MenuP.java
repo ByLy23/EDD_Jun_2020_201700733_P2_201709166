@@ -37,8 +37,6 @@ public class MenuP extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
-        jMenuItem5 = new javax.swing.JMenuItem();
-
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -89,9 +87,6 @@ public class MenuP extends javax.swing.JFrame {
         });
 
         jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Rutas");
-        jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
 
@@ -170,13 +165,9 @@ new Reporteria().setVisible(true);// TODO add your handling code here:
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
 
-    private javax.swing.JMenuItem jMenuItem5;
-
     private javax.swing.JMenuItem jMenuItem6;
 
     private javax.swing.JMenuItem jMenuItem5;
-
-    private javax.swing.JMenuItem jMenuItem6;
 
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

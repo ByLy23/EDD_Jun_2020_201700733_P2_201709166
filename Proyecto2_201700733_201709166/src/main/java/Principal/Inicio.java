@@ -36,6 +36,9 @@ public class Inicio {
         graph=new Grafo();
         blockchain=new ListaSimple();
         cadenaBloques= new Blockchain();
+        tablita.insertarClientes(new BigInteger("1"), "Gabriel", "Vale Verga", "Con la ", 69, "Innombrable", "xD");
+        arbolito.Insertar(new Vehiculo("1", "1", "1", 20, "1", 20, "1"));
+        lcd.InsertarOrdenado(new Conductores(1, "1", "1", "1", "1", "1", "1"));
 /*import EDD.ArbolB;
 import EDD.TablaHash;
 import java.math.BigInteger;*/
