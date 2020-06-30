@@ -32,7 +32,6 @@ public class Blockchain {
     Conductores conductor;//= Inicio.lcd.Buscar(Long.parseLong(TxtConductor.getText()));
     ListaEnlazada<MejorRuta> ruta;//= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
     //aca se va a generar el md5
-
     public Blockchain() {
 
         this.listabloques = new ListaEnlazada<>();

@@ -293,6 +293,7 @@ public class Reporteria extends javax.swing.JFrame {
 
     private void BtnMejorRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMejorRutaActionPerformed
         String llave = JOptionPane.showInputDialog("Ingrese Llave de viaje", JOptionPane.QUESTION_MESSAGE);
+
         try {
             Inicio.cadenaBloques.imprimirMejorRuta(llave);
 
