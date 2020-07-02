@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  */
 public class ArbolB {
 
-   public PaginaB raiz = null;
+    public PaginaB raiz = null;
 
     public PaginaB getRaiz() {
         return raiz;
@@ -29,6 +29,7 @@ public class ArbolB {
     private PaginaB nuevo = null;
     private PaginaB busqueda = null;
     private Vehiculo carros;
+    public String mierdaCarro;
 
     public Vehiculo getCarros() {
         return carros;
@@ -51,11 +52,22 @@ public class ArbolB {
     public ArbolB() {
         medio = new Vehiculo();
     }
+    int obtenerHash;
 
+    public int getObtenerHash() {
+        return obtenerHash;
+    }
+
+    public void setObtenerHash(int obtenerHash) {
+        this.obtenerHash = obtenerHash;
+    }
+
+    //dentro del metodo buscar carro, cuando lo encuentra  setObtenerHash(raiz.getCarro()[i].hashCode());
     public PaginaB buscarCarro(String placa) {//metodo publico para buscar, nada mas necesita la placa
-       
+
         buscaCarro(raiz, placa);//aca adentro va la busqueda del carro es recursiva por lo que...
         PaginaB nuevaB = busqueda;//aqui se crea una nueva pagina la cual va a tener la informacion de busqueda...
+
         return nuevaB;//que tambien es una pagina general para busquedas
     }
 
@@ -65,6 +77,7 @@ public class ArbolB {
                 if (raiz.getCarro()[i].getPlaca().compareTo(placa) == 0) {//compara las placas para igualar
                     busqueda = raiz;
                     setCarros(raiz.getCarro()[i]);
+                    setObtenerHash(raiz.hashCode());
                 }
             }
             for (PaginaB pagina : raiz.getPaginas()) {//este es un foreach de la coleccion, en este caso en la coleccion de paginas
@@ -201,10 +214,10 @@ public class ArbolB {
         rt.exec(comando);
     }
     //StringBuilder b = new StringBuilder();
-   public String b = "";
+    public String b = "";
 
     public void imprimirNodo() throws Exception {
-        b="";
+        b = "";
         imprimirRaiz(raiz);
     }
 

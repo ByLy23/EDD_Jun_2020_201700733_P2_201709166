@@ -195,7 +195,7 @@ public class Reporteria extends javax.swing.JFrame {
     private void BtnVehiculosRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehiculosRActionPerformed
         try {
             ImageIcon ims;
-            Inicio.tablita.graficar();
+            Inicio.arbolito.imprimirNodo();
             Thread.sleep(500);
             ims = new ImageIcon("bTree.jpg");
             ims.getImage().flush();
@@ -237,7 +237,7 @@ public class Reporteria extends javax.swing.JFrame {
 
         try {
             ImageIcon ims;
-            Inicio.tablita.graficar();
+            Inicio.lcd.ReporteLCD();
             Thread.sleep(500);
             ims = new ImageIcon("ReporteConductores.png");
             ims.getImage().flush();
@@ -254,7 +254,7 @@ public class Reporteria extends javax.swing.JFrame {
     private void BtnRutasRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRutasRActionPerformed
         try {
             ImageIcon ims;
-            Inicio.tablita.graficar();
+            Inicio.graph.Graficar();
             Thread.sleep(500);
             ims = new ImageIcon("ReporteRutas.png");
             ims.getImage().flush();

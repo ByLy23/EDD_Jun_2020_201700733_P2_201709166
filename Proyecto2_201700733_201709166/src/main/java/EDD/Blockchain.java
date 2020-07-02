@@ -30,6 +30,7 @@ public class Blockchain {
 
     ListaEnlazada<Bloque> listabloques;
     Cliente buscarCliente;//= Inicio.tablita.getAux();
+    int mierdaC;
     Vehiculo buscarCarro;//= Inicio.arbolito.getCarros();
     Conductores conductor;//= Inicio.lcd.Buscar(Long.parseLong(TxtConductor.getText()));
     ListaEnlazada<MejorRuta> ruta;//= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
@@ -38,6 +39,7 @@ public class Blockchain {
     public Blockchain() {
 
         this.listabloques = new ListaEnlazada<>();
+        this.mierdaC = 0;
         this.buscarCarro = null;
         this.buscarCliente = null;
         this.conductor = null;
@@ -56,6 +58,8 @@ public class Blockchain {
         this.conductor = Inicio.lcd.Buscar(Long.parseLong(conductor));
         buscarCarro = Inicio.arbolito.getCarros();
         buscarCliente = Inicio.tablita.getAux();
+        mierdaC=Inicio.arbolito.getObtenerHash();
+
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm"));
         String ll = generaLlaves(carro);
@@ -117,6 +121,32 @@ public class Blockchain {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    public String graficar2() {
+        String text = "";
+        text += " rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
+        text += "labelloc = \"t;\"label = \"REPORTE BLOCKCHAIN\";\n";
+        //CONTENIDO
+        for (int i = 0; i < listabloques.getTamanio(); i++) {
+            //if(listabloques.obtenerElemento(i).getLlave().equals(nuevo)){
+            //graficar el nodo
+            text += "x" + listabloques.obtenerElemento(i).getLlave() + "[dir=both label = \"Llave = " + listabloques.obtenerElemento(i).getLlave() + "\\nLugar Origen = " + listabloques.obtenerElemento(i).getLugarOrigen() + "\\n Lugar Destino = " + listabloques.obtenerElemento(i).getLugarDestino() + "\\n Cliente = " + listabloques.obtenerElemento(i).getCliente().getNombre() + "\\n Conductor = " + listabloques.obtenerElemento(i).getConductor().getNombre() + "\\n Vehiculo = " + listabloques.obtenerElemento(i).getVehiculo().getPlaca() + "\"]";
+            if ((i + 1) < listabloques.getTamanio()) {
+                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i + 1).getLlave() + "\n";
+
+                //text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i).;
+            }
+            if (i + 1 == listabloques.getTamanio()) {
+                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i).getConductor().getDPI() + "\n";
+                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> Nodo" +  Inicio.arbolito.getObtenerHash() + "\n";
+                 text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> Nodo" +  Inicio.tablita.getObtenerHash() + "\n";
+            }
+
+            //System.out.println(listabloques.obtenerElemento(i).getLugarDestino() + " " + listabloques.obtenerElemento(i).getCliente().getFechaNac());
+            //}
+        }
+        return text;
     }
 
     public String graficar() {
@@ -195,7 +225,7 @@ public class Blockchain {
     public String Blockchain() {
         String text = "";
         text += "subgraph cluster_Blockchain{";
-        text+=graficar();
+        text += graficar2();
         text += "}\n\n";
         return text;
     }
