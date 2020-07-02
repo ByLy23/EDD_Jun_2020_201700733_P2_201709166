@@ -168,7 +168,7 @@ public class Grafo {
                     if(!bandera){
                         lista.eliminar(lista.getTamanio());
                     }
-                     if(contarAdyacentes(aux.nombre)){
+                    if(contarAdyacentes(aux.nombre)){
                         lista.eliminar(lista.getTamanio());
                         }
                     }
