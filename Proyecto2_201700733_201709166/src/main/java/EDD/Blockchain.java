@@ -99,8 +99,8 @@ public class Blockchain {
         // ordena_lista(primero);
         try {
             FileWriter archivo = new FileWriter("ReporteBC.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n");
-            archivo.write("labelloc = \"t;\"label = \"REPORTE BLOCKCHAIN\";\n");
+            archivo.write("digraph G {\n\n");
+
             //CONTENIDO
             archivo.write(graficar());
 
@@ -121,6 +121,9 @@ public class Blockchain {
 
     public String graficar() {
         String text = "";
+        text += " rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
+        text += "labelloc = \"t;\"label = \"REPORTE BLOCKCHAIN\";\n";
+        //CONTENIDO
         for (int i = 0; i < listabloques.getTamanio(); i++) {
             //if(listabloques.obtenerElemento(i).getLlave().equals(nuevo)){
             //graficar el nodo
@@ -174,9 +177,8 @@ public class Blockchain {
         String text = "";
         text += "subgraph cluster_Tree{";
         text += "node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";";
-        
-        
-        text+=Inicio.arbolito.imprimirRaiz(Inicio.arbolito.raiz);
+
+        text += Inicio.arbolito.imprimirRaiz(Inicio.arbolito.raiz);
         text += "}\n\n";
         return text;
     }
@@ -190,6 +192,14 @@ public class Blockchain {
         return text2;
     }
 
+    public String Blockchain() {
+        String text = "";
+        text += "subgraph cluster_Blockchain{";
+        text+=graficar();
+        text += "}\n\n";
+        return text;
+    }
+
     public void GraficarRG() throws Exception {
         try {
             FileWriter archivo = new FileWriter("ReporteGeneral.dot");
@@ -200,6 +210,7 @@ public class Blockchain {
             archivo.write(Driversitos());
             archivo.write(Hashito());
             archivo.write(Arbolito());
+            archivo.write(Blockchain());
             archivo.write("\n}\n\n");
             archivo.close();
             // archivo.write(contadorUsuarios + ";\n}");
