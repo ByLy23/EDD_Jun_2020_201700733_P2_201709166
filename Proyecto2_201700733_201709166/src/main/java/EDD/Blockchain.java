@@ -65,7 +65,8 @@ public class Blockchain {
         buscarCarro = Inicio.arbolito.getCarros();
         buscarCliente = Inicio.tablita.getAux();
 
-        mierdaC=Inicio.arbolito.getObtenerHash();
+        mierdaC = Inicio.arbolito.getObtenerHash();
+
 
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm"));
@@ -91,9 +92,10 @@ public class Blockchain {
         }
 
     }
+    public String nuevo;
 
     public void imprimirMejorRuta(String llave) throws Exception {
-        String nuevo = generarHash(llave);
+        nuevo = generarHash(llave);
         System.out.println(llave + "ESTA ES LA LLAVE");
 
         for (int i = 0; i < listabloques.getTamanio(); i++) {
@@ -106,6 +108,30 @@ public class Blockchain {
                 //graficar el nodo
                 // System.out.println(Inicio.graph.lista.obtenerElemento(i).getLugarDestino() + " " + Inicio.graph.lista.obtenerElemento(i).getLugarOrigen() + " " + Inicio.graph.lista.obtenerElemento(i).getTiempoRuta());
             }
+        }
+    }
+
+    public void MejorRuta(String ruta) throws Exception {
+        // ordena_lista(primero);
+        try {
+            FileWriter archivo = new FileWriter("ReporteMejorRuta.dot");
+            archivo.write("digraph G {\n\n");
+
+            //CONTENIDO
+            archivo.write(imprimirMejorRutaG(ruta));
+
+            archivo.write("\n}");
+            archivo.close();
+            // archivo.write(contadorUsuarios + ";\n}");
+
+            String abrir = "dot -Tpng " + "ReporteMejorRuta" + ".dot -o " + "ReporteMejorRuta" + ".png";
+            Runtime tiempoEjecucion = Runtime.getRuntime();
+            Process proceso = tiempoEjecucion.exec(abrir);
+            archivo.close();
+            System.out.println("REPORTE DE MEJOR RUTA CREADO");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 
@@ -149,14 +175,48 @@ public class Blockchain {
             }
             if (i + 1 == listabloques.getTamanio()) {
                 text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i).getConductor().getDPI() + "\n";
-                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> Nodo" +  Inicio.arbolito.getObtenerHash() + "\n";
-                 text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> Nodo" +  Inicio.tablita.getObtenerHash() + "\n";
+                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> Nodo" + Inicio.arbolito.getObtenerHash() + "\n";
+                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> Nodo" + Inicio.tablita.getObtenerHash() + "\n";
+
+                int tam = listabloques.obtenerElemento(i).getRuta().getTamanio();
+                for (int j = 0; j < tam; j++) {
+                    if (j == 0) {
+                        text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> br" + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarOrigen() + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarDestino() + "\n";
+
+                    }
+                }
+
             }
 
             //System.out.println(listabloques.obtenerElemento(i).getLugarDestino() + " " + listabloques.obtenerElemento(i).getCliente().getFechaNac());
             //}
         }
         return text;
+    }
+
+    public String imprimirMejorRutaG(String llave) throws Exception {
+        String mejor = "";
+        mejor += " rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
+        mejor += "labelloc = \"t;\"label = \"REPORTE MEJOR RUTA\";\n";
+
+        nuevo = generarHash(llave);
+        System.out.println(llave + "ESTA ES LA LLAVE");
+
+        for (int i = 0; i < listabloques.getTamanio(); i++) {
+            if (listabloques.obtenerElemento(i).getLlave().equals(nuevo)) {
+                int tam = listabloques.obtenerElemento(i).getRuta().getTamanio();
+                for (int j = 0; j < tam; j++) {
+                    mejor += "br" + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarOrigen() + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarDestino() + "[dir=both label = \"Lugar = " + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarDestino() + " Tiempo: " + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getTiemp() + "\"]";
+                    if ((j + 1) < tam) {
+                        mejor += "br" + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarOrigen() + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j).getLugarDestino() + "-> br" + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j + 1).getLugarOrigen() + listabloques.obtenerElemento(i).getRuta().obtenerElemento(j + 1).getLugarDestino() + "\n";
+                    }
+                }
+            }
+            //graficar el nodo
+            // System.out.println(Inicio.graph.lista.obtenerElemento(i).getLugarDestino() + " " + Inicio.graph.lista.obtenerElemento(i).getLugarOrigen() + " " + Inicio.graph.lista.obtenerElemento(i).getTiempoRuta());
+        }
+
+        return mejor;
     }
 
     public String graficar() {
@@ -179,11 +239,21 @@ public class Blockchain {
         }
         return text;
     }
+    String llaveHDP;
+
+    public String getLlaveHDP() {
+        return llaveHDP;
+    }
+
+    public void setLlaveHDP(String llaveHDP) {
+        this.llaveHDP = llaveHDP;
+    }
 
     public String generaLlaves(String placa) {
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm")).trim().replace(" ", "").toUpperCase();
         String fec = placa + FechaHora;//quita espacio y transforma a mayuscula
+        setLlaveHDP(fec);
         System.out.println("Fecha hora: " + placa + FechaHora);
         return fec;
 
@@ -227,7 +297,7 @@ public class Blockchain {
 
     public String Hashito() throws Exception {
         String text2 = "";
-        text2 += "subgraph cluster_Clientes{";
+        text2 += "subgraph getLlaveHDPcluster_Clientes{";
         text2 += "rankdir=LR\nnode[shape=record,style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n labelloc = \"t;\"label = \"REPORTE CLIENTES\";  ";
         text2 += Inicio.tablita.graficar();
         text2 += "}\n\n";
@@ -238,6 +308,14 @@ public class Blockchain {
         String text = "";
         text += "subgraph cluster_Blockchain{";
         text += graficar2();
+        text += "}\n\n";
+        return text;
+    }
+
+    public String MejorRuta() throws Exception {
+        String text = "";
+        text += "subgraph cluster_MejorRuta{";
+        text += imprimirMejorRutaG(getLlaveHDP());
         text += "}\n\n";
         return text;
     }
@@ -253,6 +331,7 @@ public class Blockchain {
             archivo.write(Hashito());
             archivo.write(Arbolito());
             archivo.write(Blockchain());
+            archivo.write(MejorRuta());
             archivo.write("\n}\n\n");
             archivo.close();
             // archivo.write(contadorUsuarios + ";\n}");
