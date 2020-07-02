@@ -2,6 +2,7 @@ package EDD;
 
 import Principal.Rutas;
 import EDD.ListaAdyacencia;
+import Principal.Arista;
 import Principal.MejorRuta;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -140,15 +141,39 @@ public class Grafo {
 
             int peso = 999999999;
             Vertex anterior=null;
+            Pila<Arista> pila=new Pila<>();
+            
     private void genera(String origen, String destino) {
         Vertex vertice = getVertex(origen);
+        Vertex aux=null;
         if (vertice != null) {
+            lista.insertarFinal(new MejorRuta(origen, destino, String.valueOf(vertice.arista.tiempo)));
             Edge arista = vertice.arista;
+            pila.Apilar(new Arista(origen,"0"));
+            while(pila!=null){
+                Arista aris= pila.desapilar();
+                if(aris.getNombre().equals(destino)){
+                    System.out.println("AL FIN SALIO");
+                    lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
+                    pila.limpiar();
+                    break;
+                }else{
+                    aux= getVertex(aris.getNombre());
+                    if(!verificaVisitados(aux.nombre)){
+                    boolean bandera= adjuntarPilaAdyacentes(aux.nombre);
+                    }
+                    
+                }
+            }
+            /*
             if(arista==null){
                 verificaVisitados(vertice.nombre);
                 //vertice=anterior;
             }
             Edge aux = null;
+            
+            
+            
             while (arista != null) {
                 if (arista.vertice.nombre.equals(destino)) {
                     verificaVisitados(destino);
@@ -176,11 +201,26 @@ public class Grafo {
                 
                 //lista.insertarFinal(new MejorRuta(vertice.nombre, aux.vertice.nombre, String.valueOf(peso)));//verificar error lista
                 //generarRuta(vertice.nombre, destino);
-            }
+            }*/
 
         }
     }
-
+    private boolean adjuntarPilaAdyacentes(String nodo){
+        boolean bandera=false;
+        int cont=0;
+        Edge arista=null;
+        Vertex vertice= getVertex(nodo);
+        arista= vertice.arista;
+        while(arista!=null){
+            pila.Apilar(new Arista(arista.vertice.nombre, String.valueOf(arista.tiempo)));
+            cont++;
+            arista= arista.siguiente;
+        }
+        if(cont>0){
+            bandera=true;
+        }
+        return bandera;
+    }
         
     public void MostrarBestRout() {
         
