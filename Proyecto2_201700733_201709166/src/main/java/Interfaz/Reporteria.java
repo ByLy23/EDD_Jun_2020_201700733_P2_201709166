@@ -269,6 +269,7 @@ public class Reporteria extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRutasRActionPerformed
 
     private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
+
         try {
             ImageIcon ims;
             Inicio.cadenaBloques.GraficarRG();
@@ -279,12 +280,13 @@ public class Reporteria extends javax.swing.JFrame {
             LblImages.setIcon(ims);
             LblImages.revalidate();
             LblImages.repaint(); // TODO add your handling code here:
-            
-            File miDir=new File("ReporteGeneral.jpg");
+
+            File miDir = new File("ReporteGeneral.jpg");
             Desktop.getDesktop().open(miDir);
         } catch (Exception ex) {
             System.out.println(ex);
         }
+
 
     }//GEN-LAST:event_BtnEDDActionPerformed
 
@@ -312,8 +314,16 @@ public class Reporteria extends javax.swing.JFrame {
         String llave = JOptionPane.showInputDialog("Ingrese Llave de viaje", JOptionPane.QUESTION_MESSAGE);
 
         try {
-            Inicio.cadenaBloques.imprimirMejorRuta(llave);
 
+            ImageIcon ims;
+            Inicio.cadenaBloques.MejorRuta(llave);
+            Thread.sleep(500);
+            ims = new ImageIcon("ReporteMejorRuta.png");
+            ims.getImage().flush();
+            ims = new ImageIcon("ReporteMejorRuta.png");
+            LblImages.setIcon(ims);
+            LblImages.revalidate();
+            LblImages.repaint(); // TODO add your handling code here:
         } catch (Exception ex) {
             Logger.getLogger(Reporteria.class.getName()).log(Level.SEVERE, null, ex);
         }

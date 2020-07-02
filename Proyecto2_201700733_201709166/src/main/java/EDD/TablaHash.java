@@ -111,7 +111,9 @@ public class TablaHash {
         }
     }
 
+
     public boolean buscar(BigInteger dpi) {
+
         for (int i = 0; i < size; i++) {
             if (listaClientes[i] != null) {
                 /*if(listaClientes[i].getTamanio()==0){

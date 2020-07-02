@@ -2,6 +2,9 @@ package EDD;
 
 import Principal.Rutas;
 import EDD.ListaAdyacencia;
+
+import Principal.Arista;
+
 import Principal.MejorRuta;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -81,8 +84,8 @@ public class Grafo {
 
     public String report() {//se hace lo mismo que en mostrar
         String text = "";
-        text+=" rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
-        text+="labelloc = \"t;\"label = \"REPORTE RUTAS\";\n";
+        text += " rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
+        text += "labelloc = \"t;\"label = \"REPORTE RUTAS\";\n";
 
         Edge auxEdge;
         Vertex auxVertex = raiz;
@@ -106,8 +109,10 @@ public class Grafo {
     public void Graficar() {
         try {
             FileWriter archivo = new FileWriter("ReporteRutas.dot");
+
             archivo.write("digraph G {\n");
-                       //CONTENIDO
+            //CONTENIDO
+
             archivo.write(report());
 
             archivo.write("\n}");
@@ -137,20 +142,64 @@ public class Grafo {
 
     public void generarRuta(String origen, String destino) {
         nodoVisitado = new String[contador];
+
+        lista = new ListaEnlazada<>();
         genera(origen, destino);
+        System.out.println("prueba");
+
     }
 
-            int peso = 999999999;
-            Vertex anterior=null;
+    int peso = 999999999;
+    Vertex anterior = null;
+
+    Pila<Arista> pila = new Pila<>();
+
     private void genera(String origen, String destino) {
         Vertex vertice = getVertex(origen);
+        Vertex aux = null;
+        boolean Encontrado = false;
         if (vertice != null) {
+            // lista.insertarFinal(new MejorRuta(origen, destino, String.valueOf(vertice.arista.tiempo)));
             Edge arista = vertice.arista;
+            pila.Apilar(new Arista(origen, "0"));
+            while (pila != null) {
+                Arista aris = pila.desapilar();
+                if (aris.getNombre().equals(destino)) {
+                    System.out.println("AL FIN SALIO");
+                    lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
+                    pila.limpiar();
+                    break;
+                } else {
+                    aux = getVertex(aris.getNombre());
+                    lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
+                    if (!verificaVisitados(aux.nombre)) {
+                        boolean bandera = adjuntarPilaAdyacentes(aux.nombre);
+                        if (!bandera) {
+                            lista.eliminar(lista.getTamanio());
+                        }
+                        if (contarAdyacentes(aux.nombre)) {
+                            lista.eliminar(lista.getTamanio());
+                        }
+                    } else {
+                        if (contarAdyacentes(aux.nombre)) {
+                            lista.eliminar(lista.getTamanio());
+                        }
+                        lista.eliminar(lista.getTamanio());
+                    }
+
+                }
+            }
+            if (Encontrado) {
+                System.out.println("No se encontro");
+            }
+            /*
+
             if(arista==null){
                 verificaVisitados(vertice.nombre);
                 //vertice=anterior;
             }
             Edge aux = null;
+
             while (arista != null) {
                 if (arista.vertice.nombre.equals(destino)) {
                     verificaVisitados(destino);
@@ -178,20 +227,64 @@ public class Grafo {
                 
                 //lista.insertarFinal(new MejorRuta(vertice.nombre, aux.vertice.nombre, String.valueOf(peso)));//verificar error lista
                 //generarRuta(vertice.nombre, destino);
-            }
+
+            }*/
 
         }
     }
 
-        
+    private boolean adjuntarPilaAdyacentes(String nodo) {
+        boolean bandera = false;
+        int cont = 0;
+        Edge arista = null;
+        Vertex vertice = getVertex(nodo);
+        arista = vertice.arista;
+        while (arista != null) {
+            pila.Apilar(new Arista(arista.vertice.nombre, String.valueOf(arista.tiempo)));
+            cont++;
+            arista = arista.siguiente;
+        }
+        if (cont > 0) {
+            bandera = true;
+        }
+        return bandera;
+    }
+
+    private boolean contarAdyacentes(String nodo) {
+        boolean bandera = false;
+        Vertex v = getVertex(nodo);
+        Edge e = v.arista;
+        while (e != null) {
+            if (soloVerificar(e.vertice.nombre)) {
+                bandera = true;
+            } else {
+                bandera = false;
+            }
+            e = e.siguiente;
+        }
+        return bandera;
+    }
+
     public void MostrarBestRout() {
-        
-        
+
         Vertex vertice = this.raiz;
         do {
-            
+
             vertice = vertice.siguiente;
         } while (vertice != raiz);
+    }
+
+    private boolean soloVerificar(String nodo) {
+        boolean bandera = false;
+        for (int i = 0; i < contador; i++) {
+            if (nodoVisitado[i] != null) {
+                if (nodoVisitado[i].equals(nodo)) {
+                    bandera = true;
+                    break;
+                }
+            }
+        }
+        return bandera;
     }
 
     private boolean verificaVisitados(String nodo) {

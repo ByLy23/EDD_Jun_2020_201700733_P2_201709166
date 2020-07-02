@@ -113,7 +113,9 @@ public class ListaCircularDoble {
             if (primero != null) {
                 if (actual.dato.getDPI() == dato) {
                     found = true;
+
                     conductor = actual.dato;
+
                     break;
                 }
                 actual = actual.next;
@@ -122,10 +124,12 @@ public class ListaCircularDoble {
             }
         } while (actual != ultimo.next);
         if (found) {
+
             //  JOptionPane.showMessageDialog(null, "Conductor encontrado");
 
         } else {
             //  JOptionPane.showMessageDialog(null, "Conductor no encontrado");
+
         }
         return conductor;
     }
@@ -267,6 +271,7 @@ public class ListaCircularDoble {
             }while(changes);
         }
     }*/
+
     public void ReporteLCD() {
         // ordena_lista(primero);
         try {

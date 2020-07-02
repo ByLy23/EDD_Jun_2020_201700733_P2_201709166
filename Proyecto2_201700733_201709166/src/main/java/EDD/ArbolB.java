@@ -71,6 +71,7 @@ public class ArbolB {
         return nuevaB;//que tambien es una pagina general para busquedas
     }
 
+
     private void buscaCarro(PaginaB raiz, String placa) {
         if (raiz != null) {//busca en cada posicion del arreglo de cada nodo, si es nula lo obvia de lo contrario ingresa al metodo
             for (int i = 0; i <= raiz.getContador(); i++) {
@@ -79,6 +80,7 @@ public class ArbolB {
                     setCarros(raiz.getCarro()[i]);
                     setObtenerHash(raiz.hashCode());
                 }
+
             }
             for (PaginaB pagina : raiz.getPaginas()) {//este es un foreach de la coleccion, en este caso en la coleccion de paginas
                 if (pagina != null) {//esto verifica si cada pagina o rama es vacia
