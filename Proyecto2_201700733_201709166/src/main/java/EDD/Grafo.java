@@ -136,7 +136,9 @@ public class Grafo {
 
     public void generarRuta(String origen, String destino) {
         nodoVisitado = new String[contador];
+        lista= new ListaEnlazada<>();
         genera(origen, destino);
+        System.out.println("prueba");
     }
 
             int peso = 999999999;
@@ -146,12 +148,13 @@ public class Grafo {
     private void genera(String origen, String destino) {
         Vertex vertice = getVertex(origen);
         Vertex aux=null;
+        boolean Encontrado=false;
         if (vertice != null) {
-            lista.insertarFinal(new MejorRuta(origen, destino, String.valueOf(vertice.arista.tiempo)));
+           // lista.insertarFinal(new MejorRuta(origen, destino, String.valueOf(vertice.arista.tiempo)));
             Edge arista = vertice.arista;
             pila.Apilar(new Arista(origen,"0"));
             while(pila!=null){
-                Arista aris= pila.desapilar();
+                Arista aris=pila.desapilar();
                 if(aris.getNombre().equals(destino)){
                     System.out.println("AL FIN SALIO");
                     lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
@@ -159,11 +162,27 @@ public class Grafo {
                     break;
                 }else{
                     aux= getVertex(aris.getNombre());
+                    lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
                     if(!verificaVisitados(aux.nombre)){
                     boolean bandera= adjuntarPilaAdyacentes(aux.nombre);
+                    if(!bandera){
+                        lista.eliminar(lista.getTamanio());
+                    }
+                     if(contarAdyacentes(aux.nombre)){
+                        lista.eliminar(lista.getTamanio());
+                        }
+                    }
+                    else{
+                        if(contarAdyacentes(aux.nombre)){
+                            lista.eliminar(lista.getTamanio());
+                        }
+                        lista.eliminar(lista.getTamanio());
                     }
                     
                 }
+            }
+            if(Encontrado){
+                System.out.println("No se encontro");
             }
             /*
             if(arista==null){
@@ -221,7 +240,20 @@ public class Grafo {
         }
         return bandera;
     }
-        
+        private boolean contarAdyacentes(String nodo){
+            boolean bandera=false;
+            Vertex v= getVertex(nodo);
+            Edge e=v.arista;
+            while(e!=null){
+                if(soloVerificar(e.vertice.nombre)){
+                    bandera= true;
+                }else{
+                    bandera=false;
+                }
+                e= e.siguiente;
+            }
+            return bandera;
+        }
     public void MostrarBestRout() {
         
         
@@ -231,7 +263,18 @@ public class Grafo {
             vertice = vertice.siguiente;
         } while (vertice != raiz);
     }
-
+private boolean soloVerificar(String nodo){
+    boolean bandera = false;
+        for (int i = 0; i < contador; i++) {
+            if (nodoVisitado[i] != null) {
+                if (nodoVisitado[i].equals(nodo)) {
+                    bandera = true;
+                    break;
+                }
+            }
+        }
+        return bandera;
+}
     private boolean verificaVisitados(String nodo) {
         boolean bandera = false;
         for (int i = 0; i < contador; i++) {

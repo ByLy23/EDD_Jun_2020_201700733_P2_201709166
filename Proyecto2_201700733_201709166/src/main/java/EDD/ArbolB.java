@@ -54,6 +54,7 @@ public class ArbolB {
             if(raiz.getCarro()[i].getPlaca().compareTo(placa)==0){//compara las placas para igualar
                 busqueda=raiz;
                 setCarros(raiz.getCarro()[i]);
+                
             }
         }
         for (PaginaB pagina : raiz.getPaginas()) {//este es un foreach de la coleccion, en este caso en la coleccion de paginas

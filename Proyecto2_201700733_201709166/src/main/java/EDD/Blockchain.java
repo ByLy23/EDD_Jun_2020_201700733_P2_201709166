@@ -125,8 +125,7 @@ public class Blockchain {
             //graficar el nodo
             text += "x" + listabloques.obtenerElemento(i).getLlave() + "[dir=both label = \"Llave = " + listabloques.obtenerElemento(i).getLlave() + "\\nLugar Origen = " + listabloques.obtenerElemento(i).getLugarOrigen() + "\\n Lugar Destino = " + listabloques.obtenerElemento(i).getLugarDestino() + "\\n Cliente = " + listabloques.obtenerElemento(i).getCliente().getNombre() + "\\n Conductor = "+listabloques.obtenerElemento(i).getConductor().getNombre()+ "\\n Vehiculo = " + listabloques.obtenerElemento(i).getVehiculo().getPlaca() + "\"]";
             if ((i + 1) < listabloques.getTamanio()) {
-                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i + 1).getLlave() + "\n";
-
+                text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i + 1).getLlave() + "\n";               
             }
 
             //System.out.println(listabloques.obtenerElemento(i).getLugarDestino() + " " + listabloques.obtenerElemento(i).getCliente().getFechaNac());
