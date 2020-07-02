@@ -156,7 +156,7 @@ public class TablaHash {
         return num;
     }
     
-    public void graficar() throws Exception
+    public String graficar() throws Exception
     {
         String b="";
         b="Nodo"+listaClientes.hashCode();
@@ -184,6 +184,7 @@ public class TablaHash {
             }
         }
         generarImagen(b);
+        return b;
     }
     private void generarImagen(String b) throws Exception
     {

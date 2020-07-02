@@ -2,6 +2,7 @@ package EDD;
 
 import Principal.Rutas;
 import EDD.ListaAdyacencia;
+import Principal.MejorRuta;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -80,6 +81,9 @@ public class Grafo {
 
     public String report() {//se hace lo mismo que en mostrar
         String text = "";
+        text+=" rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
+        text+="labelloc = \"t;\"label = \"REPORTE RUTAS\";\n";
+
         Edge auxEdge;
         Vertex auxVertex = raiz;
         while (auxVertex != null) {                                                                                                 //Mientras exista un vertice
@@ -102,9 +106,8 @@ public class Grafo {
     public void Graficar() {
         try {
             FileWriter archivo = new FileWriter("ReporteRutas.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n");
-            archivo.write("labelloc = \"t;\"label = \"REPORTE RUTAS\";\n");
-            //CONTENIDO
+            archivo.write("digraph G {\n");
+                       //CONTENIDO
             archivo.write(report());
 
             archivo.write("\n}");
@@ -122,13 +125,13 @@ public class Grafo {
         }
     }
 
-    ListaEnlazada<Rutas> lista = new ListaEnlazada<>();
+    ListaEnlazada<MejorRuta> lista = new ListaEnlazada<>();
 
-    public ListaEnlazada<Rutas> getLista() {
+    public ListaEnlazada<MejorRuta> getLista() {
         return lista;
     }
 
-    public void setLista(ListaEnlazada<Rutas> lista) {
+    public void setLista(ListaEnlazada<MejorRuta> lista) {
         this.lista = lista;
     }
 
@@ -137,35 +140,44 @@ public class Grafo {
         genera(origen, destino);
     }
 
+            int peso = 999999999;
+            Vertex anterior=null;
     private void genera(String origen, String destino) {
         Vertex vertice = getVertex(origen);
         if (vertice != null) {
             Edge arista = vertice.arista;
+            if(arista==null){
+                verificaVisitados(vertice.nombre);
+                //vertice=anterior;
+            }
             Edge aux = null;
-            int peso = 999999999;
             while (arista != null) {
                 if (arista.vertice.nombre.equals(destino)) {
                     verificaVisitados(destino);
+                    verificaVisitados(origen);
                     peso = arista.tiempo;
-                    lista.insertarFinal(new Rutas(destino, String.valueOf(peso)));
+                    lista.insertarFinal(new MejorRuta(origen,destino, String.valueOf(peso)));
                     break;
                 } else {
                     if (!verificaVisitados(origen)) {
-                        if (peso > arista.tiempo) {
+                        anterior=vertice;
+                        if (peso >= arista.tiempo) {
                             peso = arista.tiempo;
                             aux = arista;
-                            verificaVisitados(origen);
-                        } else {
-                            verificaVisitados(origen);
+                             vertice = getVertex(aux.vertice.nombre);
+                        }
+                        if(aux==null){
+                            vertice= getVertex(arista.vertice.nombre);
                         }
                     }
                 }
                 arista = arista.siguiente;
+                    genera(vertice.nombre, destino);
             }
             if (aux != null) {
-                lista.insertarFinal(new Rutas(aux.vertice.nombre, String.valueOf(peso)));
-                vertice = getVertex(aux.vertice.nombre);
-                generarRuta(vertice.nombre, destino);
+                
+                //lista.insertarFinal(new MejorRuta(vertice.nombre, aux.vertice.nombre, String.valueOf(peso)));//verificar error lista
+                //generarRuta(vertice.nombre, destino);
             }
 
         }

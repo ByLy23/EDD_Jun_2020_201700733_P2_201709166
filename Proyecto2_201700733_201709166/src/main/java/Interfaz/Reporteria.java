@@ -6,6 +6,8 @@
 package Interfaz;
 
 import Principal.Inicio;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,11 +69,11 @@ public class Reporteria extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 204, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Reportes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 120, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 120, -1));
 
         jScrollPane2.setViewportView(LblImages);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 770, 460));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 970, 580));
 
         jMenu1.setText("Tops");
 
@@ -173,13 +175,13 @@ public class Reporteria extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -267,7 +269,22 @@ public class Reporteria extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRutasRActionPerformed
 
     private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
-
+        try {
+            ImageIcon ims;
+            Inicio.cadenaBloques.GraficarRG();
+            Thread.sleep(500);
+            ims = new ImageIcon("ReporteGeneral.jpg");
+            ims.getImage().flush();
+            ims = new ImageIcon("ReporteGeneral.jpg");
+            LblImages.setIcon(ims);
+            LblImages.revalidate();
+            LblImages.repaint(); // TODO add your handling code here:
+            
+            File miDir=new File("ReporteGeneral.jpg");
+            Desktop.getDesktop().open(miDir);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
 
     }//GEN-LAST:event_BtnEDDActionPerformed
 
@@ -293,6 +310,7 @@ public class Reporteria extends javax.swing.JFrame {
 
     private void BtnMejorRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMejorRutaActionPerformed
         String llave = JOptionPane.showInputDialog("Ingrese Llave de viaje", JOptionPane.QUESTION_MESSAGE);
+
         try {
             Inicio.cadenaBloques.imprimirMejorRuta(llave);
 
