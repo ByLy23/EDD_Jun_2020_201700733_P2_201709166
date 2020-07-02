@@ -40,6 +40,7 @@ public class Blockchain {
     ListaEnlazada<MejorRuta> ruta;//= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
     //aca se va a generar el md5
 
+
     public Blockchain() {
 
         this.listabloques = new ListaEnlazada<>();
@@ -66,6 +67,7 @@ public class Blockchain {
 
         mierdaC = Inicio.arbolito.getObtenerHash();
 
+
         LocalDateTime actualTiempo = LocalDateTime.now();
         String FechaHora = actualTiempo.format(DateTimeFormatter.ofPattern("ddMMyy HH:mm"));
         String ll = generaLlaves(carro);
@@ -74,6 +76,7 @@ public class Blockchain {
         //System.out.println(ll);
 
         listabloques.insertarFinal(new Bloque(origen, destino, FechaHora, buscarCliente, this.conductor, buscarCarro, llaveEncriptada, ruta));
+
 
     }
 
@@ -227,6 +230,7 @@ public class Blockchain {
             text += "x" + listabloques.obtenerElemento(i).getLlave() + "[dir=both label = \"Llave = " + listabloques.obtenerElemento(i).getLlave() + "\\nLugar Origen = " + listabloques.obtenerElemento(i).getLugarOrigen() + "\\n Lugar Destino = " + listabloques.obtenerElemento(i).getLugarDestino() + "\\n Cliente = " + listabloques.obtenerElemento(i).getCliente().getNombre() + "\\n Conductor = " + listabloques.obtenerElemento(i).getConductor().getNombre() + "\\n Vehiculo = " + listabloques.obtenerElemento(i).getVehiculo().getPlaca() + "\"]";
             if ((i + 1) < listabloques.getTamanio()) {
                 text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i + 1).getLlave() + "\n";
+
 
             }
 

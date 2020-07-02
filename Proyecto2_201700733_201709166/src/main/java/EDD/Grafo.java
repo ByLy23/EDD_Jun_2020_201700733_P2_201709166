@@ -111,7 +111,7 @@ public class Grafo {
             FileWriter archivo = new FileWriter("ReporteRutas.dot");
 
             archivo.write("digraph G {\n");
-            //CONTENIDO
+
 
             archivo.write(report());
 
@@ -143,7 +143,9 @@ public class Grafo {
     public void generarRuta(String origen, String destino) {
         nodoVisitado = new String[contador];
 
+
         lista = new ListaEnlazada<>();
+
         genera(origen, destino);
         System.out.println("prueba");
 
@@ -165,10 +167,12 @@ public class Grafo {
             while (pila != null) {
                 Arista aris = pila.desapilar();
                 if (aris.getNombre().equals(destino)) {
+
                     System.out.println("AL FIN SALIO");
                     lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
                     pila.limpiar();
                     break;
+
                 } else {
                     aux = getVertex(aris.getNombre());
                     lista.insertarFinal(new MejorRuta(origen, aris.getNombre(), aris.getTiempo()));
@@ -182,14 +186,17 @@ public class Grafo {
                         }
                     } else {
                         if (contarAdyacentes(aux.nombre)) {
+
                             lista.eliminar(lista.getTamanio());
                         }
                         lista.eliminar(lista.getTamanio());
                     }
 
+
                 }
             }
             if (Encontrado) {
+
                 System.out.println("No se encontro");
             }
             /*
@@ -233,6 +240,7 @@ public class Grafo {
         }
     }
 
+
     private boolean adjuntarPilaAdyacentes(String nodo) {
         boolean bandera = false;
         int cont = 0;
@@ -262,8 +270,23 @@ public class Grafo {
             }
             e = e.siguiente;
         }
+
         return bandera;
     }
+        private boolean contarAdyacentes(String nodo){
+            boolean bandera=false;
+            Vertex v= getVertex(nodo);
+            Edge e=v.arista;
+            while(e!=null){
+                if(soloVerificar(e.vertice.nombre)){
+                    bandera= true;
+                }else{
+                    bandera=false;
+                }
+                e= e.siguiente;
+            }
+            return bandera;
+        }
 
     public void MostrarBestRout() {
 
@@ -274,8 +297,10 @@ public class Grafo {
         } while (vertice != raiz);
     }
 
+
     private boolean soloVerificar(String nodo) {
         boolean bandera = false;
+
         for (int i = 0; i < contador; i++) {
             if (nodoVisitado[i] != null) {
                 if (nodoVisitado[i].equals(nodo)) {
@@ -285,7 +310,9 @@ public class Grafo {
             }
         }
         return bandera;
+
     }
+
 
     private boolean verificaVisitados(String nodo) {
         boolean bandera = false;
