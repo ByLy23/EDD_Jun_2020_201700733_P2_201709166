@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import EDD.ListaEnlazada;
+
 /**
  *
  * @author byron
@@ -67,7 +69,15 @@ public class Bloque {
         this.llave = llave;
     }
 
-    public Bloque(String lugarOrigen, String lugarDestino, String FechaHora, Cliente cliente, Conductores conductor, Vehiculo vehiculo, String llave) {
+    public ListaEnlazada<MejorRuta> getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(ListaEnlazada<MejorRuta> ruta) {
+        this.ruta = ruta;
+    }
+
+    public Bloque(String lugarOrigen, String lugarDestino, String FechaHora, Cliente cliente, Conductores conductor, Vehiculo vehiculo, String llave, ListaEnlazada<MejorRuta> ruta) {
         this.lugarDestino = lugarDestino;
         this.lugarOrigen = lugarOrigen;
         this.FechaHora = FechaHora;
@@ -75,6 +85,7 @@ public class Bloque {
         this.conductor = conductor;
         this.vehiculo = vehiculo;
         this.llave = llave;
+        this.ruta= ruta;
     }
     String lugarDestino;
     String lugarOrigen;
@@ -83,6 +94,7 @@ public class Bloque {
     Conductores conductor;
     Vehiculo vehiculo;
     String llave;
+    ListaEnlazada<MejorRuta> ruta;
     public Bloque(){
         
     }

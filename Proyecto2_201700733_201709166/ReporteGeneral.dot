@@ -1,5 +1,42 @@
-digraph Btree{ 
-  node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+digraph{
+
+labelloc = "t;"label = "REPORTE GENERAL";
+
+subgraph cluster_Map{ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE RUTAS";
+"Oviedo"[label = " Oviedo"]
+"Oviedo"->"Bilbao"[arrowhead=normal label= "304"]
+"Bilbao"[label = " Bilbao"]
+"Bilbao"->"Zaragoza"[arrowhead=normal label= "324"]
+"Bilbao"->"Madrid"[arrowhead=normal label= "395"]
+"Bilbao"->"Valladolid"[arrowhead=normal label= "280"]
+"Zaragoza"[label = " Zaragoza"]
+"Zaragoza"->"Barcelona"[arrowhead=normal label= "296"]
+"Zaragoza"->"Madrid"[arrowhead=normal label= "325"]
+"Madrid"[label = " Madrid"]
+"Valladolid"[label = " Valladolid"]
+"Barcelona"[label = " Barcelona"]
+"Barcelona"->"Gerona"[arrowhead=normal label= "100"]
+"Gerona"[label = " Gerona"]
+}
+
+subgraph cluster_Drivers{ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE CONDUCTORES";
+x1[dir=both label = "DPI = 1\nNombre = 1 1\n Licencia = 1\n Direccion = 1"]x1-> x1
+x1-> x1
+}
+
+subgraph cluster_Clientes{rankdir=LR
+node[shape=record,style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+ labelloc = "t;"label = "REPORTE CLIENTES";  Nodo506992552[label= 
+"<P0>\n\n0\n\n----------\n\n|<P1>1\n\n----------\n\n|<P2>2\n\n----------\n\n|<P3>3\n\n----------\n\n|<P4>4\n\n----------\n\n|<P5>5\n\n----------\n\n|<P6>6\n\n----------\n\n|<P7>7\n\n----------\n\n|<P8>8\n\n----------\n\n|<P9>9\n\n----------\n\n|<P10>10\n\n----------\n\n|<P11>11\n\n----------\n\n|<P12>12\n\n----------\n\n|<P13>13\n\n----------\n\n|<P14>14\n\n----------\n\n|<P15>15\n\n----------\n\n|<P16>16\n\n----------\n\n|<P17>17\n\n----------\n\n|<P18>18\n\n----------\n\n|<P19>19\n\n----------\n\n|<P20>20\n\n----------\n\n|<P21>21\n\n----------\n\n|<P22>22\n\n----------\n\n|<P23>23\n\n----------\n\n|<P24>24\n\n----------\n\n|<P25>25\n\n----------\n\n|<P26>26\n\n----------\n\n|<P27>27\n\n----------\n\n|<P28>28\n\n----------\n\n|<P29>29\n\n----------\n\n|<P30>30\n\n----------\n\n|<P31>31\n\n----------\n\n|<P32>32\n\n----------\n\n|<P33>33\n\n----------\n\n|<P34>34\n\n----------\n\n|<P35>35\n\n----------\n\n|<P36>36\n\n----------\n\n|<P37>"];
+Nodo1029630535[label=" DPI: 1\nNombre: Gabriel Vale Verga\nGenero: Con la \nTelefono: 69\nFecha Nacimiento: xD\nDireccion: Innombrable"];
+Nodo506992552:P1 -> Nodo1029630535
+}
+
+subgraph cluster_Tree{node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
  labelloc = "t;"label = "REPORTE CONDUCTORES";Nodo827782961[label="<P0>|Placa: p1lAf1\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p28lAf28\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p36lAf36\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>|Placa: p44lAf44\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P4>"];
 Nodo30325053[label="<P0>|Placa: p10lAf10\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p13lAf13\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p16lAf16\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>"];
 Nodo41652269[label="<P0>|Placa: 1\nMarca: 1\nModelo: 1\nColor: 1\nAnio: 20\nTransmision: 1|<P1>|Placa: p0lAf0\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
@@ -90,5 +127,8 @@ Nodo117017119:P2->Nodo819470233;
 Nodo2059129583[label="<P0>|Placa: p8lAf8\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p9lAf9\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
 Nodo117017119:P3->Nodo2059129583;
 Nodo827782961:P4->Nodo117017119;
+}
 
-  }
+
+}
+

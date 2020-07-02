@@ -1,9 +1,12 @@
 digraph G {
+
  rankdir=LR; 
  node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
 labelloc = "t;"label = "REPORTE CONDUCTORES";
+x1[dir=both label = "DPI = 1\nNombre = 1 1\n Licencia = 1\n Direccion = 1"]x1-> x1018158650101
+x1-> x3018178650101
 x1018158650101[dir=both label = "DPI = 1018158650101\nNombre = Jose Francisco Puac Ixcamparic\n Licencia = C\n Direccion = 16 Calle A"]x1018158650101-> x1118188650101
-x1018158650101-> x3018178650101
+x1018158650101-> x1
 x1118188650101[dir=both label = "DPI = 1118188650101\nNombre = Julia Esther Cruz Guardado\n Licencia = C\n Direccion = 16 Calle A"]x1118188650101-> x1218198650101
 x1118188650101-> x1018158650101
 x1218198650101[dir=both label = "DPI = 1218198650101\nNombre = Sthefany Johana Campos Hernandez\n Licencia = C\n Direccion = 16 Calle A"]x1218198650101-> x2018118650101
@@ -20,7 +23,7 @@ x3018148650101[dir=both label = "DPI = 3018148650101\nNombre = Hector Augusto Po
 x3018148650101-> x3018138650101
 x3018168650101[dir=both label = "DPI = 3018168650101\nNombre = Aby Noemi Palencia Reyes\n Licencia = C\n Direccion = 16 Calle A"]x3018168650101-> x3018178650101
 x3018168650101-> x3018148650101
-x3018178650101[dir=both label = "DPI = 3018178650101\nNombre = Byron Adrian Ernesto Alvarado Alfaro\n Licencia = C\n Direccion = 16 Calle A"]x3018178650101-> x1018158650101
+x3018178650101[dir=both label = "DPI = 3018178650101\nNombre = Byron Adrian Ernesto Alvarado Alfaro\n Licencia = C\n Direccion = 16 Calle A"]x3018178650101-> x1
 x3018178650101-> x3018168650101
 
 }

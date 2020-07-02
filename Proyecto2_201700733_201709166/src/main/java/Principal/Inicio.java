@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Principal;
+
 import EDD.Grafo;
 import EDD.ListaCircularDoble;
 import Interfaz.FirstStep;
@@ -13,33 +14,41 @@ import EDD.TablaHash;
 import EDD.ListaCircularDoble;
 import EDD.Grafo;
 import EDD.ListaSimple;
+import EDD.PaginaB;
 import java.math.BigInteger;
-
 
 /**
  *
  * @author byron
  */
 public class Inicio {
+
     public static ListaCircularDoble lcd;
     public static Principal.Conductores condu;
-    public static EDD.Grafo graph; 
+    public static EDD.Grafo graph;
     public static TablaHash tablita;
     public static ArbolB arbolito;
     public static Blockchain cadenaBloques;
     public static ListaSimple blockchain;
-    public static void main(String[] args) throws Exception
-    {
-        tablita= new TablaHash();
-        arbolito= new ArbolB();
-        lcd=new ListaCircularDoble();
-        graph=new Grafo();
-        blockchain=new ListaSimple();
-        cadenaBloques= new Blockchain();
-/*import EDD.ArbolB;
+    public static PaginaB pagina;
+    
+
+    public static void main(String[] args) throws Exception {
+        tablita = new TablaHash();
+        arbolito = new ArbolB();
+        pagina = new PaginaB();
+        lcd = new ListaCircularDoble();
+        graph = new Grafo();
+        blockchain = new ListaSimple();
+        cadenaBloques = new Blockchain();
+        tablita.insertarClientes(new BigInteger("1"), "Gabriel", "Vale Verga", "Con la ", 69, "Innombrable", "xD");
+        arbolito.Insertar(new Vehiculo("1", "1", "1", 20, "1", 20, "1"));
+        lcd.InsertarOrdenado(new Conductores(1, "1", "1", "1", "1", "1", "1"));
+       
+        /*import EDD.ArbolB;
 import EDD.TablaHash;
 import java.math.BigInteger;*/
-       /* System.out.println("Pruebas");
+ /* System.out.println("Pruebas");
         TablaHash tab= new TablaHash();
         tab.insertarClientes(new BigInteger("3045646514571"), "Byron", "Orellana", "Masculino", 51313792, "Mi casa", "19/19/19");
         tab.insertarClientes(new BigInteger("3045646514501"), "Byron", "Orellana", "Masculino", 51313792, "Mi casa", "19/19/19");

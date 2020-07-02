@@ -77,8 +77,8 @@ public class ListaCircularDoble {
             NodoLCD temp = new NodoLCD();
             temp.dato = dato;
             temp = primero;
-            while(temp!=null){
-                if (nuevo.getDato().getDPI()<temp.getDato().getDPI()) {
+            while (temp != null) {
+                if (nuevo.getDato().getDPI() < temp.getDato().getDPI()) {
                     temp.getBefore().setNext(nuevo);
                     nuevo.setBefore(temp.getBefore());
                     nuevo.setNext(temp);
@@ -86,12 +86,10 @@ public class ListaCircularDoble {
                     tam++;
                     break;
                 }
-                temp=temp.getNext();
+                temp = temp.getNext();
             }
-            
-            
-            
-          /* while (temp.getDato().getDPI() < dato.getDPI()) {
+
+            /* while (temp.getDato().getDPI() < dato.getDPI()) {
 
                 temp = temp.getNext();
             }
@@ -101,7 +99,6 @@ public class ListaCircularDoble {
             primero.setNext(temp);
             temp.setBefore(primero);
             tam++;*/
-
         }
 
     }
@@ -116,6 +113,7 @@ public class ListaCircularDoble {
             if (primero != null) {
                 if (actual.dato.getDPI() == dato) {
                     found = true;
+                    conductor = actual.dato;
                     break;
                 }
                 actual = actual.next;
@@ -124,12 +122,10 @@ public class ListaCircularDoble {
             }
         } while (actual != ultimo.next);
         if (found) {
-            JOptionPane.showMessageDialog(null, "Conductor encontrado");
-
-
+            //  JOptionPane.showMessageDialog(null, "Conductor encontrado");
 
         } else {
-            JOptionPane.showMessageDialog(null, "Conductor no encontrado");
+            //  JOptionPane.showMessageDialog(null, "Conductor no encontrado");
         }
         return conductor;
     }
@@ -187,8 +183,12 @@ public class ListaCircularDoble {
     }
 
     public String report() {
+
         NodoLCD aux = this.primero;
         String text = "";
+        text+=" rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";
+        text+="labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";\n";
+
         do {
             text += "x" + aux.dato.getDPI() + "[dir=both label = \"DPI = " + aux.dato.getDPI() + "\\nNombre = " + aux.dato.getNombre() + " " + aux.dato.getApellido() + "\\n Licencia = " + aux.dato.getLicencia() + "\\n Direccion = " + aux.dato.getDireccion() + "\"]";
             text += "x" + aux.dato.getDPI() + "-> x" + aux.next.dato.getDPI() + "\n";
@@ -201,7 +201,7 @@ public class ListaCircularDoble {
     }
 
 
-    public void ordena_lista(NodoLCD nodo) {
+    /*public void ordena_lista(NodoLCD nodo) {
         NodoLCD actual, siguiente;
         long cant;
 
@@ -265,15 +265,13 @@ public class ListaCircularDoble {
                     
                 }
             }while(changes);
-        }*/
-    }
-
+        }
+    }*/
     public void ReporteLCD() {
         // ordena_lista(primero);
         try {
             FileWriter archivo = new FileWriter("ReporteConductores.dot");
-            archivo.write("digraph G {" + "\n rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n");
-            archivo.write("labelloc = \"t;\"label = \"REPORTE CONDUCTORES\";\n");
+            archivo.write("digraph G {\n\n");
             //CONTENIDO
             archivo.write(report());
 
