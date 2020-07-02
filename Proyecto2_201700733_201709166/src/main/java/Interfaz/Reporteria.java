@@ -269,6 +269,7 @@ public class Reporteria extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRutasRActionPerformed
 
     private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
+
         try {
             ImageIcon ims;
             Inicio.cadenaBloques.GraficarRG();
@@ -285,6 +286,7 @@ public class Reporteria extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
+
 
     }//GEN-LAST:event_BtnEDDActionPerformed
 

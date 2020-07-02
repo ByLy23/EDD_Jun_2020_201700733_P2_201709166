@@ -30,6 +30,7 @@ public class Inicio {
     public static ArbolB arbolito;
     public static Blockchain cadenaBloques;
     public static ListaSimple blockchain;
+
     public static PaginaB pagina;
     
 
@@ -46,6 +47,7 @@ public class Inicio {
         lcd.InsertarOrdenado(new Conductores(1, "1", "1", "1", "1", "1", "1"));
        
         /*import EDD.ArbolB;
+
 import EDD.TablaHash;
 import java.math.BigInteger;*/
  /* System.out.println("Pruebas");

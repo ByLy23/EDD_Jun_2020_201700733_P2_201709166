@@ -12,8 +12,10 @@ import Principal.Inicio;
 import Principal.MejorRuta;
 import Principal.Rutas;
 import Principal.Vehiculo;
+
 import java.awt.Desktop;
 import java.io.File;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -30,16 +32,20 @@ public class Blockchain {
 
     ListaEnlazada<Bloque> listabloques;
     Cliente buscarCliente;//= Inicio.tablita.getAux();
+
     int mierdaC;
+
     Vehiculo buscarCarro;//= Inicio.arbolito.getCarros();
     Conductores conductor;//= Inicio.lcd.Buscar(Long.parseLong(TxtConductor.getText()));
     ListaEnlazada<MejorRuta> ruta;//= Inicio.graph.generarRuta(origen.getText(), destino.getText()); 
     //aca se va a generar el md5
 
+
     public Blockchain() {
 
         this.listabloques = new ListaEnlazada<>();
         this.mierdaC = 0;
+
         this.buscarCarro = null;
         this.buscarCliente = null;
         this.conductor = null;
@@ -58,6 +64,7 @@ public class Blockchain {
         this.conductor = Inicio.lcd.Buscar(Long.parseLong(conductor));
         buscarCarro = Inicio.arbolito.getCarros();
         buscarCliente = Inicio.tablita.getAux();
+
         mierdaC=Inicio.arbolito.getObtenerHash();
 
         LocalDateTime actualTiempo = LocalDateTime.now();
@@ -66,7 +73,9 @@ public class Blockchain {
         String llaveEncriptada = generarHash(ll);
         //System.out.println(llaveEncriptada);
         //System.out.println(ll);
+
         listabloques.insertarFinal(new Bloque(origen, destino, FechaHora, buscarCliente, this.conductor, buscarCarro, llaveEncriptada, ruta));
+
 
     }
 
@@ -80,6 +89,7 @@ public class Blockchain {
                 System.out.println(listabloques.obtenerElemento(i).getLugarDestino() + " " + listabloques.obtenerElemento(i).getCliente().getFechaNac());
             }
         }
+
     }
 
     public void imprimirMejorRuta(String llave) throws Exception {
@@ -161,6 +171,7 @@ public class Blockchain {
             if ((i + 1) < listabloques.getTamanio()) {
                 text += "x" + listabloques.obtenerElemento(i).getLlave() + "-> x" + listabloques.obtenerElemento(i + 1).getLlave() + "\n";
 
+
             }
 
             //System.out.println(listabloques.obtenerElemento(i).getLugarDestino() + " " + listabloques.obtenerElemento(i).getCliente().getFechaNac());
@@ -185,6 +196,7 @@ public class Blockchain {
         String elHash = DatatypeConverter.printHexBinary(elMensaje).toUpperCase();
         System.out.println(elHash);
         return elHash;
+
     }
 
     public String Grafito() {
@@ -255,5 +267,6 @@ public class Blockchain {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+
     }
 }
