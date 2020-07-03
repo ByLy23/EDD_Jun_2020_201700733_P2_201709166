@@ -1,0 +1,256 @@
+digraph{
+
+labelloc = "t;"label = "REPORTE GENERAL";
+
+subgraph cluster_Map{ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE RUTAS";
+"Cadiz"[label = " Cadiz"]
+"Cadiz"->"Sevilla"[arrowhead=normal label= "125"]
+"Sevilla"[label = " Sevilla"]
+"Sevilla"->"Jaen"[arrowhead=normal label= "242"]
+"Granada"[label = " Granada"]
+"Granada"->"Sevilla"[arrowhead=normal label= "256"]
+"Granada"->"Murcia"[arrowhead=normal label= "278"]
+"Jaen"[label = " Jaen"]
+"Jaen"->"Madrid"[arrowhead=normal label= "335"]
+"Murcia"[label = " Murcia"]
+"Murcia"->"Valencia"[arrowhead=normal label= "241"]
+"Murcia"->"Albacete"[arrowhead=normal label= "150"]
+"Madrid"[label = " Madrid"]
+"Madrid"->"Badajoz"[arrowhead=normal label= "403"]
+"Madrid"->"Valladolid"[arrowhead=normal label= "193"]
+"Madrid"->"Bilbao"[arrowhead=normal label= "395"]
+"Valencia"[label = " Valencia"]
+"Valencia"->"Barcelona"[arrowhead=normal label= "349"]
+"Albacete"[label = " Albacete"]
+"Albacete"->"Valencia"[arrowhead=normal label= "191"]
+"Albacete"->"Madrid"[arrowhead=normal label= "251"]
+"Barcelona"[label = " Barcelona"]
+"Barcelona"->"Gerona"[arrowhead=normal label= "100"]
+"Barcelona"->"Zaragoza"[arrowhead=normal label= "296"]
+"Gerona"[label = " Gerona"]
+"Zaragoza"[label = " Zaragoza"]
+"Zaragoza"->"Madrid"[arrowhead=normal label= "325"]
+"Badajoz"[label = " Badajoz"]
+"Valladolid"[label = " Valladolid"]
+"Valladolid"->"Vigo"[arrowhead=normal label= "356"]
+"Valladolid"->"Coruna"[arrowhead=normal label= "455"]
+"Vigo"[label = " Vigo"]
+"Vigo"->"Coruna"[arrowhead=normal label= "171"]
+"Vigo"->"Guate"[arrowhead=normal label= "132"]
+"Coruna"[label = " Coruna"]
+"Bilbao"[label = " Bilbao"]
+"Bilbao"->"Valladolid"[arrowhead=normal label= "280"]
+"Bilbao"->"Zaragoza"[arrowhead=normal label= "324"]
+"Bilbao"->"Vigo"[arrowhead=normal label= "222"]
+"Oviedo"[label = " Oviedo"]
+"Oviedo"->"Bilbao"[arrowhead=normal label= "304"]
+"Guate"[label = " Guate"]
+"Guate"->"Bilbao"[arrowhead=normal label= "12"]
+}
+
+subgraph cluster_Drivers{ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE CONDUCTORES";
+x1[dir=both label = "DPI = 1\nNombre = 1 1\n Licencia = 1\n Direccion = 1"]x1-> x1018158650101
+x1-> x3018178650101
+x1018158650101[dir=both label = "DPI = 1018158650101\nNombre = Jose Francisco Puac Ixcamparic\n Licencia = C\n Direccion = 16 Calle A"]x1018158650101-> x1118188650101
+x1018158650101-> x1
+x1118188650101[dir=both label = "DPI = 1118188650101\nNombre = Julia Esther Cruz Guardado\n Licencia = C\n Direccion = 16 Calle A"]x1118188650101-> x1218198650101
+x1118188650101-> x1018158650101
+x1218198650101[dir=both label = "DPI = 1218198650101\nNombre = Sthefany Johana Campos Hernandez\n Licencia = C\n Direccion = 16 Calle A"]x1218198650101-> x2018118650101
+x1218198650101-> x1118188650101
+x2018118650101[dir=both label = "DPI = 2018118650101\nNombre = Jackeline Alexandra Benitez Benitez\n Licencia = C\n Direccion = 16 Calle A"]x2018118650101-> x3018108650101
+x2018118650101-> x1218198650101
+x3018108650101[dir=both label = "DPI = 3018108650101\nNombre = Elba Mercedes Benitez\n Licencia = C\n Direccion = 16 Calle A"]x3018108650101-> x3018128650101
+x3018108650101-> x2018118650101
+x3018128650101[dir=both label = "DPI = 3018128650101\nNombre = Ludwing Gabriel Paz Hernandez\n Licencia = C\n Direccion = gt"]x3018128650101-> x3018138650101
+x3018128650101-> x3018108650101
+x3018138650101[dir=both label = "DPI = 3018138650101\nNombre = Byron Antonio Orellana Alburez\n Licencia = C\n Direccion = 16 Calle A"]x3018138650101-> x3018148650101
+x3018138650101-> x3018128650101
+x3018148650101[dir=both label = "DPI = 3018148650101\nNombre = Hector Augusto Ponce Aparicio\n Licencia = C\n Direccion = 16 Calle A"]x3018148650101-> x3018168650101
+x3018148650101-> x3018138650101
+x3018168650101[dir=both label = "DPI = 3018168650101\nNombre = Aby Noemi Palencia Reyes\n Licencia = C\n Direccion = 16 Calle A"]x3018168650101-> x3018178650101
+x3018168650101-> x3018148650101
+x3018178650101[dir=both label = "DPI = 3018178650101\nNombre = Byron Adrian Ernesto Alvarado Alfaro\n Licencia = C\n Direccion = 16 Calle A"]x3018178650101-> x1
+x3018178650101-> x3018168650101
+}
+
+subgraph getLlaveHDPcluster_Clientes{rankdir=LR
+node[shape=record,style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+ labelloc = "t;"label = "REPORTE CLIENTES";  Nodo2104940763[label= 
+"<P0>\n\n0\n\n----------\n\n|<P1>1\n\n----------\n\n|<P2>2\n\n----------\n\n|<P3>3\n\n----------\n\n|<P4>4\n\n----------\n\n|<P5>5\n\n----------\n\n|<P6>6\n\n----------\n\n|<P7>7\n\n----------\n\n|<P8>8\n\n----------\n\n|<P9>9\n\n----------\n\n|<P10>10\n\n----------\n\n|<P11>11\n\n----------\n\n|<P12>12\n\n----------\n\n|<P13>13\n\n----------\n\n|<P14>14\n\n----------\n\n|<P15>15\n\n----------\n\n|<P16>16\n\n----------\n\n|<P17>17\n\n----------\n\n|<P18>18\n\n----------\n\n|<P19>19\n\n----------\n\n|<P20>20\n\n----------\n\n|<P21>21\n\n----------\n\n|<P22>22\n\n----------\n\n|<P23>23\n\n----------\n\n|<P24>24\n\n----------\n\n|<P25>25\n\n----------\n\n|<P26>26\n\n----------\n\n|<P27>27\n\n----------\n\n|<P28>28\n\n----------\n\n|<P29>29\n\n----------\n\n|<P30>30\n\n----------\n\n|<P31>31\n\n----------\n\n|<P32>32\n\n----------\n\n|<P33>33\n\n----------\n\n|<P34>34\n\n----------\n\n|<P35>35\n\n----------\n\n|<P36>36\n\n----------\n\n|<P37>37\n\n----------\n\n|<P38>38\n\n----------\n\n|<P39>39\n\n----------\n\n|<P40>40\n\n----------\n\n|<P41>41\n\n----------\n\n|<P42>42\n\n----------\n\n|<P43>43\n\n----------\n\n|<P44>44\n\n----------\n\n|<P45>45\n\n----------\n\n|<P46>46\n\n----------\n\n|<P47>47\n\n----------\n\n|<P48>48\n\n----------\n\n|<P49>49\n\n----------\n\n|<P50>50\n\n----------\n\n|<P51>51\n\n----------\n\n|<P52>52\n\n----------\n\n|<P53>53\n\n----------\n\n|<P54>54\n\n----------\n\n|<P55>55\n\n----------\n\n|<P56>56\n\n----------\n\n|<P57>57\n\n----------\n\n|<P58>58\n\n----------\n\n|<P59>59\n\n----------\n\n|<P60>60\n\n----------\n\n|<P61>61\n\n----------\n\n|<P62>62\n\n----------\n\n|<P63>63\n\n----------\n\n|<P64>64\n\n----------\n\n|<P65>65\n\n----------\n\n|<P66>66\n\n----------\n\n|<P67>67\n\n----------\n\n|<P68>68\n\n----------\n\n|<P69>69\n\n----------\n\n|<P70>70\n\n----------\n\n|<P71>71\n\n----------\n\n|<P72>72\n\n----------\n\n|<P73>73\n\n----------\n\n|<P74>"];
+Nodo902115066[label=" DPI: 1\nNombre: Gabriel Vale Verga\nGenero: Con la \nTelefono: 69\nFecha Nacimiento: xD\nDireccion: Innombrable"];
+Nodo902115066 -> Nodo1265781273
+Nodo1265781273[label=" DPI: 302700513790101\nNombre: 27AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P1 -> Nodo902115066
+Nodo551645838[label=" DPI: 3000513790103\nNombre: AAA0 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P3 -> Nodo551645838
+Nodo1455198735[label=" DPI: 303000513790101\nNombre: 30AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P5 -> Nodo1455198735
+Nodo491206659[label=" DPI: 303300513790101\nNombre: 33AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo491206659 -> Nodo1144818480
+Nodo1144818480[label=" DPI: 30005137918103\nNombre: AAA18 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P9 -> Nodo491206659
+Nodo1868751931[label=" DPI: 30005137920103\nNombre: AAA20 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P11 -> Nodo1868751931
+Nodo1568423730[label=" DPI: 303600513790101\nNombre: 36AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1568423730 -> Nodo2036302782
+Nodo2036302782[label=" DPI: 30005137922103\nNombre: AAA22 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P13 -> Nodo1568423730
+Nodo1494934190[label=" DPI: 301900513790101\nNombre: 19AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1494934190 -> Nodo564237962
+Nodo564237962[label=" DPI: 30005137924103\nNombre: AAA24 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P15 -> Nodo1494934190
+Nodo488155171[label=" DPI: 303900513790101\nNombre: 39AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo488155171 -> Nodo417303117
+Nodo417303117[label=" DPI: 30100513790101\nNombre: 1AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo417303117 -> Nodo375264362
+Nodo375264362[label=" DPI: 30005137926103\nNombre: AAA26 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P17 -> Nodo488155171
+Nodo1004983789[label=" DPI: 302200513790101\nNombre: 22AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1004983789 -> Nodo1676098306
+Nodo1676098306[label=" DPI: 30005137928103\nNombre: AAA28 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P19 -> Nodo1004983789
+Nodo126769361[label=" DPI: 30005137930103\nNombre: AAA30 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P21 -> Nodo126769361
+Nodo1628827918[label=" DPI: 30005137932103\nNombre: AAA32 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1628827918 -> Nodo1817254268
+Nodo1817254268[label=" DPI: 302500513790101\nNombre: 25AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P23 -> Nodo1628827918
+Nodo909381855[label=" DPI: 30005137934103\nNombre: AAA34 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P25 -> Nodo909381855
+Nodo1133092376[label=" DPI: 30005137936103\nNombre: AAA36 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1133092376 -> Nodo224037606
+Nodo224037606[label=" DPI: 302800513790101\nNombre: 28AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P27 -> Nodo1133092376
+Nodo1772415176[label=" DPI: 30005137938103\nNombre: AAA38 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P29 -> Nodo1772415176
+Nodo2130755531[label=" DPI: 30005137940103\nNombre: AAA40 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2130755531 -> Nodo1886820205
+Nodo1886820205[label=" DPI: 303100513790101\nNombre: 31AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P31 -> Nodo2130755531
+Nodo698494527[label=" DPI: 303400513790101\nNombre: 34AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P35 -> Nodo698494527
+Nodo1728999787[label=" DPI: 303700513790101\nNombre: 37AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P39 -> Nodo1728999787
+Nodo495613094[label=" DPI: 3000513791103\nNombre: AAA1 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo495613094 -> Nodo1501779333
+Nodo1501779333[label=" DPI: 302000513790101\nNombre: 20AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P41 -> Nodo495613094
+Nodo1642617692[label=" DPI: 304000513790101\nNombre: 40AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1642617692 -> Nodo1979312931
+Nodo1979312931[label=" DPI: 30200513790101\nNombre: 2AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P43 -> Nodo1642617692
+Nodo991465086[label=" DPI: 302300513790101\nNombre: 23AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P45 -> Nodo991465086
+Nodo2020920293[label=" DPI: 30005137919103\nNombre: AAA19 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P47 -> Nodo2020920293
+Nodo1541758220[label=" DPI: 30005137921103\nNombre: AAA21 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1541758220 -> Nodo1644103072
+Nodo1644103072[label=" DPI: 302600513790101\nNombre: 26AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P49 -> Nodo1541758220
+Nodo518720671[label=" DPI: 30005137923103\nNombre: AAA23 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P51 -> Nodo518720671
+Nodo1084151620[label=" DPI: 30005137925103\nNombre: AAA25 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1084151620 -> Nodo836960102
+Nodo836960102[label=" DPI: 302900513790101\nNombre: 29AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P53 -> Nodo1084151620
+Nodo673791743[label=" DPI: 30005137927103\nNombre: AAA27 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P55 -> Nodo673791743
+Nodo1851805841[label=" DPI: 303200513790101\nNombre: 32AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo1851805841 -> Nodo1483902702
+Nodo1483902702[label=" DPI: 30005137929103\nNombre: AAA29 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P57 -> Nodo1851805841
+Nodo2127385417[label=" DPI: 30005137931103\nNombre: AAA31 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P59 -> Nodo2127385417
+Nodo535975081[label=" DPI: 303500513790101\nNombre: 35AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo535975081 -> Nodo1937402654
+Nodo1937402654[label=" DPI: 30005137933103\nNombre: AAA33 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P61 -> Nodo535975081
+Nodo1068736097[label=" DPI: 30005137935103\nNombre: AAA35 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P63 -> Nodo1068736097
+Nodo728810949[label=" DPI: 303800513790101\nNombre: 38AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo728810949 -> Nodo648710942
+Nodo648710942[label=" DPI: 30005137937103\nNombre: AAA37 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo648710942 -> Nodo103294542
+Nodo103294542[label=" DPI: 30000513790101\nNombre: 0AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P65 -> Nodo728810949
+Nodo625733756[label=" DPI: 30005137939103\nNombre: AAA39 BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo625733756 -> Nodo146294781
+Nodo146294781[label=" DPI: 302100513790101\nNombre: 21AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P67 -> Nodo625733756
+Nodo2058936207[label=" DPI: 304100513790101\nNombre: 41AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P69 -> Nodo2058936207
+Nodo1038458048[label=" DPI: 302400513790101\nNombre: 24AAA BBB\nGenero: A\nTelefono: 41693802\nFecha Nacimiento: ss\nDireccion: CCC"];
+Nodo2104940763:P71 -> Nodo1038458048
+}
+
+subgraph cluster_Tree{node[shape=record, style=filled,fillcolor=khaki, color =sienna , fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+ labelloc = "t;"label = "REPORTE CONDUCTORES";Nodo1196901136[label="<P0>|Placa: p1lAf1\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p28lAf28\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p36lAf36\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>|Placa: p44lAf44\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P4>"];
+Nodo228221864[label="<P0>|Placa: p10lAf10\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p13lAf13\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p16lAf16\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>"];
+Nodo375732665[label="<P0>|Placa: 1\nMarca: 1\nModelo: 1\nColor: 1\nAnio: 20\nTransmision: 1|<P1>|Placa: p0lAf0\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo228221864:P0->Nodo375732665;
+Nodo828539187[label="<P0>|Placa: p11lAf11\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p12lAf12\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo228221864:P1->Nodo828539187;
+Nodo544213059[label="<P0>|Placa: p14lAf14\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p15lAf15\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo228221864:P2->Nodo544213059;
+Nodo1573032094[label="<P0>|Placa: p17lAf17\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p18lAf18\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p19lAf19\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>"];
+Nodo228221864:P3->Nodo1573032094;
+Nodo1196901136:P0->Nodo228221864;
+Nodo60506029[label="<P0>|Placa: p22lAf22\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p25lAf25\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo643128820[label="<P0>|Placa: p20lAf20\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p21lAf21\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo60506029:P0->Nodo643128820;
+Nodo105347949[label="<P0>|Placa: p23lAf23\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p24lAf24\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo60506029:P1->Nodo105347949;
+Nodo1330142555[label="<P0>|Placa: p26lAf26\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p27lAf27\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo60506029:P2->Nodo1330142555;
+Nodo1196901136:P1->Nodo60506029;
+Nodo359949640[label="<P0>|Placa: p30lAf30\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p33lAf33\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo423764207[label="<P0>|Placa: p29lAf29\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p2lAf2\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo359949640:P0->Nodo423764207;
+Nodo618904761[label="<P0>|Placa: p31lAf31\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p32lAf32\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo359949640:P1->Nodo618904761;
+Nodo692883451[label="<P0>|Placa: p34lAf34\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p35lAf35\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo359949640:P2->Nodo692883451;
+Nodo1196901136:P2->Nodo359949640;
+Nodo530899391[label="<P0>|Placa: p39lAf39\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p41lAf41\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo392822780[label="<P0>|Placa: p37lAf37\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p38lAf38\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo530899391:P0->Nodo392822780;
+Nodo785817564[label="<P0>|Placa: p3lAf3\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p40lAf40\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo530899391:P1->Nodo785817564;
+Nodo1663631018[label="<P0>|Placa: p42lAf42\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p43lAf43\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo530899391:P2->Nodo1663631018;
+Nodo1196901136:P3->Nodo530899391;
+Nodo1538871913[label="<P0>|Placa: p47lAf47\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p4lAf4\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>|Placa: p7lAf7\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P3>"];
+Nodo66568445[label="<P0>|Placa: p45lAf45\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p46lAf46\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1538871913:P0->Nodo66568445;
+Nodo423991072[label="<P0>|Placa: p48lAf48\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p49lAf49\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1538871913:P1->Nodo423991072;
+Nodo1027405580[label="<P0>|Placa: p5lAf5\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p6lAf6\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1538871913:P2->Nodo1027405580;
+Nodo738705624[label="<P0>|Placa: p8lAf8\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P1>|Placa: p9lAf9\nMarca: te\nModelo: cc\nColor: d\nAnio: 2000\nTransmision: auto|<P2>"];
+Nodo1538871913:P3->Nodo738705624;
+Nodo1196901136:P4->Nodo1538871913;
+}
+
+subgraph cluster_Blockchain{ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE BLOCKCHAIN";
+xD2C4A69719402EFC4B665238404459D1[dir=both label = "Llave = D2C4A69719402EFC4B665238404459D1\nLugar Origen = Cadiz\n Lugar Destino = Jaen\n Cliente = Gabriel\n Conductor = 1\n Vehiculo = 1"]xD2C4A69719402EFC4B665238404459D1-> x1
+xD2C4A69719402EFC4B665238404459D1-> Nodo375732665
+xD2C4A69719402EFC4B665238404459D1-> Nodo902115066
+xD2C4A69719402EFC4B665238404459D1-> brCadizCadiz
+}
+
+subgraph cluster_MejorRuta{ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE MEJOR RUTA";
+brCadizCadiz[dir=both label = "Lugar = Cadiz Tiempo: 00"]brCadizCadiz-> brCadizSevilla
+brCadizSevilla[dir=both label = "Lugar = Sevilla Tiempo: 0125"]brCadizSevilla-> brCadizJaen
+brCadizJaen[dir=both label = "Lugar = Jaen Tiempo: 0242"]}
+
+
+}
+

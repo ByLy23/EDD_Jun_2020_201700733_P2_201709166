@@ -1,0 +1,9 @@
+digraph G {
+
+ rankdir=LR; 
+ node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
+labelloc = "t;"label = "REPORTE MEJOR RUTA";
+brCadizCadiz[dir=both label = "Lugar = Cadiz Tiempo: 00"]brCadizCadiz-> brCadizSevilla
+brCadizSevilla[dir=both label = "Lugar = Sevilla Tiempo: 0125"]brCadizSevilla-> brCadizJaen
+brCadizJaen[dir=both label = "Lugar = Jaen Tiempo: 0242"]
+}

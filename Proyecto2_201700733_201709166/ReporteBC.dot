@@ -1,6 +1,7 @@
 digraph G {
+
  rankdir=LR; 
  node[shape = egg, style=filled, color = khaki, fontname = "Century Gothic"]; graph [fontname = "Century Gothic"];
 labelloc = "t;"label = "REPORTE BLOCKCHAIN";
-x58CFC041B5E3DF646636216467F1FD5F[dir=both label = "Llave = 58CFC041B5E3DF646636216467F1FD5F\nLugar Origen = Madrid\n Lugar Destino = Bilbao\n Cliente = 1\n Conductor = 1\n Vehiculo = 1"]
+xD2C4A69719402EFC4B665238404459D1[dir=both label = "Llave = D2C4A69719402EFC4B665238404459D1\nLugar Origen = Cadiz\n Lugar Destino = Jaen\n Cliente = Gabriel\n Conductor = 1\n Vehiculo = 1"]
 }

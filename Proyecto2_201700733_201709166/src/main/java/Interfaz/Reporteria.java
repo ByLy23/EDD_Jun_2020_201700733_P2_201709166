@@ -6,6 +6,10 @@
 package Interfaz;
 
 import Principal.Inicio;
+import java.awt.Desktop;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,11 +71,11 @@ public class Reporteria extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 204, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Reportes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 120, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 120, -1));
 
         jScrollPane2.setViewportView(LblImages);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 770, 460));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 970, 580));
 
         jMenu1.setText("Tops");
 
@@ -79,6 +83,11 @@ public class Reporteria extends javax.swing.JFrame {
         jMenu1.add(BtnTopViajes);
 
         BtnClientes.setText("Top Clientes");
+        BtnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnClientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(BtnClientes);
 
         BtnConductores.setText("Top Conductores");
@@ -90,6 +99,11 @@ public class Reporteria extends javax.swing.JFrame {
         jMenu1.add(BtnConductores);
 
         BtnVehiculos.setText("Top Vehiculos");
+        BtnVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVehiculosActionPerformed(evt);
+            }
+        });
         jMenu1.add(BtnVehiculos);
 
         BtnMejorRuta.setText("Mejor Ruta");
@@ -173,13 +187,13 @@ public class Reporteria extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -187,13 +201,30 @@ public class Reporteria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnConductoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConductoresActionPerformed
-        // TODO add your handling code here:
+String tops= Inicio.cadenaBloques.top10Conductor();
+        JOptionPane.showMessageDialog(null, tops);
+        File archivo= new File("Top10Conductores.edd");
+        BufferedWriter bw;
+try{
+    if(archivo.exists()){
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }else{
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }
+}catch(Exception ex){
+    ex.printStackTrace();
+    
+}        // TODO add your handling code here:
     }//GEN-LAST:event_BtnConductoresActionPerformed
 
     private void BtnVehiculosRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehiculosRActionPerformed
         try {
             ImageIcon ims;
-            Inicio.tablita.graficar();
+            Inicio.arbolito.imprimirNodo();
             Thread.sleep(500);
             ims = new ImageIcon("bTree.jpg");
             ims.getImage().flush();
@@ -235,7 +266,7 @@ public class Reporteria extends javax.swing.JFrame {
 
         try {
             ImageIcon ims;
-            Inicio.tablita.graficar();
+            Inicio.lcd.ReporteLCD();
             Thread.sleep(500);
             ims = new ImageIcon("ReporteConductores.png");
             ims.getImage().flush();
@@ -252,7 +283,7 @@ public class Reporteria extends javax.swing.JFrame {
     private void BtnRutasRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRutasRActionPerformed
         try {
             ImageIcon ims;
-            Inicio.tablita.graficar();
+            Inicio.graph.Graficar();
             Thread.sleep(500);
             ims = new ImageIcon("ReporteRutas.png");
             ims.getImage().flush();
@@ -267,6 +298,23 @@ public class Reporteria extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRutasRActionPerformed
 
     private void BtnEDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDDActionPerformed
+
+        try {
+            ImageIcon ims;
+            Inicio.cadenaBloques.GraficarRG();
+            Thread.sleep(500);
+            ims = new ImageIcon("ReporteGeneral.jpg");
+            ims.getImage().flush();
+            ims = new ImageIcon("ReporteGeneral.jpg");
+            LblImages.setIcon(ims);
+            LblImages.revalidate();
+            LblImages.repaint(); // TODO add your handling code here:
+
+            File miDir = new File("ReporteGeneral.jpg");
+            Desktop.getDesktop().open(miDir);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
 
 
     }//GEN-LAST:event_BtnEDDActionPerformed
@@ -293,13 +341,66 @@ public class Reporteria extends javax.swing.JFrame {
 
     private void BtnMejorRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMejorRutaActionPerformed
         String llave = JOptionPane.showInputDialog("Ingrese Llave de viaje", JOptionPane.QUESTION_MESSAGE);
-        try {
-            Inicio.cadenaBloques.imprimirMejorRuta(llave);
 
+        try {
+
+            ImageIcon ims;
+            Inicio.cadenaBloques.MejorRuta(llave);
+            Thread.sleep(500);
+            ims = new ImageIcon("ReporteMejorRuta.png");
+            ims.getImage().flush();
+            ims = new ImageIcon("ReporteMejorRuta.png");
+            LblImages.setIcon(ims);
+            LblImages.revalidate();
+            LblImages.repaint(); // TODO add your handling code here:
         } catch (Exception ex) {
             Logger.getLogger(Reporteria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnMejorRutaActionPerformed
+
+    private void BtnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClientesActionPerformed
+String tops= Inicio.cadenaBloques.top10Clientes();
+JOptionPane.showMessageDialog(null, tops);
+File archivo= new File("Top10Clientes.edd");
+        BufferedWriter bw;
+try{
+    if(archivo.exists()){
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }else{
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }
+}catch(Exception ex){
+    ex.printStackTrace();
+    
+}
+//Crear Archivo EDD
+// TODO add your handling code here:
+    }//GEN-LAST:event_BtnClientesActionPerformed
+
+    private void BtnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehiculosActionPerformed
+String tops= Inicio.cadenaBloques.top10Vehiculo();
+JOptionPane.showMessageDialog(null, tops);
+File archivo= new File("Top10Vehiculos.edd");
+        BufferedWriter bw;
+try{
+    if(archivo.exists()){
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }else{
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }
+}catch(Exception ex){
+    ex.printStackTrace();
+    
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnVehiculosActionPerformed
 
     /**
      * @param args the command line arguments
