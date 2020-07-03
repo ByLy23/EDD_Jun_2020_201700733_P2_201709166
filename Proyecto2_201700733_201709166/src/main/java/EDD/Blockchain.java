@@ -12,9 +12,11 @@ import Principal.Inicio;
 import Principal.MejorRuta;
 import Principal.Rutas;
 import Principal.Vehiculo;
+
 import Principal.ViajeCliente;
 import Principal.ViajeConductor;
 import Principal.ViajeVehiculo;
+
 
 import java.awt.Desktop;
 import java.io.File;
@@ -195,6 +197,7 @@ public class Blockchain {
             //}
         }
         return text;
+
         
     }
     ViajeCliente[] topClientes;
@@ -363,6 +366,7 @@ public class Blockchain {
     
     
     
+
     public String imprimirMejorRutaG(String llave) throws Exception {
         String mejor = "";
         mejor += " rankdir=LR; \n node[shape = egg, style=filled, color = khaki, fontname = \"Century Gothic\"]; graph [fontname = \"Century Gothic\"];\n";

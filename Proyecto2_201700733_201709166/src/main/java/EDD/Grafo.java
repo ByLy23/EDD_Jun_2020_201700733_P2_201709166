@@ -254,7 +254,9 @@ public class Grafo {
         }
         if (cont > 0) {
             bandera = true;
+
         }
+
         return bandera;
     }
 
@@ -287,7 +289,7 @@ public class Grafo {
             }
             return bandera;
         }
-*/
+
     public void MostrarBestRout() {
 
         Vertex vertice = this.raiz;
