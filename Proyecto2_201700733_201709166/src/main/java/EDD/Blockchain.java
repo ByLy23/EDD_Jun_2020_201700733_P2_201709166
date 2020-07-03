@@ -13,6 +13,11 @@ import Principal.MejorRuta;
 import Principal.Rutas;
 import Principal.Vehiculo;
 
+import Principal.ViajeCliente;
+import Principal.ViajeConductor;
+import Principal.ViajeVehiculo;
+
+
 import java.awt.Desktop;
 import java.io.File;
 
@@ -192,7 +197,175 @@ public class Blockchain {
             //}
         }
         return text;
+
+        
     }
+    ViajeCliente[] topClientes;
+    public String top10Clientes(){
+        String top10C="";
+        topClientes= new ViajeCliente[listabloques.getTamanio()];
+        /*   for (int i = 0; i < listabloques.getTamanio(); i++) {
+        topClientes[i]= new ViajeCliente();
+        }*/
+        for (int i = 0; i < listabloques.getTamanio(); i++) {
+            if (verificarCliente(String.valueOf(listabloques.obtenerElemento(i).getCliente().getDPI()))) {
+            } 
+        }
+        ordenarCliente(topClientes);
+        for (int i = 0; i < 10; i++) {
+            if(topClientes[i]!=null)
+                top10C+="Nombre Cliente: "+topClientes[i].getNombre()+" Con :"+topClientes[i].getTiempo()+" Viajes\n";
+        }
+        return top10C;
+    }
+    private boolean verificarCliente(String cliente){
+        boolean bandera=false;
+        for (ViajeCliente topClientess : topClientes) {
+            if (topClientess != null) {
+                if (topClientess.getNombre().equals(cliente)) {
+                    topClientess.sumar();
+                    bandera=true;
+                    break;
+                }
+            }
+        }
+        if(!bandera){
+            for (int i = 0; i < topClientes.length; i++) {
+                if(topClientes[i]==null){
+                    topClientes[i]= new ViajeCliente(cliente);
+                    break;
+                }
+            }
+        }
+        return bandera;
+    }
+    
+       ViajeVehiculo[] topVehiculo;
+    public String top10Vehiculo(){
+        String top10V="";
+        topVehiculo= new ViajeVehiculo[listabloques.getTamanio()];
+        /*   for (int i = 0; i < listabloques.getTamanio(); i++) {
+        topVehiculos[i]= new ViajeVehiculo();
+        }*/
+        for (int i = 0; i < listabloques.getTamanio(); i++) {
+            if (verificarVehiculo(listabloques.obtenerElemento(i).getVehiculo().getPlaca())) {
+            } 
+        }
+        ordenarVehiculo(topVehiculo);
+        for (int i = 0; i < 10; i++) {
+            if(topVehiculo[i]!=null)
+                  top10V+="Placa vehiculo: "+topVehiculo[i].getNombre()+" Con :"+topVehiculo[i].getCantidad()+" Viajes\n";
+        }
+        return top10V;
+    }
+    private boolean verificarVehiculo(String Vehiculo){
+        boolean bandera=false;
+        for (ViajeVehiculo topVehiculos : topVehiculo) {
+            if (topVehiculos != null) {
+                if (topVehiculos.getNombre().equals(Vehiculo)) {
+                    topVehiculos.sumar();
+                    bandera=true;
+                    break;
+                }
+            }
+        }
+        if(!bandera){
+            for (int i = 0; i < topVehiculo.length; i++) {
+                if(topVehiculo[i]==null){
+                    topVehiculo[i]= new ViajeVehiculo(Vehiculo);
+                }
+            }
+        }
+        return bandera;
+    }
+    
+    private void ordenarConductor(ViajeConductor[] cadena){
+        for (int i = 0; i < cadena.length; i++) {
+            for (int j = 0; j < cadena.length-i-1; j++) {
+                if(cadena[i]!=null || cadena[i+1]!=null){
+                if(cadena[i].getCantidad()<cadena[i+1].getCantidad())
+                {
+                    ViajeConductor temp= cadena[i+1];
+                    cadena[i+1]=cadena[i];
+                    cadena[i]=temp;
+                    
+                }
+                }
+            }
+        }
+    }
+    private void ordenarVehiculo(ViajeVehiculo[] cadena){
+        for (int i = 0; i < cadena.length; i++) {
+            for (int j = 0; j < cadena.length-i-1; j++) {
+                if(cadena[i]!=null || cadena[i+1]!=null){
+                if(cadena[i].getCantidad()<cadena[i+1].getCantidad())
+                {
+                    ViajeVehiculo temp= cadena[i+1];
+                    cadena[i+1]=cadena[i];
+                    cadena[i]=temp;
+                }
+                }
+            }
+        }
+    }
+    private void ordenarCliente(ViajeCliente[] cadena){
+        for (int i = 0; i < cadena.length; i++) {
+            for (int j = 0; j < cadena.length-i-1; j++) {
+              if(!(cadena[i+1]==null)||!(cadena[i]==null) ){
+                if(cadena[i].getTiempo()<cadena[i+1].getTiempo())
+                {
+                    ViajeCliente temp= cadena[i+1];
+                    cadena[i+1]=cadena[i];
+                    cadena[i]=temp;
+                    
+                }
+            }
+            }
+        }
+    }
+    
+    
+    ViajeConductor[] topConductor;
+    public String top10Conductor(){
+        String top10Co="";
+        topConductor= new ViajeConductor[listabloques.getTamanio()];
+        /*   for (int i = 0; i < listabloques.getTamanio(); i++) {
+        topConductors[i]= new ViajeConductor();
+        }*/
+         for (int i = 0; i < listabloques.getTamanio(); i++) {
+            if (verificarConductor(Long.toString(listabloques.obtenerElemento(i).getConductor().getDPI()))) {
+            } 
+        }
+        ordenarConductor(topConductor);
+        for (int i = 0; i < 10; i++) {
+            if(topConductor[i]!=null)
+                top10Co+="Nombre Conductor: "+topConductor[i].getNombre()+" Con :"+topVehiculo[i].getCantidad()+" Viajes\n";
+        }
+        return top10Co;
+    }
+    private boolean verificarConductor(String Conductor){
+        boolean bandera=false;
+        for (ViajeConductor topConductores : topConductor) {
+            if (topConductores != null) {
+                if (topConductores.getNombre().equals(Conductor)) {
+                    topConductores.sumar();
+                    bandera=true;
+                    break;
+                }
+            }
+        }
+        if(!bandera){
+            for (int i = 0; i < topConductor.length; i++) {
+                if(topConductor[i]==null){
+                    topConductor[i]= new ViajeConductor(Conductor);
+                }
+            }
+        }
+        return bandera;
+    }
+    
+    
+    
 
     public String imprimirMejorRutaG(String llave) throws Exception {
         String mejor = "";

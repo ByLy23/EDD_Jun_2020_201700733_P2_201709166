@@ -42,7 +42,9 @@ public class Inicio {
         graph = new Grafo();
         blockchain = new ListaSimple();
         cadenaBloques = new Blockchain();
-        tablita.insertarClientes(new BigInteger("1"), "Gabriel", "Vale Verga", "Con la ", 69, "Innombrable", "xD");
+
+        tablita.insertarClientes(new BigInteger("1"), "Gabriel", "Vale Barriga", "Con la ", 69, "Vida", "xD");
+
         arbolito.Insertar(new Vehiculo("1", "1", "1", 20, "1", 20, "1"));
         lcd.InsertarOrdenado(new Conductores(1, "1", "1", "1", "1", "1", "1"));
        

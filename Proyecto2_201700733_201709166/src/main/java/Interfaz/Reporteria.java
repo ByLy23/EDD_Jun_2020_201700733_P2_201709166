@@ -7,7 +7,11 @@ package Interfaz;
 
 import Principal.Inicio;
 import java.awt.Desktop;
+
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,6 +85,11 @@ public class Reporteria extends javax.swing.JFrame {
         jMenu1.add(BtnTopViajes);
 
         BtnClientes.setText("Top Clientes");
+        BtnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnClientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(BtnClientes);
 
         BtnConductores.setText("Top Conductores");
@@ -92,6 +101,11 @@ public class Reporteria extends javax.swing.JFrame {
         jMenu1.add(BtnConductores);
 
         BtnVehiculos.setText("Top Vehiculos");
+        BtnVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVehiculosActionPerformed(evt);
+            }
+        });
         jMenu1.add(BtnVehiculos);
 
         BtnMejorRuta.setText("Mejor Ruta");
@@ -189,7 +203,24 @@ public class Reporteria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnConductoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConductoresActionPerformed
-        // TODO add your handling code here:
+String tops= Inicio.cadenaBloques.top10Conductor();
+        JOptionPane.showMessageDialog(null, tops);
+        File archivo= new File("Top10Conductores.edd");
+        BufferedWriter bw;
+try{
+    if(archivo.exists()){
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }else{
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }
+}catch(Exception ex){
+    ex.printStackTrace();
+    
+}        // TODO add your handling code here:
     }//GEN-LAST:event_BtnConductoresActionPerformed
 
     private void BtnVehiculosRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehiculosRActionPerformed
@@ -328,6 +359,50 @@ public class Reporteria extends javax.swing.JFrame {
             Logger.getLogger(Reporteria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnMejorRutaActionPerformed
+
+    private void BtnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClientesActionPerformed
+String tops= Inicio.cadenaBloques.top10Clientes();
+JOptionPane.showMessageDialog(null, tops);
+File archivo= new File("Top10Clientes.edd");
+        BufferedWriter bw;
+try{
+    if(archivo.exists()){
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }else{
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }
+}catch(Exception ex){
+    ex.printStackTrace();
+    
+}
+//Crear Archivo EDD
+// TODO add your handling code here:
+    }//GEN-LAST:event_BtnClientesActionPerformed
+
+    private void BtnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVehiculosActionPerformed
+String tops= Inicio.cadenaBloques.top10Vehiculo();
+JOptionPane.showMessageDialog(null, tops);
+File archivo= new File("Top10Vehiculos.edd");
+        BufferedWriter bw;
+try{
+    if(archivo.exists()){
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }else{
+        bw= new BufferedWriter(new FileWriter(archivo));
+        bw.write(tops);
+        bw.close();
+    }
+}catch(Exception ex){
+    ex.printStackTrace();
+    
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnVehiculosActionPerformed
 
     /**
      * @param args the command line arguments

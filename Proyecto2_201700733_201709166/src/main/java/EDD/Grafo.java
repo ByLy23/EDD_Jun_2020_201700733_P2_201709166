@@ -254,7 +254,9 @@ public class Grafo {
         }
         if (cont > 0) {
             bandera = true;
+
         }
+
         return bandera;
     }
 
@@ -272,7 +274,7 @@ public class Grafo {
         }
 
         return bandera;
-    }
+    }/*
         private boolean contarAdyacentes(String nodo){
             boolean bandera=false;
             Vertex v= getVertex(nodo);
